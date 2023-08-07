@@ -9,8 +9,7 @@
 $for(author)$
     <meta name="author" content="$it.name$">
 $endfor$
-    <meta name="copyright" content="Copyright $if(year)$$year$ $endif$© $for(author)$$it.name$$sep$, $$endfor$">
-$endif$
+    <meta name="copyright" content="Copyright $if(year)$$year$ $endif$© $for(author)$$it.name$$sep$, $endfor$">
 $if(date-meta)$
     <meta name="dcterms.date" content="$date-meta$">
 $endif$
@@ -25,7 +24,7 @@ $endif$
 $if(title)$
     <meta property="og:title" content="$title$" />
 $endif$
-    <title>$if(title)$$title$ | $endif$Journal for the History of Analytical Philosophy$if(volume)$ vol. $volume$$if(number)$, num. $number$$endif$endif$</title>
+    <title>$if(title)$$title$ | $endif$Journal for the History of Analytical Philosophy$if(volume)$ vol. $volume$$if(number)$, num. $number$$endif$$endif$</title>
     <style>
 
 body {
@@ -33,162 +32,32 @@ body {
     font-kerning: normal;
 }
 
-
-
-    
-@media print {
-    p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-    }
-}
-
-
 h1, h2, h3, h4 {
     text-align: left;
     page-break-after: avoid;
 }
 
-@media print {
-    body {
-        background-color: transparent;
-        color: black;
-    }
-$if(document-css)$
-    p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-    }
-    h1, h2, h3, h4 {
-        text-align: left;
-        page-break-after: avoid;
-    }
-    span.citation a:link,
-    span.citation a:visited,
-    span.citation a {
-        color: inherit;
-        text-decoration: none;
-    }
-    a.footnote-back {
-        display: none !important;
-    }
-$endif$
-}
-$if(indent)$
-p {
-    margin-bottom: 0;
-    margin-top: 0;
-    text-indent: 1.5em;
-}
-p:first-child,
-h1 + p,
-h2 + p,
-h3 + p,
-h4 + p,
-h5 + p,
-h6 + p,
-header + p,
-blockquote + p,
-.display + p {
-    text-indent: 0;
-}
-p:has(span.display) + p {
-    text-indent: 0;
-}
-$else$
-$if(memo-css)$
-p {
-    margin-bottom: 2ex;
-}
-$endif$
-$if(document-css)$
-p {
-    margin: 1em 0;
-}
-$endif$
-$endif$
-$if(linkcolor)$
-a {
-    color: $linkcolor$;
-}
-a:visited {
-    color: $linkcolor$;
-}
-$endif$
-img {
-    max-width: 100%;
-}
-$if(document-css)$
-h1, h2, h3, h4, h5, h6 {
-    margin-top: 1.4em;
-}
-h5, h6 {
-    font-size: 1em;
-    font-style: italic;
-}
-h6 {
-    font-weight: normal;
-}
 h1 span.header-section-number::after {
     content: ".";
 }
-ol, ul {
-    padding-left: 1.7em;
-    margin-top: 1em;
-}
-li > ol, li > ul {
-    margin-top: 0;
-}
-blockquote {
-    margin: 1em 1.5em 1em 1.5em;
-    padding-left: 1em;
-}
+
 #footnotes hr {
     display: none;
 }
+
 #footnotes {
     margin-top: 2.4em;
 }
+
 #footnotes::before {
     content: "Notes";
-    font-size: 2em;
-    font-weight: bold;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
 }
-#footnotes ul, #footnotes ol {
-    margin-top: 10px;
-}
-$endif$
-$if(abstract)$
-div.abstract {
-    margin: 2em;
-    font-size: 85%;
-}
-div.abstract-title {
-    font-weight: bold;
-    text-align: center;
-    padding: 0;
-    margin-bottom: 0.5em;
-}
-$endif$
+
 code {
-    font-family: $if(monofont)$$monofont$$else$'DejaVu Sans Code', 'DejaVu Sans Mono', 'Droid Sans Mono', 'Fira Code', 'Fira Mono', 'JetBrains Mono', Inconsolata, Cousine, 'IBM Plex Mono', 'Red Hat Mono', 'Sarasa Mono K', 'Ubuntu Mono', Consolas, Menlo, Monaco, 'Lucida Console', monospace$endif$;
-$if(monobackgroundcolor)$
-    background-color: $monobackgroundcolor$;
-    padding: .2em .4em;
-$endif$
+    font-family: 'DejaVu Sans Code', 'DejaVu Sans Mono', 'Droid Sans Mono', 'Fira Code', 'Fira Mono', 'JetBrains Mono', Inconsolata, Cousine, 'IBM Plex Mono', 'Red Hat Mono', 'Sarasa Mono K', 'Ubuntu Mono', Consolas, Menlo, Monaco, 'Lucida Console', monospace;
     font-size: 85%;
     margin: 0;
     white-space: pre-wrap;
-}
-pre {
-    margin: 1em 0;
-$if(monobackgroundcolor)$
-    background-color: $monobackgroundcolor$;
-    padding: 1em;
-$endif$
-    overflow: auto;
 }
 pre code {
     padding: 0;
@@ -199,41 +68,14 @@ pre code {
     background-color: transparent;
     overflow: visible;
 }
-$if(document-css)$
-table {
-    margin: 1em 0;
-    border-collapse: collapse;
-    width: 100%;
-    overflow-x: auto;
-    display: block;
-    font-variant-numeric: lining-nums tabular-nums;
-}
-table caption {
-    margin-bottom: 0.75em;
-}
-tbody {
-    margin-top: 0.5em;
-}
-th {
-    border-top: 1px solid $if(fontcolor)$$fontcolor$$else$#1a1a1a$endif$;
-    padding: 0.25em 0.5em 0.25em 0.5em;
-}
-td {
-  padding: 0.125em 0.5em 0.25em 0.5em;
-}
-$endif$
-$if(document-css)$
-header {
-    margin-bottom: 4em;
-    text-align: center;
-}
+
 sup {
     white-space: nowrap;
     line-height: 0;
     font-size: 75%;
     position: relative;
     vertical-align: baseline;
-    top: -0.5em;
+    top: -0.5rem;
 }
 sub {
     white-space: nowrap;
@@ -241,55 +83,35 @@ sub {
     font-size: 75%;
     position: relative;
     vertical-align: baseline;
-    top: 0.3em;
+    top: 0.3rem;
 
-line-height: 0;
-}
-$endif$
-$if(toc)$
-#TOC li {
-    list-style: none;
-}
-#TOC ul {
-    padding-left: 1.3em;
-}
-#TOC > ul {
-    padding-left: 0;
-}
-#TOC a:not(:hover) {
-    text-decoration: none;
-}
-$endif$
 span.smallcaps{
     font-variant: small-caps;
 }
+
 span.underline {
     text-decoration: underline;
 }
-div.column{
-    display: inline-block;
-    vertical-align: top;
-    width: 50%;
-}
-/*div.hanging-indent,*/
+
 div.csl-entry {
     margin-left: 1.5em;
     text-indent: -1.5em;
 }
-ul.task-list{
-    list-style: none;
-}
+
 .pagebreak {
     page-break-after: always;
 }
+
 $if(quotes)$
 q {
     quotes: "“" "”" "‘" "’";
 }
 $endif$
+
 $if(highlighting-css)$
 $highlighting-css$
 $endif$
+
 $if(displaymath-css)$
 .display.math{
     display: block;
@@ -297,6 +119,7 @@ $if(displaymath-css)$
     margin: 0.5rem auto;
 }
 $endif$
+
 $if(csl-css)$
 div.csl-bib-body {
 }
@@ -322,83 +145,23 @@ div.csl-indent {
   margin-left: 2em;
 }
 $endif$
-$if(memo-css)$
-td, th {
-    padding-right: 0.5em;
-    vertical-align: text-top;
-}
-.alignright {
-    text-align: right;
-}
-.lttrhead {
-    width: 100%;
-}
-a {
-    word-break: break-word;
-}
-.maroon {
-    color: #881c1c;
-}
-.gray {
-    color: #666666;
-}
-.quote {
-    font-style: italic;
-    font-family: Georgia, Garamond, serif;
-}
-$endif$
-$if(weasyprint)$
-ol {
-    counter-reset: list-item-counter;
-    list-style-type: none;
-    margin-left: 0em;
-}
-ol li {
-    counter-increment: list-item-counter;
-    text-indent: -2.0rem; /* must be equal to -width (see below) */
-}
-ol li::before {
-    display: inline-block;
-    left: -0.5rem;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    text-align: right;
-    width: 2.0rem;
-    content: "(" counter(list-item-counter) ")";
-    vertical-align: text-top;
-}
-ol li p {
-    display: inline-block;
-    vertical-align: text-top;
-    margin-top: 0px;
-    text-indent: 0rem;
-}
-$endif$
-@page {
-    size: Letter;
-    margin: 1in;
-    counter-increment: page;
-    @bottom-center {
-        content: counter(page);
+
+@media print {
+    p, h2, h3 {
+        orphans: 3;
+        widows: 3;
     }
-}
-@page:first {
-    @bottom-center {
-        content: none;
+    span.citation a:link,
+    span.citation a:visited,
+    span.citation a {
+        color: inherit;
+        text-decoration: none;
     }
-$if(letterhead)$
-    margin-left: 0;
-    margin-top: 0;
-    padding-left: 1in;
-    padding-top: 2in;
-    background-image: url('/home/kck/misc/latex/blank-letterhead.svg');
-    background-repeat: no-repeat;
-    background-size: 8.5in 11in;
-$endif$
+    a.footnote-back {
+        display: none !important;
+    }
 }
 
-    $styles.html()$
     </style>
 $for(css)$
     <link rel="stylesheet" href="$css$" />
