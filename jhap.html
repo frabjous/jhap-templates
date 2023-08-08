@@ -33,6 +33,10 @@ $endif$
     --white: #ffffff;
     --black:  #212121;
     --purple: #43467b;
+    --orange: #f7bc4a;
+    --lightblue: #919FCE;
+    --blue: #4B7D92;
+    --hoverblue: #6298AE;
 
     /* fonts */
     --monospacedfont: 'DejaVu Sans Code', 'DejaVu Sans Mono', 'Droid Sans Mono', 'Fira Code', 'Fira Mono', 'JetBrains Mono', Inconsolata, Cousine, 'IBM Plex Mono', 'Red Hat Mono', 'Sarasa Mono K', 'Ubuntu Mono', Consolas, Menlo, Monaco, 'Lucida Console', monospace;
@@ -61,7 +65,7 @@ body > div {
     margin-top: 1rem;
     margin-bottom: 1rem;
     background-color: var(--white);
-    max-width: 68rem;
+    max-width: 56rem;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
@@ -89,7 +93,7 @@ body > div > header > br {
 }
 
 main {
-    padding: 2rem;
+    padding: 3rem;
 }
 
 main > header > h1.documenttitle {
@@ -127,6 +131,23 @@ main > header > div.authorblock span.authoraffiliation {
     font-style: italic;
 }
 
+main > header > div.abstractblock {
+    margin: 2rem 3rem 0 2rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--lightblue);
+}
+
+main > header > div.abstractblock div.abstracttitle {
+    text-transform: uppercase;
+    color: var(--darkgray);
+    font-family: var(--sansfont);
+}
+
+main > header > div.abstractblock p {
+    line-height: 1.5rem;
+    font-size: 0.9rem;
+}
+
 main article p {
     color: var(--black);
     line-height: 1.7rem;
@@ -140,10 +161,38 @@ div.volinfo {
     border-bottom: 1px solid var(--medgray);
 }
 
-h1, h2, h3, h4 {
-    text-align: left;
-    page-break-after: avoid;
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+    margin: 4rem 0 0 0;
+    font-family: var(--sansfont);
+    color: var(--darkgray);
+    font-weight: bold;
+    padding-bottom: 1rem;
 }
+
+article h1 {
+    border-bottom: 3px solid var(--orange);
+    font-size: 1.4rem;
+}
+
+article h2 {
+    border-bottom: 1px solid var(--orange);
+    font-size: 1.2rem;
+}
+
+a, a:link, a:visited {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+a:hover, a:link:hover, a:visited:hover {
+    color: var(--hoverblue);
+}
+
 
 h1 span.header-section-number::after {
     content: ".";
@@ -280,7 +329,7 @@ $endfor$
     $if(title)$<h1 class="documenttitle">$title$</h1>$endif$
     $if(subtitle)$<h2 class="documentsubtitle">$subtitle$</h2>$endif$
     $for(author)$<div class="authorblock"><span class="authorname">$it.name$</span><span class="authoraffiliation">$it.affiliation$</span></div>$endfor$
-    $if(abstract)$<div class="abstractblock"><div class="abstracttitle">Abstract</div><p class="abstract">$abstract$</p></div>$endif$
+    $if(abstract)$<div class="abstractblock"><div class="abstracttitle">Abstract</div>$abstract$</div>$endif$
 </header>
 <article>
 $body$
