@@ -28,12 +28,41 @@ $endif$
     <style>
 
 :root {
+    /* colors */
+    --medgray: #dddddd;
+    --white: #ffffff;
+
+    /* fonts */
     --monospacedfont: 'DejaVu Sans Code', 'DejaVu Sans Mono', 'Droid Sans Mono', 'Fira Code', 'Fira Mono', 'JetBrains Mono', Inconsolata, Cousine, 'IBM Plex Mono', 'Red Hat Mono', 'Sarasa Mono K', 'Ubuntu Mono', Consolas, Menlo, Monaco, 'Lucida Console', monospace;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
 }
 
 body {
     text-rendering: optimizeLegibility;
     font-kerning: normal;
+    margin: 0;
+    padding: 0;
+    background-color: var(--medgray);
+    text-align: center;
+}
+
+body > div {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--white);
+    max-width: 68rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+body > div > header {
+    background-color: #43467b;
 }
 
 h1, h2, h3, h4 {
@@ -142,8 +171,13 @@ $endfor$
 <div>
 <header>
 </header>
+<div class="volinfo">$if(volume)$Volume $volume$$if(number)$, Number $number$$endif$$endif$$if(year)$ ($year$)$endif$</div>
 <main>
 <header>
+    $if(title)$<h1 class="documenttitle">$title$</h1>$endif$
+    $if(subtitle)$<h2 class="documentsubtitle">$subtitle$</h2>$endif$
+    $for(author)$<div class="authorblock"><span class="authorname">$it.name$</span><span class="authoraffiliation">$it.affiliation$</span></div>$endfor$
+    $if(abstract)$<div class="abstractblock"><div class="abstracttitle">Abstract</div><p class="abstract">$abstract$</p></div>$endif$
 </header>
 <article>
 $body$
