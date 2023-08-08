@@ -120,6 +120,7 @@ main > header > h2.documentsubtitle {
 main > header > div.authorblock {
     margin-top: 2rem;
     display: inline-block;
+    margin-right: 2rem;
 }
 
 main > header > div.reviewedby + div.authorblock {
@@ -180,12 +181,13 @@ main > header h2.reviewedtitle {
     font-family: var(--sansfont);
     font-weight: bold;
     color: var(--purple);
-    margin: 0.5rem 0 0.3rem 0;
+    margin: 0.5rem 0 0.5rem 0;
 }
 
 main > header div.reviewedextra {
     font-family: var(--sansfont);
     color: var(--darkgray);
+    line-height: 1.3;
 }
 
 main > header div.reviewedby {
@@ -210,6 +212,24 @@ div.volinfo {
     font-family: var(--sansfont);
     text-transform: uppercase;
     border-bottom: 1px solid var(--medgray);
+}
+
+div.volinfo div.specialvolblock {
+    margin-top: 0.5rem;
+    text-transform: none;
+}
+
+div.volinfo div.specialvolblock div.specialvollabel div {
+    display: inline-block;
+    border-bottom: 2px solid var(--orange);
+    text-transform: uppercase;
+}
+
+div.volinfo div.specialvolblock div.specialvoltitle {
+    font-size: 1.2rem;
+    color: var(--purple);
+    font-style: italic;
+    margin: 0.2rem 0 0.5rem 0;
 }
 
 article h1,
@@ -413,7 +433,7 @@ $if(specialvoltitle)$
     <div class="specialvollabel"><div>Special Volume</div></div>
     <div class="specialvoltitle">$specialvoltitle$</div>
     $if(specialvoleditor)$<div class="specialvoleditor"><span class="editedbylabel">Edited by</span> $for(specialvoleditor/allbutlast)$<a href="mailto:$it.email$" target="_blank">$it.name$</a>, $it.affiliation$$sep$, $endfor$$if(specialvoleditor/allbutlast)$ and $endif$
-    $for(specialvoleditor/last)$ <a href="mailto:$it.email$" target="_blank">$it.name$</a>, $it.affiliation$$endfor$$endif$</div>
+    $for(specialvoleditor/last)$ <a href="mailto:$it.email$" target="_blank">$it.name$</a>, $it.affiliation$$endfor$</div>$endif$
 </div>
 $endif$
 </div>
@@ -422,10 +442,10 @@ $endif$
 $if(reviewedtitle)$
     <div class="reviewlabel"><div>Review</div></div>
     <h2 class="reviewedtitle">
-        $if(reviewedauthor)$$for(reviewedauthor)$$it$$sep$<span class="namesep">, </span>$endfor$. $else$$if(reviewededitor)$$for(reviewededitor)$$it$$sep$<span class="namesep">, </span>$endfor$. $endif$$endif$<em>$reviewedtitle$$if(reviewedsubtitle)$: $reviewedsubtitle$$endif$</em>.
+        $if(reviewedauthor)$$for(reviewedauthor)$$it$$sep$, $endfor$. $else$$if(reviewededitor)$$for(reviewededitor)$$it$$sep$<span class="namesep">, </span>$endfor$. $endif$$endif$<em>$reviewedtitle$$if(reviewedsubtitle)$: $reviewedsubtitle$$endif$</em>.
     </h2>
     <div class="reviewedextra">
-        $if(reviewedauthor)$$if(reviewededitor)$Edited by $for(reviewededitor/allbutlast)$$it$$sep$, $endfor$$if(reviewededitor/allbutlast)$ and $endif$$for(reviewededitor/last)$$it$$endfor$. $endif$$endif$$if(reviewedplace)$$reviewedplace$: $endif$$if(reviewedpublisher)$$reviewedpublisher$$endif$$if(reviewedyear)$, $reviewedyear$$endif$. $if(reviewedpages)$$reviewedpages$pp. $endif$$if(reviewedcost)$$$$reviewedcost$ $endif$$if(reviewedformat)$$reviewedformat$. $endif$$if(reviewedisbn)$ISBN $reviewedisbn$.$endif$
+        $if(reviewedauthor)$$if(reviewededitor)$Edited by $for(reviewededitor)$$it$$sep$, $endfor$. $endif$$endif$$if(reviewedplace)$$reviewedplace$: $endif$$if(reviewedpublisher)$$reviewedpublisher$$endif$$if(reviewedyear)$, $reviewedyear$$endif$. $if(reviewedpages)$$reviewedpages$pp. $endif$$if(reviewedcost)$$$$reviewedcost$ $endif$$if(reviewedformat)$$reviewedformat$. $endif$$if(reviewedisbn)$ISBN $reviewedisbn$.$endif$
     </div>
     <div class="reviewedby">Reviewed by</div>
 $else$
