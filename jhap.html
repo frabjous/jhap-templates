@@ -407,22 +407,19 @@ $endfor$
     </div>
     <br>
 </header>
-<div class="volinfo">$if(volume)$Volume $volume$$if(number)$, Number $number$$endif$$endif$$if(year)$ ($year$)$endif$</div>
+<div class="volinfo">$if(volume)$Volume $volume$$if(number)$, Number $number$$endif$$endif$$if(year)$ ($year$)$endif$
+$if(specialvoltitle)$
+<div class="specialvolblock">
+    <div class="specialvollabel"><div>Special Volume</div></div>
+    <div class="specialvoltitle">$specialvoltitle$</div>
+    $if(specialvoleditor)$<div class="specialvoleditor"><span class="editedbylabel">Edited by</span> $for(specialvoleditor/allbutlast)$<a href="mailto:$it.email$" target="_blank">$it.name$</a>, $it.affiliation$$sep$, $endfor$$if(specialvoleditor/allbutlast)$ and $endif$
+    $for(specialvoleditor/last)$ <a href="mailto:$it.email$" target="_blank">$it.name$</a>, $it.affiliation$$endfor$$endif$</div>
+</div>
+$endif$
+</div>
 <main>
 <header>
 $if(reviewedtitle)$
-
-<div>
-$if(reviewedauthor/allbutlast)$
-$for(reviewedauthor/allbutlast)$
-$it$$sep$, $endfor$
-and $reviewedauthor/last$
-$else$
-$reviewedauthor/last$
-$endif$
-
-</div>
-
     <div class="reviewlabel"><div>Review</div></div>
     <h2 class="reviewedtitle">
         $if(reviewedauthor)$$for(reviewedauthor)$$it$$sep$<span class="namesep">, </span>$endfor$. $else$$if(reviewededitor)$$for(reviewededitor)$$it$$sep$<span class="namesep">, </span>$endfor$. $endif$$endif$<em>$reviewedtitle$$if(reviewedsubtitle)$: $reviewedsubtitle$$endif$</em>.
