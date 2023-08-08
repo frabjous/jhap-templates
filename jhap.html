@@ -35,7 +35,7 @@ $endif$
     --purple: #43467b;
     --orange: #f7bc4a;
     --lightblue: #919FCE;
-    --blue: #4B7D92;
+    --blue: #345766;
     --hoverblue: #6298AE;
 
     /* fonts */
@@ -106,7 +106,7 @@ main > header > h1.documenttitle {
 
 main > header > h2.documentsubtitle {
     font-family: var(--sansfont);
-    font-weight: bold;
+    font-weight: normal;
     color: var(--purple);
     font-size: 1.5rem;
     margin:0;
@@ -124,6 +124,12 @@ main > header > div.authorblock span.authorname {
     text-transform; uppercase;
     font-family: var(--sansfont);
     font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+main > header > div.authorblock span.authoremail {
+    font-family: var(--sansfont);
+    margin-bottom: 0.2rem;
 }
 
 main > header > div.authorblock span.authoraffiliation {
@@ -184,6 +190,27 @@ article h2 {
     font-size: 1.2rem;
 }
 
+#refs::before,
+#footnotes::before {
+    display: block;
+    border-bottom: 1px solid var(--orange);
+    margin: 4rem 0 0 0;
+    font-family: var(--sansfont);
+    color: var(--darkgray);
+    font-weight: bold;
+    padding-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+#refs::before {
+    content: "References";
+    margin-bottom: 1rem;
+}
+
+#footnotes::before {
+    content: "Notes";
+}
+
 a, a:link, a:visited {
     color: var(--blue);
     text-decoration: none;
@@ -211,10 +238,6 @@ figure img {
 
 #footnotes hr {
     display: none;
-}
-
-#footnotes::before {
-    content: "Notes";
 }
 
 code {
@@ -303,6 +326,9 @@ $endif$
     const styletag = document.createElement("style");
     styletag.innerHTML='@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,500;0,700;1,200;1,500;1,700&family=Nunito+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,500;0,700;1,200;1,500;1,700&family=Noto+Serif:ital,wght@0,500;0,700;1,500;1,700&family=Nunito+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");';
     document.head.appendChild(styletag);
+    const refs = document.getElementById("refs");
+    const notes = document.getElementById("footnotes");
+    refs.parentNode.insertBefore(notes, refs);
 </script>
 </head>
 <body>
@@ -328,7 +354,9 @@ $endfor$
 <header>
     $if(title)$<h1 class="documenttitle">$title$</h1>$endif$
     $if(subtitle)$<h2 class="documentsubtitle">$subtitle$</h2>$endif$
-    $for(author)$<div class="authorblock"><span class="authorname">$it.name$</span><span class="authoraffiliation">$it.affiliation$</span></div>$endfor$
+    $for(author)$<div class="authorblock"><span class="authorname">$it.name$</span>
+                <span class="authoremail">⟨<a href="mailto:$it.email$">$it.email$</a>⟩</span>
+                <span class="authoraffiliation">$it.affiliation$</span></div>$endfor$
     $if(abstract)$<div class="abstractblock"><div class="abstracttitle">Abstract</div>$abstract$</div>$endif$
 </header>
 <article>
