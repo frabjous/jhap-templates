@@ -371,8 +371,19 @@ $endfor$
 <div class="volinfo">$if(volume)$Volume $volume$$if(number)$, Number $number$$endif$$endif$$if(year)$ ($year$)$endif$</div>
 <main>
 <header>
+$if(reviewedtitle)$
+    <div id="reviewlabel">Review</div>
+    <h2 id="reviewedtitle">
+    $if(reviewedauthor)$$for(reviewedauthor/allbutlast)$$it$$sep$, $endfor$$if(reviewedauthor/allbutlast)$ and $endif$$for(reviewedauthor/last)$$it$$endfor$. $else$$if(reviewededitor)$$for(reviewededitor/allbutlast)$$it$$sep$, $endfor$$if(reviewededitor/pairs/allbutlast)$ and $endif$$for(reviewededitor/last)$$it$$endfor$, ed$if(reviewededitor/allbutlast)$s$endif$. $endif$$endif$$reviewedtitle$$if(reviewedsubtitle)$: $reviewedsubtitle$$endif$.
+    </h2>
+    <div id="reviewedextra">
+        $if(reviewedauthor)$$if(reviewededitor)$Edited by $for(reviewededitor/allbutlast)$$it$$sep$, $endfor$$if(reviewededitor/allbutlast)$ and $endif$$for(reviewededitor/last)$$it$$endfor$. $endif$$endif$$if(reviewedplace)$$reviewedplace$: $endif$$if(reviewedpublisher)$$reviewedpublisher$$endif$$if(reviewedyear)$, $reviewedyear$$endif$. $if(reviewedpages)$$reviewedpages$pp. $endif$$if(reviewedcost)$$$$reviewedcost$ $endif$$if(reviewedformat)$$reviewedformat$. $endif$$if(reviewedisbn)$ISBN $reviewedisbn$.$endif$
+    </div>
+$else$
     $if(title)$<h1 class="documenttitle">$title$</h1>$endif$
     $if(subtitle)$<h2 class="documentsubtitle">$subtitle$</h2>$endif$
+$endif$
+
     $for(author)$<div class="authorblock"><span class="authorname">$it.name$</span>
                 <span class="authoremail"><a href="mailto:$it.email$">$it.email$</a></span>
                 <span class="authoraffiliation">$it.affiliation$</span></div>$endfor$
