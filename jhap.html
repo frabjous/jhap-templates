@@ -26,14 +26,16 @@ $if(title)$
 $endif$
     <title>$if(title)$$title$ | $endif$Journal for the History of Analytical Philosophy$if(volume)$ vol. $volume$$if(number)$, num. $number$$endif$$endif$</title>
     <style>
-
+    $if(sansfont)$$sansfont$$endif$
 :root {
     /* colors */
+    --darkgray: #757575;
     --medgray: #dddddd;
     --white: #ffffff;
 
     /* fonts */
     --monospacedfont: 'DejaVu Sans Code', 'DejaVu Sans Mono', 'Droid Sans Mono', 'Fira Code', 'Fira Mono', 'JetBrains Mono', Inconsolata, Cousine, 'IBM Plex Mono', 'Red Hat Mono', 'Sarasa Mono K', 'Ubuntu Mono', Consolas, Menlo, Monaco, 'Lucida Console', monospace;
+    --sansfont: 'Montserrat', 'Helvetica', 'Arimo', 'Arial', sans-serif;
 }
 
 html {
@@ -80,6 +82,14 @@ body > div > header > div.rightbanner {
 
 body > div > header > br {
     clear: both;
+}
+
+div.volinfo {
+    padding: 0.8rem 2rem 0.6rem 2rem;
+    color: var(--darkgray);
+    font-family: var(--sansfont);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--medgray);
 }
 
 h1, h2, h3, h4 {
@@ -172,7 +182,7 @@ div.csl-entry {
 }
     </style>
 $for(css)$
-    <link rel="stylesheet" href="$css$" />
+    <link rel="stylesheet" href="$css$">
 $endfor$
 $for(header-includes)$
     $header-includes$
@@ -187,8 +197,16 @@ $include-before$
 $endfor$
 <div>
 <header>
-    <div class="leftlogo"><img src="jhaplogo.svg" alt="JHAP" height="92" width="100"></div>
-    <div class="rightbanner"><img src="jhapbanner.svg" height="84" width="469.5" alt="Journal for the History of Analytical Philosophy"></div>
+    <div class="leftlogo">
+        <a href="https://jhaponline.org" target="_blank">
+            <img src="jhaplogo.svg" alt="JHAP" height="92" width="100">
+        </a>
+    </div>
+    <div class="rightbanner">
+        <a href="https://jhaponline.org" target="_blank">
+            <img src="jhapbanner.svg" height="84" width="469.5" alt="Journal for the History of Analytical Philosophy">
+        </a>
+    </div>
     <br>
 </header>
 <div class="volinfo">$if(volume)$Volume $volume$$if(number)$, Number $number$$endif$$endif$$if(year)$ ($year$)$endif$</div>
