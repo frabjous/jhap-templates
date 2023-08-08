@@ -32,6 +32,7 @@ $endif$
     --medgray: #dddddd;
     --white: #ffffff;
     --black:  #212121;
+    --purple: #43467b;
 
     /* fonts */
     --monospacedfont: 'DejaVu Sans Code', 'DejaVu Sans Mono', 'Droid Sans Mono', 'Fira Code', 'Fira Mono', 'JetBrains Mono', Inconsolata, Cousine, 'IBM Plex Mono', 'Red Hat Mono', 'Sarasa Mono K', 'Ubuntu Mono', Consolas, Menlo, Monaco, 'Lucida Console', monospace;
@@ -67,7 +68,7 @@ body > div {
 }
 
 body > div > header {
-    background-color: #43467b;
+    background-color: var(--purple);
     padding: 2rem 1.5rem 2rem 1.5rem;
 }
 
@@ -87,8 +88,48 @@ body > div > header > br {
     clear: both;
 }
 
-body main article p {
+main {
+    padding: 2rem;
+}
+
+main > header > h1.documenttitle {
+    font-family: var(--sansfont);
+    font-weight: bold;
+    color: var(--purple);
+    font-size: 2rem;
+    margin: 0;
+}
+
+main > header > h2.documentsubtitle {
+    font-family: var(--sansfont);
+    font-weight: bold;
+    color: var(--purple);
+    font-size: 1.5rem;
+    margin:0;
+}
+
+main > header > div.authorblock {
+    margin-top: 2rem;
+}
+
+main > header > div.authorblock span {
+    display: block;
+}
+
+main > header > div.authorblock span.authorname {
+    text-transform; uppercase;
+    font-family: var(--sansfont);
+    font-weight: bold;
+}
+
+main > header > div.authorblock span.authoraffiliation {
+    font-family: var(--sansfont);
+    font-style: italic;
+}
+
+main article p {
     color: var(--black);
+    line-height: 1.7rem;
 }
 
 div.volinfo {
@@ -106,6 +147,17 @@ h1, h2, h3, h4 {
 
 h1 span.header-section-number::after {
     content: ".";
+}
+
+figure {
+    text-align: center;
+}
+
+figure img {
+    margin-right: auto;
+    margin-left: auto;
+    width: 32rem;
+    max-width: 90%;
 }
 
 #footnotes hr {
