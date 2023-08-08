@@ -63,6 +63,23 @@ body > div {
 
 body > div > header {
     background-color: #43467b;
+    padding: 2rem 1.5rem 2rem 1.5rem;
+}
+
+body > div > header > div {
+    display: inline-block;
+}
+
+body > div > header > div.leftlogo {
+    float: left;
+}
+
+body > div > header > div.rightbanner {
+    float: right;
+}
+
+body > div > header > br {
+    clear: both;
 }
 
 h1, h2, h3, h4 {
@@ -170,6 +187,9 @@ $include-before$
 $endfor$
 <div>
 <header>
+    <div class="leftlogo"><img src="jhaplogo.svg" alt="JHAP" height="92" width="100"></div>
+    <div class="rightbanner"><img src="jhapbanner.svg" height="84" width="469.5" alt="Journal for the History of Analytical Philosophy"></div>
+    <br>
 </header>
 <div class="volinfo">$if(volume)$Volume $volume$$if(number)$, Number $number$$endif$$endif$$if(year)$ ($year$)$endif$</div>
 <main>
