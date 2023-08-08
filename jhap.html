@@ -27,6 +27,10 @@ $endif$
     <title>$if(title)$$title$ | $endif$Journal for the History of Analytical Philosophy$if(volume)$ vol. $volume$$if(number)$, num. $number$$endif$$endif$</title>
     <style>
 
+:root {
+    --monospacedfont: 'DejaVu Sans Code', 'DejaVu Sans Mono', 'Droid Sans Mono', 'Fira Code', 'Fira Mono', 'JetBrains Mono', Inconsolata, Cousine, 'IBM Plex Mono', 'Red Hat Mono', 'Sarasa Mono K', 'Ubuntu Mono', Consolas, Menlo, Monaco, 'Lucida Console', monospace;
+}
+
 body {
     text-rendering: optimizeLegibility;
     font-kerning: normal;
@@ -45,28 +49,13 @@ h1 span.header-section-number::after {
     display: none;
 }
 
-#footnotes {
-    margin-top: 2.4em;
-}
-
 #footnotes::before {
     content: "Notes";
 }
 
 code {
-    font-family: 'DejaVu Sans Code', 'DejaVu Sans Mono', 'Droid Sans Mono', 'Fira Code', 'Fira Mono', 'JetBrains Mono', Inconsolata, Cousine, 'IBM Plex Mono', 'Red Hat Mono', 'Sarasa Mono K', 'Ubuntu Mono', Consolas, Menlo, Monaco, 'Lucida Console', monospace;
-    font-size: 85%;
-    margin: 0;
+    font-family: var(--monospacedfont);
     white-space: pre-wrap;
-}
-pre code {
-    padding: 0;
-    overflow: visible;
-    overflow-wrap: normal;
-}
-.sourceCode {
-    background-color: transparent;
-    overflow: visible;
 }
 
 sup {
@@ -77,6 +66,7 @@ sup {
     vertical-align: baseline;
     top: -0.5rem;
 }
+
 sub {
     white-space: nowrap;
     line-height: 0;
@@ -84,6 +74,7 @@ sub {
     position: relative;
     vertical-align: baseline;
     top: 0.3rem;
+}
 
 span.smallcaps{
     font-variant: small-caps;
@@ -93,58 +84,30 @@ span.underline {
     text-decoration: underline;
 }
 
-div.csl-entry {
-    margin-left: 1.5em;
-    text-indent: -1.5em;
-}
-
 .pagebreak {
     page-break-after: always;
 }
 
-$if(quotes)$
 q {
     quotes: "“" "”" "‘" "’";
 }
-$endif$
 
 $if(highlighting-css)$
 $highlighting-css$
 $endif$
 
-$if(displaymath-css)$
 .display.math{
     display: block;
     text-align: center;
     margin: 0.5rem auto;
 }
-$endif$
 
-$if(csl-css)$
-div.csl-bib-body {
-}
 div.csl-entry {
     clear: both;
-$if(csl-entry-spacing)$
-    margin-bottom: $csl-entry-spacing$;
-$endif$
+    margin-bottom: 0.5rem;
+    margin-left: 1.5em;
+    text-indent: -1.5em;
 }
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-$endif$
 
 @media print {
     p, h2, h3 {
@@ -161,7 +124,6 @@ $endif$
         display: none !important;
     }
 }
-
     </style>
 $for(css)$
     <link rel="stylesheet" href="$css$" />
@@ -172,54 +134,26 @@ $endfor$
 $if(math)$
     $math$
 $endif$
-$if(paged-polyfill)$
-    <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js" data-external="1"></script>
-    <style>
-    [data-align-last-split-element='justify'] {
-        text-align-last: left !important;
-    }
-    p:last-child[data-align-last-split-element='justify'] {
-        text-align-last: justify !important;
-    }
-    p.date {
-        text-indent: 0 !important;
-    }
-    </style>
-$endif$
 </head>
 <body>
 $for(include-before)$
 $include-before$
 $endfor$
-$if(title)$
-<header id="title-block-header">
-    <h1 class="title">$title$</h1>
-$if(subtitle)$
-    <p class="subtitle">$subtitle$</p>
-$endif$
-$for(author)$
-    <p class="author">$author$</p>
-$endfor$
-$if(date)$
-    <p class="date">$date$</p>
-$endif$
-$if(abstract)$
-    <div class="abstract">
-$if(abstract-title)$
-        <div class="abstract-title">$abstract-title$</div>
-$endif$
-        $abstract$
-    </div>
-$endif$
+<div>
+<header>
 </header>
-$endif$
-$if(toc)$
-<nav id="$idprefix$TOC" role="doc-toc">
-    $if(toc-title)$<h2 id="$idprefix$toc-title">$toc-title$</h2>$endif$
-    $table-of-contents$
-</nav>
-$endif$
+<main>
+<header>
+</header>
+<article>
 $body$
+</article>
+<footer>
+</footer>
+</main>
+<footer>
+</footer>
+</div>
 $for(include-after)$
 $include-after$
 $endfor$
