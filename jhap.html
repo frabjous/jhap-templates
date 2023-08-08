@@ -26,16 +26,17 @@ $if(title)$
 $endif$
     <title>$if(title)$$title$ | $endif$Journal for the History of Analytical Philosophy$if(volume)$ vol. $volume$$if(number)$, num. $number$$endif$$endif$</title>
     <style>
-    $if(sansfont)$$sansfont$$endif$
 :root {
     /* colors */
     --darkgray: #757575;
     --medgray: #dddddd;
     --white: #ffffff;
+    --black:  #212121;
 
     /* fonts */
     --monospacedfont: 'DejaVu Sans Code', 'DejaVu Sans Mono', 'Droid Sans Mono', 'Fira Code', 'Fira Mono', 'JetBrains Mono', Inconsolata, Cousine, 'IBM Plex Mono', 'Red Hat Mono', 'Sarasa Mono K', 'Ubuntu Mono', Consolas, Menlo, Monaco, 'Lucida Console', monospace;
     --sansfont: 'Montserrat', 'Helvetica', 'Arimo', 'Arial', sans-serif;
+    --seriffont: 'Noto Serif', 'Roboto Serif', 'Droid Serif', 'DejaVu Serif', 'Georgia', 'Tinos', serif;
 }
 
 html {
@@ -50,7 +51,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--medgray);
+    color: var(--black);
     text-align: center;
+    font-family: var(--seriffont);
 }
 
 body > div {
@@ -82,6 +85,10 @@ body > div > header > div.rightbanner {
 
 body > div > header > br {
     clear: both;
+}
+
+body main article p {
+    color: var(--black);
 }
 
 div.volinfo {
@@ -190,6 +197,12 @@ $endfor$
 $if(math)$
     $math$
 $endif$
+
+<script type="module">
+    const styletag = document.createElement("style");
+    styletag.innerHTML='@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,500;0,700;1,200;1,500;1,700&family=Nunito+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,500;0,700;1,200;1,500;1,700&family=Noto+Serif:ital,wght@0,500;0,700;1,500;1,700&family=Nunito+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");';
+    document.head.appendChild(styletag);
+</script>
 </head>
 <body>
 $for(include-before)$
