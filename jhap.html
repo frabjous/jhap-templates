@@ -30,6 +30,7 @@ $endif$
     /* colors */
     --darkgray: #757575;
     --medgray: #dddddd;
+    --lightgray: #f2f2f2;
     --white: #ffffff;
     --black:  #212121;
     --purple: #43467b;
@@ -88,6 +89,12 @@ body > div > header > div.rightbanner {
     float: right;
 }
 
+body > div > footer {
+    background-color: var(--lightgray);
+    padding: 1rem 2rem 1rem 2rem;
+    font-size: 0.8rem;
+}
+
 body svg {
     max-width: 100%;
 }
@@ -97,7 +104,13 @@ body > div > header > br {
 }
 
 main {
-    padding: 3rem;
+    padding: 3rem 3rem 1rem 3rem;
+}
+
+main > footer {
+    margin-top: 3rem;
+    font-family: var(--sansfont);
+    color: var(--darkgray);
 }
 
 main > header > h1.documenttitle {
@@ -476,9 +489,12 @@ $endif$
 $body$
 </article>
 <footer>
+    Copyright $if(year)$$year$$endif$ © $if(author)$$for(author)$$it.name$$sep$, $endfor$$endif$
 </footer>
 </main>
 <footer>
+<p><a href="http://creativecommons.org/licenses/by-nc/3.0/" rel="license"><img style="border-width: 0;" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" alt="Creative Commons License" align="middle"></a>  <a href="http://creativecommons.org/licenses/by-nc/3.0/" rel="license">Creative Commons Attribution-NonCommercial 3.0 Unported License</a></p>
+<p><em>Journal for the History of Analytical Philosophy</em> (JHAP) ∙ <a href="https://jhaponline.org" target="_blank">jhaponline.org</a> ∙ ISSN 2159-0303</p>
 </footer>
 </div>
 $for(include-after)$
