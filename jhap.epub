@@ -21,6 +21,7 @@ $endfor$
 $for(include-before)$
 $include-before$
 $endfor$
+$if(titlepage)$
 <div class="htmlheader">
     <div class="leftlogo">
         <a href="https://jhaponline.org" target="_blank">
@@ -34,7 +35,7 @@ $endfor$
     </div>
     <br />
 </div>
-
+$endif$
 <div class="volinfo">$if(volume)$Volume $volume$$if(number)$, Number $number$$endif$$endif$$if(year)$ ($year$)$endif$
 $if(specialvoltitle)$
 <div class="specialvolblock">
