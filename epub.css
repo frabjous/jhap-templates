@@ -18,7 +18,7 @@ ol, ul, li, dl, dt, dd {
 }
 html {
   line-height: 1.2;
-  font-family: Georgia, serif;
+  font-family: serif;
   color: #1a1a1a;
   background-color: #fdfdfd;
 }
@@ -192,6 +192,15 @@ a.footnote-ref { vertical-align: super; }
 em, em em em, em em em em em { font-style: italic;}
 em em, em em em em { font-style: normal; }
 q { quotes: "“" "”" "‘" "’"; }
+
+/* hanging for csl entries */
+div.csl-entry {
+    clear: both;
+    margin-bottom: 0.5rem;
+    margin-left: 1.5em;
+    text-indent: -1.5em;
+}
+
 @media screen { /* Workaround for iBooks issue; see #6242 */
   .sourceCode {
     overflow: visible !important;

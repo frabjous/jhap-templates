@@ -2,13 +2,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"$if(lang)$ lang="$lang$" xml:lang="$lang$"$endif$>
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <title>$pagetitle$</title>
-  <style>
-$if(csl-css)$
-    $styles.citations.html()$
-$endif$
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <title>$if(title)$$title$ | $endif$Journal for the History of Analytical Philosophy$if(volume)$ vol. $volume$$if(number)$, num. $number$$endif$$endif$</title>
+    <style>
 $if(highlighting-css)$
     /* CSS for syntax highlighting */
     $highlighting-css$
