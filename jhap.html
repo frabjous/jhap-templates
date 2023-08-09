@@ -91,8 +91,30 @@ body > div > header > div.rightbanner {
 
 body > div > footer {
     background-color: var(--lightgray);
-    padding: 1rem 2rem 1rem 2rem;
+    padding: 1rem 2rem 2rem 2rem;
+    border-top: 1px solid var(--medgray);
+    border-bottom: 1.3rem solid var(--purple);
+}
+
+body > div > footer > p:first-child {
+    margin-bottom: 2rem;
+}
+
+body > div > footer > p:first-child a:first-child {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+body > div > footer > div.jhapeditorinfo div {
     font-size: 0.8rem;
+    display: inline-block;
+    max-width: 23rem;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+}
+
+body > div > footer > div.jhapeditorinfo div strong {
+    font-family: var(--sansfont);
 }
 
 body svg {
@@ -495,6 +517,24 @@ $body$
 <footer>
 <p><a href="http://creativecommons.org/licenses/by-nc/3.0/" rel="license"><img style="border-width: 0;" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" alt="Creative Commons License" align="middle"></a>  <a href="http://creativecommons.org/licenses/by-nc/3.0/" rel="license">Creative Commons Attribution-NonCommercial 3.0 Unported License</a></p>
 <p><em>Journal for the History of Analytical Philosophy</em> (JHAP) ∙ <a href="https://jhaponline.org" target="_blank">jhaponline.org</a> ∙ ISSN 2159-0303</p>
+<div class="jhapeditorinfo">
+    <div>
+        $if(jhapeditorinchief)$<strong>Editor in Chief</strong><br>
+        $jhapeditorinchief$<br><br>$endif$
+        $if(jhapboard)$<strong>Editorial Board</strong><br>
+        $for(jhapboard)$$jhapboard$<br>$endfor$$endif$
+    </div>
+    <div>
+        $if(jhapspecialissueseditor)$<strong>Editor for Special Issues</strong><br>
+        $jhapspecialissueseditor$<br><br>$endif$
+        $if(jhapreviewseditors)$<strong>Review editors</strong><br>
+        $for(jhapreviewseditors)$$jhapreviewseditors$<br>$endfor$<br>$endif$
+        $if(jhapdesign)$<strong>Design and Layout</strong><br>
+        $for(jhapdesign)$$jhapdesign$<br>$endfor$$endif$
+    </div>
+    <div>
+    </div>
+</div>
 </footer>
 </div>
 $for(include-after)$
