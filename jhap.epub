@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"$if(lang)$ lang="$lang$" xml:lang="$lang$"$endif$>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"$if(lang)$ lang="$lang$" xml:lang="$lang$"$else$ lang="en" xml:lang="en"$endif$>
 <head>
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <title>$if(title)$$title$ | $endif$Journal for the History of Analytical Philosophy$if(volume)$ vol. $volume$$if(number)$, num. $number$$endif$$endif$</title>
     <style>
 $if(highlighting-css)$
-    /* CSS for syntax highlighting */
     $highlighting-css$
 $endif$
   </style>
@@ -18,58 +17,88 @@ $for(header-includes)$
   $header-includes$
 $endfor$
 </head>
-<body$if(coverpage)$ id="cover"$endif$$if(body-type)$ epub:type="$body-type$"$endif$>
-$if(titlepage)$
-<section epub:type="titlepage" class="titlepage">
-$for(title)$
-$if(title.type)$
-  <h1 class="$title.type$">$title.text$</h1>
-$else$
-  <h1 class="title">$title$</h1>
-$endif$
-$endfor$
-$if(subtitle)$
-  <p class="subtitle">$subtitle$</p>
-$endif$
-$for(author)$
-  <p class="author">$author$</p>
-$endfor$
-$for(creator)$
-  <p class="$creator.role$">$creator.text$</p>
-$endfor$
-$if(publisher)$
-  <p class="publisher">$publisher$</p>
-$endif$
-$if(date)$
-  <p class="date">$date$</p>
-$endif$
-$if(rights)$
-  <div class="rights">$rights$</div>
-$endif$
-$if(abstract)$
-<div class="abstract">
-<div class="abstract-title">$abstract-title$</div>
-$abstract$
-</div>
-$endif$
-</section>
-$else$
-$if(coverpage)$
-<div id="cover-image">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100%" height="100%" viewBox="0 0 $cover-image-width$ $cover-image-height$" preserveAspectRatio="xMidYMid">
-<image width="$cover-image-width$" height="$cover-image-height$" xlink:href="../media/$cover-image$" />
-</svg>
-</div>
-$else$
+<body $if(body-type)$ epub:type="$body-type$"$endif$>
 $for(include-before)$
 $include-before$
 $endfor$
+<div class="htmlheader">
+    <div class="leftlogo">
+        <a href="https://jhaponline.org" target="_blank">
+            <img src="jhaplogo.svg" alt="JHAP" height="96" width="100" />
+        </a>
+    </div>
+    <div class="rightbanner">
+        <a href="https://jhaponline.org" target="_blank">
+            <img src="jhapbanner.svg" height="96" width="476.57" alt="Journal for the History of Analytical Philosophy" />
+        </a>
+    </div>
+    <br />
+</div>
+
+<div class="volinfo">$if(volume)$Volume $volume$$if(number)$, Number $number$$endif$$endif$$if(year)$ ($year$)$endif$
+$if(specialvoltitle)$
+<div class="specialvolblock">
+    <div class="specialvollabel"><div>Special Volume</div></div>
+    <div class="specialvoltitle">$specialvoltitle$</div>
+    $if(specialvoleditor)$<div class="specialvoleditor"><span class="editedbylabel">Edited by</span> $for(specialvoleditor/allbutlast)$<a href="mailto:$it.email$" target="_blank">$it.name$</a>, $it.affiliation$$sep$, $endfor$$if(specialvoleditor/allbutlast)$ and $endif$
+    $for(specialvoleditor/last)$ <a href="mailto:$it.email$" target="_blank">$it.name$</a>, $it.affiliation$$endfor$</div>$endif$
+</div>
+$endif$
+</div>
+<div class="htmlmain">
+<div class="mainheader">
+$if(reviewedtitle)$
+    <div class="reviewlabel"><div>Review</div></div>
+    <h2 class="reviewedtitle">
+        $if(reviewedauthor)$$for(reviewedauthor)$$it$$sep$, $endfor$. $else$$if(reviewededitor)$<span class="edblock"><span class="edlist">$for(reviewededitor)$$it$$sep$, $endfor$</span>, ed<span class="edoptionals"></span></span>. $endif$$endif$<em>$reviewedtitle$$if(reviewedsubtitle)$: $reviewedsubtitle$$endif$</em>.
+    </h2>
+    <div class="reviewedextra">
+        $if(reviewedauthor)$$if(reviewededitor)$Edited by $for(reviewededitor)$$it$$sep$, $endfor$. $endif$$endif$$if(reviewedplace)$$reviewedplace$: $endif$$if(reviewedpublisher)$$reviewedpublisher$$endif$$if(reviewedyear)$, $reviewedyear$$endif$. $if(reviewedpages)$$reviewedpages$pp. $endif$$if(reviewedcost)$$$$reviewedcost$ $endif$$if(reviewedformat)$$reviewedformat$. $endif$$if(reviewedisbn)$ISBN $reviewedisbn$.$endif$
+    </div>
+    <div class="reviewedby">Reviewed by</div>
+$else$
+    $if(title)$<h1 class="documenttitle">$title$</h1>$endif$
+    $if(subtitle)$<h2 class="documentsubtitle">$subtitle$</h2>$endif$
+$endif$
+
+    $for(author)$<div class="authorblock"><span class="authorname">$it.name$</span>
+                <span class="authoremail"><a href="mailto:$it.email$">$it.email$</a></span>
+                <span class="authoraffiliation">$it.affiliation$</span></div>$endfor$
+    $if(abstract)$<div class="abstractblock"><div class="abstracttitle">Abstract</div>$abstract$</div>$endif$
+</div>
+<div class="mainarticle">
 $body$
+</div>
+<div class="mainfooter">
+    Copyright $if(year)$$year$$endif$ © $if(author)$$for(author)$$it.name$$sep$, $endfor$$endif$
+</div>
+</div>
+
+<footer>
+<p><a href="http://creativecommons.org/licenses/by-nc/3.0/" rel="license"><img style="border-width: 0;" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" alt="Creative Commons License" align="middle"></a>  <a href="http://creativecommons.org/licenses/by-nc/3.0/" rel="license">Creative Commons Attribution-NonCommercial 3.0 Unported License</a></p>
+<p><em>Journal for the History of Analytical Philosophy</em> (JHAP) ∙ <a href="https://jhaponline.org" target="_blank">jhaponline.org</a> ∙ ISSN 2159-0303</p>
+<div class="jhapeditorinfo">
+    <div>
+        $if(jhapeditorinchief)$<strong>Editor in Chief</strong><br>
+        $jhapeditorinchief$<br><br>$endif$
+        $if(jhapboard)$<strong>Editorial Board</strong><br>
+        $for(jhapboard)$$jhapboard$<br>$endfor$$endif$
+    </div>
+    <div>
+        $if(jhapspecialissueseditor)$<strong>Editor for Special Issues</strong><br>
+        $jhapspecialissueseditor$<br><br>$endif$
+        $if(jhapreviewseditors)$<strong>Review Editors</strong><br>
+        $for(jhapreviewseditors)$$jhapreviewseditors$<br>$endfor$<br>$endif$
+        $if(jhapdesign)$<strong>Design and Layout</strong><br>
+        $for(jhapdesign)$$jhapdesign$<br>$endfor$$endif$
+    </div>
+    <div>
+    </div>
+</div>
+</footer>
 $for(include-after)$
 $include-after$
 $endfor$
-$endif$
-$endif$
 </body>
 </html>
 
