@@ -91,7 +91,7 @@ body > div > header > div.rightbanner {
 
 body > div > footer {
     background-color: var(--lightgray);
-    padding: 1rem 2rem 2rem 2rem;
+    padding: 1rem 2rem 1rem 2rem;
     border-top: 1px solid var(--medgray);
     border-bottom: 1.3rem solid var(--purple);
 }
@@ -106,9 +106,9 @@ body > div > footer > p:first-child a:first-child {
 }
 
 body > div > footer > div.jhapeditorinfo div {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     display: inline-block;
-    max-width: 23rem;
+    max-width: 25rem;
     margin-right: 2rem;
     margin-bottom: 1rem;
 }
@@ -352,6 +352,14 @@ main article blockquote p {
     line-height: 1.4rem;
 }
 
+aside ol {
+    margin: 0;
+}
+
+main article aside p:first-child {
+    margin-top: 1rem;
+}
+
 #footnotes hr {
     display: none;
 }
@@ -527,7 +535,7 @@ $body$
     <div>
         $if(jhapspecialissueseditor)$<strong>Editor for Special Issues</strong><br>
         $jhapspecialissueseditor$<br><br>$endif$
-        $if(jhapreviewseditors)$<strong>Review editors</strong><br>
+        $if(jhapreviewseditors)$<strong>Review Editors</strong><br>
         $for(jhapreviewseditors)$$jhapreviewseditors$<br>$endfor$<br>$endif$
         $if(jhapdesign)$<strong>Design and Layout</strong><br>
         $for(jhapdesign)$$jhapdesign$<br>$endfor$$endif$
