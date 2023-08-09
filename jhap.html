@@ -116,7 +116,6 @@ main > header > h2.documentsubtitle {
     margin: 0;
 }
 
-
 main > header > div.authorblock {
     margin-top: 2rem;
     display: inline-block;
@@ -187,7 +186,7 @@ main > header h2.reviewedtitle {
 main > header div.reviewedextra {
     font-family: var(--sansfont);
     color: var(--darkgray);
-    line-height: 1.3;
+    line-height: 1.5;
 }
 
 main > header div.reviewedby {
@@ -230,6 +229,10 @@ div.volinfo div.specialvolblock div.specialvoltitle {
     color: var(--purple);
     font-style: italic;
     margin: 0.2rem 0 0.5rem 0;
+}
+
+div.volinfo div.specialvolblock div.specialvoleditor {
+    line-height: 1.5;
 }
 
 article h1,
@@ -407,6 +410,17 @@ $endif$
     const refs = document.getElementById("refs");
     const notes = document.getElementById("footnotes");
     refs.parentNode.insertBefore(notes, refs);
+    // fix 'ed' to 'eds' when plural
+    const cc = document.getElementsByClassName("edblock");
+    for (const c of cc) {
+        const ll = c.getElementsByClassName("edlist");
+        const oo = c.getElementsByClassName("edoptionals");
+        if (ll && oo && (ll.length > 0) & (oo.length > 0)) {
+            if (ll[0].innerHTML.indexOf(' and ') != -1) {
+                oo[0].innerHTML = 's';
+            }
+        }
+    }
 </script>
 </head>
 <body>
@@ -442,7 +456,7 @@ $endif$
 $if(reviewedtitle)$
     <div class="reviewlabel"><div>Review</div></div>
     <h2 class="reviewedtitle">
-        $if(reviewedauthor)$$for(reviewedauthor)$$it$$sep$, $endfor$. $else$$if(reviewededitor)$$for(reviewededitor)$$it$$sep$<span class="namesep">, </span>$endfor$. $endif$$endif$<em>$reviewedtitle$$if(reviewedsubtitle)$: $reviewedsubtitle$$endif$</em>.
+        $if(reviewedauthor)$$for(reviewedauthor)$$it$$sep$, $endfor$. $else$$if(reviewededitor)$<span class="edblock"><span class="edlist">$for(reviewededitor)$$it$$sep$, $endfor$</span>, ed<span class="edoptionals"></span></span>. $endif$$endif$<em>$reviewedtitle$$if(reviewedsubtitle)$: $reviewedsubtitle$$endif$</em>.
     </h2>
     <div class="reviewedextra">
         $if(reviewedauthor)$$if(reviewededitor)$Edited by $for(reviewededitor)$$it$$sep$, $endfor$. $endif$$endif$$if(reviewedplace)$$reviewedplace$: $endif$$if(reviewedpublisher)$$reviewedpublisher$$endif$$if(reviewedyear)$, $reviewedyear$$endif$. $if(reviewedpages)$$reviewedpages$pp. $endif$$if(reviewedcost)$$$$reviewedcost$ $endif$$if(reviewedformat)$$reviewedformat$. $endif$$if(reviewedisbn)$ISBN $reviewedisbn$.$endif$
