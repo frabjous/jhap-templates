@@ -25,7 +25,7 @@ $if(titlepage)$
 <section epub:type="titlepage" class="titlepage">
 <div class="jhapbanner">
     <div>
-<svg id="svg_790c1c0e62c0670f973840b25008f62f3c758784" height="96" width="476.57" alt="Journal for the History of Analytical Philosophy" version="1.1" viewBox="0 0 278 56" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+<svg id="svg_790c1c0e62c0670f973840b25008f62f3c758784" height="96" width="476.57" alt="Journal for the History of Analytical Philosophy" version="1.1" viewBox="0 0 278 56" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" style="background-color: #43467b;">
   <defs id="defs1">
     <clipPath id="clip_1">
       <path transform="matrix(1,0,0,-1,-200,668)" d="M0 0H612V792H0Z" id="path1"></path>

@@ -30,11 +30,8 @@ p {
   orphans: 2;
   line-height: 1.4;
 }
-a {
-  color: #1a1a1a;
-}
-a:visited {
-  color: #1a1a1a;
+a, a:link, a:visited {
+  text-decoration: none;
 }
 img {
   max-width: 100%;
@@ -42,7 +39,7 @@ img {
 h1 {
   text-indent: 0;
   text-align: left;
-  margin: 0;
+  margin: 2rem 0 0 0;
   font-size: 200%;
   font-weight: bold;
 }
@@ -191,7 +188,8 @@ div.column{flex: auto; overflow-x: auto;}
 */
 
 div.hanging-indent {
-  margin-left: 1.5rem; text-indent: -1.5rem;
+  margin-left: 1.5rem;
+  text-indent: -1.5rem;
 }
 
 ul.task-list {
@@ -238,8 +236,6 @@ q {
 div.csl-entry {
   clear: both;
   margin-bottom: 0.5rem;
-  margin-left: 1.5em;
-  text-indent: -1.5em;
 }
 
 /* JHAP Stuff */
@@ -391,6 +387,16 @@ div.mainheader div.jhapeditorinfo strong {
 
 #footnotes, #refs {
     font-size: 90%;
+}
+
+figure {
+    text-align: center;
+}
+
+figure img,
+figure svg {
+    max-width: 90%;
+    margin: auto;
 }
 
 @media screen { /* Workaround for iBooks issue; see #6242 */
