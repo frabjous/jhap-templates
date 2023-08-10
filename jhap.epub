@@ -112,14 +112,14 @@ $if(reviewedtitle)$
     <div class="reviewlabel"><div>Review</div></div>
     <div class="reviewedtitle">
         $if(reviewedauthor)$$for(reviewedauthor)$$it$$sep$, $endfor$. $else$$if(reviewededitor)$<span class="edblock"><span class="edlist">$for(reviewededitor)$$it$$sep$, $endfor$</span>, ed<span class="edoptionals"></span></span>. $endif$$endif$<em>$reviewedtitle$$if(reviewedsubtitle)$: $reviewedsubtitle$$endif$</em>.
-    </h2>
+    </div>
     <div class="reviewedextra">
         $if(reviewedauthor)$$if(reviewededitor)$Edited by $for(reviewededitor)$$it$$sep$, $endfor$. $endif$$endif$$if(reviewedplace)$$reviewedplace$: $endif$$if(reviewedpublisher)$$reviewedpublisher$$endif$$if(reviewedyear)$, $reviewedyear$$endif$. $if(reviewedpages)$$reviewedpages$pp. $endif$$if(reviewedcost)$$$$reviewedcost$ $endif$$if(reviewedformat)$$reviewedformat$. $endif$$if(reviewedisbn)$ISBN $reviewedisbn$.$endif$
     </div>
     <div class="reviewedby">Reviewed by</div>
 $else$
-    $if(title)$<div class="documenttitle">$title$</h1>$endif$
-    $if(subtitle)$<div class="documentsubtitle">$subtitle$</h2>$endif$
+    $if(title)$<div class="documenttitle">$title$</div>$endif$
+    $if(subtitle)$<div class="documentsubtitle">$subtitle$</div>$endif$
 $endif$
 
     $for(author)$<div class="authorblock"><span class="authorname">$it.name$</span>
@@ -131,7 +131,7 @@ $endif$
         Copyright $if(year)$$year$$endif$ © $if(author)$$for(author)$$it.name$$sep$, $endfor$$endif$
     </div>
 
-    <div class="cc"><a href="http://creativecommons.org/licenses/by-nc/3.0/" rel="license"><img style="border-width: 0;" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" alt="Creative Commons License" align="middle" /></a>  <a href="http://creativecommons.org/licenses/by-nc/3.0/" rel="license">Creative Commons Attribution-NonCommercial 3.0 Unported License</a></div>
+    <div class="cc"><a href="http://creativecommons.org/licenses/by-nc/3.0/" rel="license"><img style="border-width: 0;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAAAfCAMAAABUFvrSAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAAEZ0FNQQAAsY58+1GTAAAAAXNSR0IB2cksfwAAAblQTFRF////////////////8fHx7+/v4+Pj39/f1tXV09bS0tXS0tXR0dTR0dTQ0NTQ0NPPz9PPztLOztHNzdHNzdHMz8/PzdDMzNDMzNDLzM/Ly8/Ly8/Ky87Kys3Jyc3Jyc3IyMzIyMzHx8vHxsrGxsrFxcnFyMfHxcnExMnExMjDw8jDxMfDw8fCwsfCwcXAwMXAwMW/wMS/v8S+v8O+vsO+vsK9vcK9vcK8v7+/vMG8vMG7vMC8u8C7u8C6ur+6ur+5ub65ub64uL23t7y2urm5tru1tbq0tLqztLmzs7iysrixsrexsbewsbawsLavsLWvr7Wur7SusLOvrrStrrOtr7KvrbOsrLKrr6+vq7GqrKurn6OenqCdn5+fnp2dmpiZlpmWk5iTkZSRkZORkY+Pj4+PiYyJjIqLh4aHhIaEhIWEgoWChIGCgICAfX98fH98fnt8eXx5eHV2dnN0dXJzcHJvcHBwaGVmYGBgXV5dWldYUFFQUFBQQ0RDQEBAPj8+Pzs8NTY1MjMxMjExMDAwMS0uKSkpKCkoKCUmIx8gICAgHxscGxsbGRkZEBAQDg4ODQ4NDQwNAAAABjFVaAAAAAN0Uk5TAAoO5yEBUwAAA5NJREFUeNq1lo930lYUx7NdaUprjKZzQIlFHJtSGVarg+E6Slmx2OpwOihqt1mqm27oGJNh+VG3pbCwGvH7F+8kAUpC6Jl4+g4575xveJ933/e+d1+Y93EojWGARDwWuRyc9XlnRJfD4XKf8vr8wfnIYjyRXPv6djqdyb59Axgk4tHQxYDP4xZ4bsJunzjKC9MeX2AuFFXJqdvpzEhkBvFo6IL/jChwT2ptdRHt2mPuhNt7LvhZNJ64fjN1pxtyoaG+bhTMDEsdDGKhC36vk8/t7Ru0t8k7PGeDocX4yurNTsgPmkC9VKoDzQf9hCE6GEQu+r0OrgJAKefD4XxZAVA5/4Hn3Fwktpxc00O+9xpVloiIreJ1H2GYDgaXA2ecKlfJ20hvGwrQPO/wBuYXlhJayNlsE2UiAtTXaO4DdH1r26yDQdAn8hVAYqnXbBJQ4d2+YCi2nLxxK53JFFAd74Kpip6fBfz9PdHWqzfFMYOugmdPCzlAshEZyZsnPP5LC/Frq6k7mUwDffOyaHTHN/CP/PIP5H/CXYOugn1ubg/KSTI0m4I9btoX/DyWuK56gbqqlqEtnOroja///pssy8WxcaOugr1TT4A8mdoG8FjwBq5El5M3VHCJNCd0L0r74BLRJ0UAxXGDroJnjteg2IjC1Xo9r3cPiUhBjT+lerGydutgMNFYcVeWt78ygUWurS4wrO3g+rrWldVlt4+6z859sXRtLXWQFUR05Dsal2VZfmm0wjUJPCSS0GLDrQ0JErve2tC8mHD5gpGlxGoq3U2eHrAheSzRtry7i+LdX/81Js9pB8LqmLw+tGN3GLA7PuqCC6iS9XarEo398urN1pGB7fa/wP0HpDR4QH7cNusGK2wnW3kJktqZrRjlSHeS18laL3kltDmxl7xs9l4TkMolyVyEhujadqtAod52W69rHbVQ42f8l77Ut9soZdM7ldO8sDogn15ZXE7qVejtC/3H2pFmDz7So4BnTwv3rYpQTvDMzi/EV7QiNAoYz0T+BSD1lSFWK5viz+90TQN47jrWX+hteQX4k3M+w7uC8dRx7IXpauI+/MH0T/18QH/6df0hsgDjqYu/33+Z5ninmQvq/Ghgwo5KFmA8FwUu173+NzlBHPShWzYHJySL6bpg/PWte+o4N2m3T3K8MP3NzqBp1kZ0bRgWMYCdR1dFl9PpEq8+2rHKxvCID/D4ML4K3zsk7n9pO/RNngRtJQAAAABJRU5ErkJggg==" alt="Creative Commons License" align="middle" /></a>  <a href="http://creativecommons.org/licenses/by-nc/3.0/" rel="license">Creative Commons Attribution-NonCommercial 3.0 Unported License</a></div>
 
     <div class="jhapline"><em>Journal for the History of Analytical Philosophy</em> (JHAP) ∙ <a href="https://jhaponline.org" target="_blank">jhaponline.org</a> ∙ ISSN 2159-0303</div>
 

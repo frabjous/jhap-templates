@@ -27,6 +27,7 @@ p {
   margin: 1rem 0;
   widows: 2;
   orphans: 2;
+  line-height: 1.4;
 }
 a {
   color: #1a1a1a;
@@ -92,6 +93,9 @@ li > ol, li > ul {
 blockquote {
   font-size: 90%;
   margin: 1rem 1.5rem 1rem 1.5em;
+}
+blockquote p {
+  line-height: 1.3;
 }
 code {
   font-family: 'DejaVu Sans Code', 'DejaVu Sans Mono', 'Droid Sans Mono', 'Fira Code', 'Fira Mono', 'JetBrains Mono', Inconsolata, Cousine, 'IBM Plex Mono', 'Red Hat Mono', 'Sarasa Mono K', 'Ubuntu Mono', Consolas, Menlo, Monaco, 'Lucida Console', monospace;
@@ -200,11 +204,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0.5rem auto;
 }
 
-/* For title, author, and date on the cover page */
-h1.documenttitle {
-  margin-top: 0;
-}
-
 nav#toc ol,
 nav#landmarks ol {
   padding: 0; margin-left: 1em;
@@ -240,9 +239,10 @@ div.csl-entry {
 /* JHAP Stuff */
 
 div.jhapbanner div {
-    display: inline-block;
-    background-color: #43467b;
-    padding: 2rem 2rem 2rem 12rem;
+  display: inline-block;
+  background-color: #43467b;
+  padding: 2rem 2rem 2rem 1rem;
+  max-width: 100%;
 }
 
 div.volinfo {
@@ -251,17 +251,17 @@ div.volinfo {
 }
 
 div.volinfo div.specialvolblock {
-    text-transform: none;
+  text-transform: none;
 }
 
 div.volinfo div.specialvolblock div.specialvollabel {
-    text-transform: uppercase:
+  text-transform: uppercase:
 }
 
 div.volinfo div.specialvolblock div.specialvoltitle {
-    font-style: italic;
-    font-size: 120%;
-    margin: 0.5rem 0;
+  font-style: italic;
+  font-size: 120%;
+  margin: 0.5rem 0;
 }
 
 div.mainheader {
@@ -269,12 +269,96 @@ div.mainheader {
 }
 
 div.reviewlabel {
+  text-transform: uppercase;
+}
+
+div.reviewedtitle {
+  font-weight: bold;
+  font-size: 140%;
+}
+
+div.reviewedby {
+  margin: 1rem 0;
+  font-style: italic;
+}
+
+div.documentittle {
+  font-weight: bold;
+  font-size: 170%;
+  margin: 3rem 0 0 0;
+}
+
+div.documentsubtitle {
+  font-size: 140%;
+}
+
+div.authorblock {
+  margin-top: 2rem;
+}
+
+div.authorblock span {
+  display: block;
+}
+
+div.authorblock span.authorname {
+  font-weight: bold;
+}
+
+div.authorblock span.authoremail {
+  font-family: 'DejaVu Sans Code', 'DejaVu Sans Mono', 'Droid Sans Mono', 'Fira Code', 'Fira Mono', 'JetBrains Mono', Inconsolata, Cousine, 'IBM Plex Mono', 'Red Hat Mono', 'Sarasa Mono K', 'Ubuntu Mono', Consolas, Menlo, Monaco, 'Lucida Console', monospace;
+}
+
+div.authorblock span.authoremail a,
+div.authorblock span.authoremail a:link,
+div.authorblock span.authoremail a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+div.authorblock span.authoraffiliation {
+  font-style: italic;
+}
+
+div.abstractblock {
+  margin: 3rem 0 0 0;
+}
+
+div.abstractittle {
     text-transform: uppercase;
+}
+
+div.abstract {
+  line-height: 1.4;
+}
+
+div.mainheader div.copyright {
+  margin: 2rem 0 0 0;
+}
+
+div.mainheader div.cc {
+  margin: 2rem 0 0 0;
+  font-family: serif;
+}
+
+div.mainheader div.jhapline {
+  margin: 4rem 0 0 0;
+  font-family: serif;
+}
+
+div.mainheader div.jhapeditorinfo {
+  margin: 1rem 0 0 0;
+  font-family: serif;
+  font-size: 90%;
+}
+
+div.mainheader div.jhapeditorinfo strong {
+  font-weight: bold;
+  font-family: sans-serif;
 }
 
 @media screen { /* Workaround for iBooks issue; see #6242 */
   .sourceCode {
-    overflow: visible !important;
-    white-space: pre-wrap !important;
+  overflow: visible !important;
+  white-space: pre-wrap !important;
   }
 }
