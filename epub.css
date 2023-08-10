@@ -21,6 +21,7 @@ html {
   font-family: serif;
   color: #1a1a1a;
   background-color: #fdfdfd;
+  padding-bottom: 2rem;
 }
 p {
   text-indent: 0;
@@ -41,10 +42,15 @@ img {
 h1 {
   text-indent: 0;
   text-align: left;
-  margin: 3rem 0 0 0;
+  margin: 0;
   font-size: 200%;
   font-weight: bold;
 }
+h1 span.header-section-number::after {
+    content: ".";
+    margin-right: 0.4rem;
+}
+
 h2 {
   text-indent: 0;
   text-align: left;
@@ -245,9 +251,14 @@ div.jhapbanner div {
   max-width: 100%;
 }
 
+div.jhapbanner svg {
+  background-color: #43467b;
+}
+
 div.volinfo {
   font-family: sans-serif;
   text-transform: uppercase;
+  margin: 0.5rem 0 0 0;
 }
 
 div.volinfo div.specialvolblock {
@@ -282,13 +293,14 @@ div.reviewedby {
   font-style: italic;
 }
 
-div.documentittle {
+div.documenttitle {
   font-weight: bold;
   font-size: 170%;
   margin: 3rem 0 0 0;
 }
 
 div.documentsubtitle {
+  margin-top: 0.3rem;
   font-size: 140%;
 }
 
@@ -306,6 +318,7 @@ div.authorblock span.authorname {
 
 div.authorblock span.authoremail {
   font-family: 'DejaVu Sans Code', 'DejaVu Sans Mono', 'Droid Sans Mono', 'Fira Code', 'Fira Mono', 'JetBrains Mono', Inconsolata, Cousine, 'IBM Plex Mono', 'Red Hat Mono', 'Sarasa Mono K', 'Ubuntu Mono', Consolas, Menlo, Monaco, 'Lucida Console', monospace;
+  margin-top: 0.3rem;
 }
 
 div.authorblock span.authoremail a,
@@ -316,6 +329,7 @@ div.authorblock span.authoremail a:visited {
 }
 
 div.authorblock span.authoraffiliation {
+  margin-top: 0.3rem;
   font-style: italic;
 }
 
@@ -323,12 +337,13 @@ div.abstractblock {
   margin: 3rem 0 0 0;
 }
 
-div.abstractittle {
-    text-transform: uppercase;
+div.abstracttitle {
+  text-transform: uppercase;
 }
 
-div.abstract {
+div.mainheader div.abstract {
   line-height: 1.4;
+  font-family: serif;
 }
 
 div.mainheader div.copyright {
@@ -354,6 +369,28 @@ div.mainheader div.jhapeditorinfo {
 div.mainheader div.jhapeditorinfo strong {
   font-weight: bold;
   font-family: sans-serif;
+}
+
+#refs::before,
+#footnotes::before {
+    display: block;
+    font-family: var(--sansfont);
+    font-weight: bold;
+    font-size: 150%;;
+    text-align: left;
+    margin: 1.5rem 0 0 0;
+}
+
+#refs::before {
+    content: "References";
+}
+
+#footnotes::before {
+    content: "Notes";
+}
+
+#footnotes, #refs {
+    font-size: 90%;
 }
 
 @media screen { /* Workaround for iBooks issue; see #6242 */
