@@ -247,8 +247,9 @@ div.jhapbanner div {
   max-width: 100%;
 }
 
-div.jhapbanner svg {
+div.jhapbanner img {
   background-color: #43467b;
+  width: 100%;
 }
 
 div.volinfo {
