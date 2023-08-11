@@ -111,14 +111,12 @@ $if(author)$
     pdfauthor={$for(author)$$it.name$$sep$, $endfor$},
 $endif$
     pdflang={en},
+    pdfsubject={History of Analytical Philosophy},
 $if(keywords)$
     pdfkeywords={$for(keywords)$$it$$sep$, $endfor$},
 $endif$
     colorlinks=true,
-    linkcolor={$if(linkcolor)$$linkcolor$$else$Maroon$endif$},
-    filecolor={$if(filecolor)$$filecolor$$else$Maroon$endif$},
-    citecolor={$if(citecolor)$$citecolor$$else$Blue$endif$},
-    urlcolor={$if(urlcolor)$$urlcolor$$else$Blue$endif$},
+    allcolors={[rgb]{0,0,0.7}},
     pdfcreator={LaTeX via pandoc}
 }
 
@@ -161,12 +159,10 @@ $endif$
 
 %reduce font size in quoted text
 \renewenvironment{quote}
-               {\list{}{\rightmargin\leftmargin}%
-                \setlength{\parskip}{0pt}%
-                \item\relax\ifinfootnote\else\small\fi}
-               {\endlist}
-
-\usepackage{etoolbox}
+    {\list{}{\rightmargin\leftmargin}%
+        \setlength{\parskip}{0pt}%
+        \item\relax\ifinfootnote\else\small\fi}
+    {\endlist}
 \patchcmd{\quote}{\rightmargin}{\leftmargin .7em \rightmargin}{}{}
 
 % CSL commands for bibliography
@@ -205,9 +201,17 @@ $endif$
 
 \fancyfoot[R]{\small{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy vol.\ \thevolume\ no.\ \thevolnumber}}} \ \ \ \ [\(\thepage\)]}
 
+\pagestyle{fancy}
+\setcounter{page}{0}
+\thispagestyle{empty}
+
 % convenience commands
 \newcommand{\columnbreak}{\newpage}
+\newcommand{\nudge}{\hspace*{0.07em}}
 
+% non-french spacing but without extra stretch; see https://tex.stackexchange.com/questions/412189/is-it-possible-to-have-non-french-spacing-without-extra-stretch
+\xspaceskip=\fontdimen2\font plus \fontdimen3\font minus \fontdimen4\font
+\advance\xspaceskip by \fontdimen7\font
 
 $for(header-includes)$
 $header-includes$
