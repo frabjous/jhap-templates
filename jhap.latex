@@ -1,3 +1,4 @@
+% JHAP pandoc template v0.1 2023-08-11
 \documentclass[11pt]{article}
 
 % utf8 character encoding in source
@@ -73,7 +74,7 @@
 % PDF bookmarks; also loads hyperref
 \usepackage{bookmark}
 
-% graphicx
+% graphics package
 \usepackage{graphicx}
 % Scale images if necessary, so that they will not overflow the page
 % margins by default, and it is still possible to overwrite the defaults
@@ -97,8 +98,8 @@ $endif$
 \renewcommand{\bottomrule}{\relax}
 % small vertical strech
 \renewcommand{\arraystretch}{1.4}
-$endif$
 
+$endif$
 % PDF bookmarks; also loads hyperref
 \usepackage{bookmark}
 
@@ -108,7 +109,7 @@ $if(title)$
     pdftitle={$title$$if(subtitle)$: $subtitle$$endif$},
 $endif$
 $if(author)$
-    pdfauthor={$for(author)$$it.name$$sep$, $endfor$},
+    pdfauthor={$for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$},
 $endif$
     pdflang={en},
     pdfsubject={History of Analytical Philosophy},
@@ -199,13 +200,9 @@ $endif$
 
 % header/footer
 \renewcommand{\headrulewidth}{0pt}
-
 \fancyhead{}
-
 \fancyfoot{}
-
 \fancyfoot[R]{\small{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy vol.\ \thevolume\ no.\ \thevolnumber}}} \ \ \ \ [\(\thepage\)]}
-
 \pagestyle{fancy}
 \setcounter{page}{0}
 \thispagestyle{empty}
@@ -220,13 +217,14 @@ $endif$
 
 $for(header-includes)$
 $header-includes$
-$endfor$
 
+$endfor$
 \begin{document}
 
 $body$
 
 $for(include-after)$
 $include-after$
+
 $endfor$
 \end{document}
