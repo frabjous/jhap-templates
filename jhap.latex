@@ -139,8 +139,8 @@ $endif$
 \renewcommand{\bottomrule}{\relax}
 % small vertical strech
 \renewcommand{\arraystretch}{1.4}
-$endif$
 
+$endif$
 % Set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
@@ -156,6 +156,11 @@ $endif$
 \providecommand{\tightlist}{%
     \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
 }
+
+% renew footnotecommand to check if inside; used by redefinition of
+% quote environment
+\let\origfootnote\footnote
+\renewcommand{\footnote}[1]{\infootnotetrue\origfootnote{#1}\infootnotefalse}
 
 %reduce font size in quoted text
 \renewenvironment{quote}
