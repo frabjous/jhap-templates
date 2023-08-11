@@ -240,16 +240,20 @@ div.csl-entry {
 
 /* JHAP Stuff */
 
+div.jhapbanner {
+    text-align: right;
+}
+
 div.jhapbanner div {
   display: inline-block;
   background-color: #43467b;
-  padding: 2rem 2rem 2rem 1rem;
+  padding: 2rem 2rem 2rem 6rem;
   max-width: 100%;
 }
 
 div.jhapbanner img {
   background-color: #43467b;
-  width: 100%;
+  width: 80%;
 }
 
 div.volinfo {
