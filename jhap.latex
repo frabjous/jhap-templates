@@ -29,6 +29,9 @@
 % some symbols like Euro
 \usepackage{textcomp}
 
+% for patching commands
+\usepackage{etoolbox}
+
 % allow set line spacing
 \usepackage{setspace}
 %\setstretch{1.5}
@@ -193,7 +196,14 @@ $endif$
 \setlength{\parskip}{0pt}
 \setlength{\partopsep}{0pt}
 
-% 
+% header/footer
+\renewcommand{\headrulewidth}{0pt}
+
+\fancyhead{}
+
+\fancyfoot{}
+
+\fancyfoot[R]{\small{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy vol.\ \thevolume\ no.\ \thevolnumber}}} \ \ \ \ [\(\thepage\)]}
 
 % convenience commands
 \newcommand{\columnbreak}{\newpage}
