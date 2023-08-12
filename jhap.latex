@@ -244,11 +244,14 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 \begin{document}
-\leavevmode\noindent%
-\parbox{3in}{%
-\noindent\textbf{\textsf{\small Journal for the History\\ of Analytical Philosophy}}
+\noindent\leavevmode%
+\noindent\parbox[t]{3in}{%
+\small%
+\textbf{\textsf{Journal for the History of Analytical Philosophy}}$if(volume)$
+
+\textsf{Volume $volume$$if(number)$, Number $number$$endif$$if(year)$ ($year$)$endif$}$endif$
 }%
-\hfill\phantom{.}\put(-43,-10pt){\fbox{\parbox{0.52in}{{\Huge\color{jhappurple}\noindent JH\\\noindent\hspace*{4.5pt}AP}}}}
+\hfill{\raisebox{1ex}{\fbox{\parbox[t]{0.52in}{{\Huge\color{jhappurple}\noindent JH\\\noindent\hspace*{4.5pt}AP}}}}}
 
 
 $if(abstract)$
