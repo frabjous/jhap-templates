@@ -151,7 +151,7 @@ $endif$
 \makeatother
 
 % format titles
-\titleformat{\section}[hang]{\sffamily\bfseries\large\raggedright}{\thesection.}{0.5ex}{}
+\titleformat{\section}[hang]{\linespread{1.2}\sffamily\bfseries\large\raggedright}{\thesection.}{0.5ex}{}
 \titleformat{\subsection}[hang]{\sffamily\bfseries\raggedright}{\thesubsection.}{0.5ex}{}
 \titleformat{\subsubsection}[hang]{\small\sffamily\bfseries\raggedright}{\thesubsubsection.}{0.5ex}{}
 
@@ -178,13 +178,17 @@ $endif$
 
 % CSL commands for bibliography
 \newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
+%\setlength{\cslhangindent}{1.5em}
+\setlength{\cslhangindent}{1.2em}
 \newlength{\csllabelwidth}
 \setlength{\csllabelwidth}{3em}
 \newlength{\cslentryspacingunit} % times entry-spacing
-\setlength{\cslentryspacingunit}{\parskip}
+%\setlength{\cslentryspacingunit}{\parskip}
+\setlength{\cslentryspacingunit}{0.5ex}
 \newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
-{% don't indent paragraphs
+{%
+    \subsection*{References}
+    % don't indent paragraphs
     \setlength{\parindent}{0pt}
     % turn on hanging indent if param 1 is 1
     \ifodd #1
@@ -192,8 +196,10 @@ $endif$
     \def\par{\hangindent=\cslhangindent\oldpar}
     \fi
     % set entry spacing
-    \setlength{\parskip}{#2\cslentryspacingunit}
-}{}%
+    %\setlength{\parskip}{#2\cslentryspacingunit}%
+    \setlength{\parskip}{\cslentryspacingunit}%
+    \begin{small}
+}{\end{small}}%
 \newcommand{\CSLBlock}[1]{#1\hfill\break}
 \newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
@@ -231,7 +237,5 @@ $body$
 $for(include-after)$
 $include-after$
 $endfor$
-
-\subsection*{References}
 
 \end{document}
