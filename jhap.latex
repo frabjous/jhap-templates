@@ -284,7 +284,7 @@ $endfor$$endif$
 
 \vfill \textsf{ISSN 2159-0303}
 
-\vfill\begin{large}\href{https://jhaponline.org}{\textsf{\textit{jhaponline.org}}}\end{large}
+\bigskip\begin{large}\href{https://jhaponline.org}{\textsf{\textit{jhaponline.org}}}\end{large}
 
 \end{center}
 }
@@ -292,6 +292,7 @@ $endfor$$endif$
 $for(header-includes)$
 $header-includes$
 $endfor$
+
 \begin{document}\thispagestyle{plain}
 \noindent\leavevmode%
 \parbox[t]{3in}{%
