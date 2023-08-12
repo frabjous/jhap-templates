@@ -61,7 +61,8 @@ $endif$
 \usepackage{calc}
 
 % allow for color options
-\usepackage{xcolor}
+\usepackage[HTML]{xcolor}
+\definecolor{jhappurple}{HTML}{43467b}
 
 % add URL line breaks if available
 \usepackage{xurl}
@@ -95,6 +96,9 @@ $endif$
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
 \makeatother
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+% for placing logo on first page
+\usepackage{eso-pic}
 
 $unicode.latex()$
 
@@ -130,7 +134,8 @@ $if(keywords)$
     pdfkeywords={$for(keywords)$$it$$sep$, $endfor$},
 $endif$
     colorlinks=true,
-    allcolors={[rgb]{0,0,0.7}},
+%    allcolors={[rgb]{0,0,0.7}},
+    allcolors={jhappurple},
     pdfcreator={LaTeX via pandoc}
 }
 
@@ -239,14 +244,23 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 \begin{document}
-\noindent\textbf{\textsf{Journal for the History of Analytical Philosophy}}\\
+\noindent\textbf{\textsf{\small Journal for the History of Analytical Philosophy}}
+\AddToShipoutPictureFG*{\AtTextUpperLeft{\hfill\parbox[t]{0.52in}{%
+\hfill\fbox{
+{\Huge
+
+\noindent JH\newline\\[-10pt]
+\noindent \hspace*{4.5pt}AP
+
+}}}}}
 
 $if(abstract)$
-\noindent\phantom{.}\hfill\parbox{3in}{
+\noindent\phantom{.}\hfill\parbox{3.8in}{
 
-\textsf{\textbf{ABSTRACT}}
+\setstretch{0.8}
 
-\begin{footnotesize}
+\begin{footnotesize}\sffamily
+ABSTRACT\\[0.5em]
 $abstract$
 \end{footnotesize}
 
