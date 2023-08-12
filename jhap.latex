@@ -7,8 +7,9 @@
 % set page dimensions
 \usepackage{geometry}
 $if(twosided)$
+\geometry{showframe,twoside,twocolumn,includehead,includefoot,landscape,papersize={8.5in,11in},left=0.7in,right=0.7in,top=0.5in=bottom=0.5in,columnsep=1in}
 $else$
-\geometry{twoside,papersize={5.5in,8.5in},left=0.6in, right=0.6in, top=0.9in, bottom=0.9in}
+\geometry{showframe,twoside,includehead,includefoot,papersize={5.5in,8.5in},left=0.6in, right=0.6in, top=0.5in, bottom=0.5in}
 $endif$
 
 % AMS math commands, symbols, font
@@ -226,19 +227,18 @@ $endif$
 \setlength{\partopsep}{0pt}
 
 % header/footer
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\headruleskip}{-2ex}
 
 \fancyhf{}
-\fancyfoot[R]{\small{\raisebox{1ex}{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}}
+\fancyfoot[R]{\small{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}
 \fancyhead[LE]{\small\textsf{$for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}}
 \fancyhead[LO]{\small\textsf{$if(reviewedtitle)$Review of \textit{$reviewedtitle$}$else$$if(title)$$title$$endif$$endif$}}
 \fancyhead[R]{\small\textsf{\thepage}}
 \pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
 
 \fancypagestyle{plain}{%
     \fancyhf{}
-    \fancyfoot[C]{\small\raisebox{1ex}{\textsf{\thepage}}}
+    \fancyfoot[C]{\small\textsf{\thepage}}
     \renewcommand{\headrulewidth}{0pt}
     \renewcommand{\footrulewidth}{0pt}
 }
@@ -294,7 +294,7 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
-\begin{document}\thispagestyle{plain}
+\begin{document}\vspace*{-7ex}\thispagestyle{plain}
 \noindent\leavevmode%
 \parbox[t]{3in}{%
 \small%
