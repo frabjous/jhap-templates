@@ -8,7 +8,7 @@
 \usepackage{geometry}
 $if(twosided)$
 $else$
-\geometry{papersize={5.5in,8.5in},margin=0.6in}
+\geometry{twoside,papersize={5.5in,8.5in},left=0.6in, right=0.6in, top=0.9in, bottom=0.9in}
 $endif$
 
 % AMS math commands, symbols, font
@@ -227,9 +227,9 @@ $endif$
 % header/footer
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\headruleskip}{-2ex}
-\renewcommand{\footruleskip}{-3in}
+
 \fancyhf{}
-\fancyfoot[C]{\small{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}
+\fancyfoot[C]{\small{\raisebox{1ex}{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}}
 \fancyhead[LE]{\small\textsf{$for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}}
 \fancyhead[LO]{\small\textsf{$if(title)$$title$$endif$}}
 \fancyhead[R]{\small\textsf{\thepage}}
@@ -237,7 +237,7 @@ $endif$
 
 \fancypagestyle{plain}{%
     \fancyhf{}
-    \fancyfoot[C]{\small\textsf{\thepage}}
+    \fancyfoot[C]{\small\raisebox{1ex}{\textsf{\thepage}}}
     \renewcommand{\headrulewidth}{0pt}
     \renewcommand{\footrulewidth}{0pt}
 }
