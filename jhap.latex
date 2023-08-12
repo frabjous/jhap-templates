@@ -232,7 +232,7 @@ $endif$
 \fancyhf{}
 \fancyfoot[R]{\small{\raisebox{1ex}{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}}
 \fancyhead[LE]{\small\textsf{$for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}}
-\fancyhead[LO]{\small\textsf{$if(title)$$title$$endif$}}
+\fancyhead[LO]{\small\textsf{$if(reviewedtitle)$Review of \textit{$reviewedtitle$}$else$$if(title)$$title$$endif$$endif$}}
 \fancyhead[R]{\small\textsf{\thepage}}
 \pagestyle{fancy}
 
@@ -312,10 +312,12 @@ $endif$$endif$
 \hfill{\raisebox{1ex}{\fbox{\parbox[t]{0.52in}{{\Huge\color{jhappurple}\noindent JH\\\noindent\hspace*{4.5pt}AP}}}}}
 
 $if(reviewedtitle)$
-\begin{small}\textsf{REVIEW}\end{small}\\
-\begin{Large}\textsf{\textbf{$if(reviewedauthor)$$for(reviewedauthor)$$it$$sep$, $endfor$, $else$$if(reviewededitor)$$for(reviewededitor)$$it$$sep$, $endfor$, ed., $endif$$endif$\textit{$reviewedtitle$$if(reviewedsubtitle)$: $reviewedsubtitle$$endif$}}}\end{Large}\\
-\textsf{$if(reviewedauthor)$$if(reviewededitor)$Edited by $for(reviewededitor)$$it$$sep$, $endfor$. $endif$$endif$$if(reviewedplace)$$reviewedplace$: $endif$$if(reviewedpublisher)$$reviewedpublisher$$endif$$if(reviewedyear)$, $reviewedyear$$endif$. $if(reviewedpages)$$reviewedpages$pp. $endif$$if(reviewedcost)$$$$reviewedcost$ $endif$$if(reviewedformat)$$reviewedformat$. $endif$$if(reviewedisbn)$ISBN $reviewedisbn$.$endif$}//
+{\raggedright
+\noindent\begin{small}\textsf{REVIEW}\end{small}\\[1ex]
+\begin{Large}\textsf{\textbf{$if(reviewedauthor)$$for(reviewedauthor)$$it$$sep$, $endfor$. $else$$if(reviewededitor)$$for(reviewededitor)$$it$$sep$, $endfor$, ed. $endif$$endif$\textit{$reviewedtitle$$if(reviewedsubtitle)$: $reviewedsubtitle$$endif$}}}\end{Large}\\[0.5ex]
+\textsf{\raggedright\small $if(reviewedauthor)$$if(reviewededitor)$Edited by $for(reviewededitor)$$it$$sep$, $endfor$. $endif$$endif$$if(reviewedplace)$$reviewedplace$: $endif$$if(reviewedpublisher)$$reviewedpublisher$$endif$$if(reviewedyear)$, $reviewedyear$$endif$. $if(reviewedpages)$$reviewedpages$pp. $endif$$if(reviewedcost)$\$$$reviewedcost$ $endif$$if(reviewedformat)$$reviewedformat$. $endif$$if(reviewedisbn)$ISBN $reviewedisbn$.$endif$}\\[1.5ex]
 \textsf{\textit{Reviewed by}}
+}
 $else$
 $if(title)$
 \bigskip\noindent\begin{LARGE}\textsf{\textbf{$title$}}\end{LARGE}
@@ -325,12 +327,12 @@ $if(subtitle)$
 $endif$
 $endif$
 
-\bigskip\noindent$for(author)$
+$if(reviewedtitle)$\medskip$else$\bigskip$endif$\noindent$for(author)$
 \parbox{0.45\linewidth}{%
 \textsf{\textbf{$it.name$}}\\
 \href{mailto:$it.email$}{\textsf{$it.email$}}\\
 \textsf{\textit{$it.affiliation$}}
-} $endfor$
+}\hfill$endfor$
 
 $if(abstract)$
 \par\bigskip\par\bigskip\noindent\phantom{.}\hfill\parbox{3.8in}{
@@ -347,7 +349,7 @@ $endif$
 
 \bigskip
 
-$body$
+\noindent $body$
 
 $if(twosided)$
 $else$
