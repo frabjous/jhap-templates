@@ -9,7 +9,7 @@
 $for(author)$
     <meta name="author" content="$it.name$">
 $endfor$
-    <meta name="copyright" content="Copyright $if(year)$$year$ $endif$© $for(author)$$it.name$$sep$, $endfor$">
+    <meta name="copyright" content="Copyright © $if(year)$$year$ $endif$ $for(author)$$it.name$$sep$, $endfor$">
 $if(date-meta)$
     <meta name="dcterms.date" content="$date-meta$">
 $endif$
@@ -533,7 +533,7 @@ $endif$
 $body$
 </article>
 <footer>
-    Copyright $if(year)$$year$$endif$ © $if(author)$$for(author)$$it.name$$sep$, $endfor$$endif$
+    Copyright © $if(year)$$year$$endif$ $if(author)$$for(author)$$it.name$$sep$, $endfor$$endif$
 </footer>
 </main>
 <footer>
