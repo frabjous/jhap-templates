@@ -250,6 +250,20 @@ $endif$
 \xspaceskip=\fontdimen2\font plus \fontdimen3\font minus \fontdimen4\font
 \advance\xspaceskip by \fontdimen7\font
 
+%define JHAP page
+\newcommand{\jhappage}{%
+\begin{center}
+
+\begin{LARGE}
+\noindent\textcolor{jhappurple}{Journal for the History\\
+of Analytical Philosophy}
+
+\end{LARGE}
+
+\textsf{$if(volume)$VOLUME $volume$$if(number)$, NUMBER $number$$endif$$endif$$if(year)$ ($year$)$endif$}
+\end{center}
+}
+
 $for(header-includes)$
 $header-includes$
 $endfor$
@@ -307,6 +321,11 @@ $endif$
 \bigskip
 
 $body$
+
+$if(twosided)$
+$else$
+\clearpage\jhappage
+$endif$
 
 $for(include-after)$
 $include-after$
