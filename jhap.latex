@@ -36,7 +36,7 @@ $endif$
 
 % allow set line spacing
 \usepackage{setspace}
-%\setstretch{1.5}
+\setstretch{1.05}
 
 % customize headers and footers
 \usepackage{fancyhdr}
@@ -50,6 +50,9 @@ $endif$
 % microtype package for better typography
 \usepackage{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+
+% try to stop widows and orphans
+\usepackage[all]{nowidow}
 
 % verbatim in notes
 \usepackage{fancyvrb}
@@ -71,6 +74,13 @@ $endif$
 
 % better underlining and strikeout
 \usepackage[normalem]{ulem}
+
+% prevent pandoc trying to indent everything
+\usepackage{noindentafter}
+\NoIndentAfterEnv{quote}
+\NoIndentAfterEnv{itemize}
+\NoIndentAfterEnv{enumerate}
+\NoIndentAfterCmd{\]}
 
 % PDF bookmarks; also loads hyperref
 \usepackage{bookmark}
@@ -152,8 +162,8 @@ $endif$
 
 % format titles
 \titleformat{\section}[hang]{\linespread{1.2}\sffamily\bfseries\large\raggedright}{\thesection.}{0.5ex}{}
-\titleformat{\subsection}[hang]{\sffamily\bfseries\raggedright}{\thesubsection.}{0.5ex}{}
-\titleformat{\subsubsection}[hang]{\small\sffamily\bfseries\raggedright}{\thesubsubsection.}{0.5ex}{}
+\titleformat{\subsection}[hang]{\linespread{1.2}\sffamily\bfseries\raggedright}{\thesubsection.}{0.5ex}{}
+\titleformat{\subsubsection}[hang]{\linespread{1.2}\small\sffamily\bfseries\raggedright}{\thesubsubsection.}{0.5ex}{}
 
 % prevent overfull lines
 \setlength{\emergencystretch}{3em}
@@ -171,10 +181,10 @@ $endif$
 %reduce font size in quoted text
 \renewenvironment{quote}
     {\list{}{\rightmargin\leftmargin}%
-        \setlength{\parskip}{0pt}%
+        \setlength{\parskip}{0pt}\linespread{1}%
         \item\relax\ifinfootnote\else\small\fi}
     {\endlist}
-\patchcmd{\quote}{\rightmargin}{\leftmargin .7em \rightmargin}{}{}
+\patchcmd{\quote}{\rightmargin}{\leftmargin 1.5em \rightmargin}{}{}
 
 % CSL commands for bibliography
 \newlength{\cslhangindent}
@@ -231,6 +241,17 @@ $endfor$
 \begin{document}
 \noindent\textbf{\textsf{Journal for the History of Analytical Philosophy}}\\
 
+$if(abstract)$
+\noindent\phantom{.}\hfill\parbox{3in}{
+
+\textsf{\textbf{ABSTRACT}}
+
+\begin{footnotesize}
+$abstract$
+\end{footnotesize}
+
+}\hfill{\phantom{.}
+$endif$
 
 $body$
 
