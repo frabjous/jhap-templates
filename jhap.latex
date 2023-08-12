@@ -313,7 +313,7 @@ $endif$$endif$
 
 $if(reviewedtitle)$
 \begin{small}\textsf{REVIEW}\end{small}\\
-\begin{Large}\textsf{\textbf{$if(reviewedauthor)$$for(reviewedauthor)$$it$$sep$, $endfor$, $else$$if(reviewededitor)$$for(reviewededitor)$$it$$sep$, $endfor$, ed., $endif$$endif$\textit{$reviewedtitle$$if(reviewedsubtitle)$: $reviewedsubtitle$$endif$}}\end{Large}\\
+\begin{Large}\textsf{\textbf{$if(reviewedauthor)$$for(reviewedauthor)$$it$$sep$, $endfor$, $else$$if(reviewededitor)$$for(reviewededitor)$$it$$sep$, $endfor$, ed., $endif$$endif$\textit{$reviewedtitle$$if(reviewedsubtitle)$: $reviewedsubtitle$$endif$}}}\end{Large}\\
 \textsf{$if(reviewedauthor)$$if(reviewededitor)$Edited by $for(reviewededitor)$$it$$sep$, $endfor$. $endif$$endif$$if(reviewedplace)$$reviewedplace$: $endif$$if(reviewedpublisher)$$reviewedpublisher$$endif$$if(reviewedyear)$, $reviewedyear$$endif$. $if(reviewedpages)$$reviewedpages$pp. $endif$$if(reviewedcost)$$$$reviewedcost$ $endif$$if(reviewedformat)$$reviewedformat$. $endif$$if(reviewedisbn)$ISBN $reviewedisbn$.$endif$}//
 \textsf{\textit{Reviewed by}}
 $else$
