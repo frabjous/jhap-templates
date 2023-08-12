@@ -244,15 +244,12 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 \begin{document}
-\noindent\textbf{\textsf{\small Journal for the History of Analytical Philosophy}}
-\AddToShipoutPictureFG*{\AtTextUpperLeft{\hfill\parbox[t]{0.52in}{%
-\hfill\fbox{
-{\Huge
+\leavevmode\noindent%
+\parbox{3in}{%
+\noindent\textbf{\textsf{\small Journal for the History\\ of Analytical Philosophy}}
+}%
+\hfill\phantom{.}\put(-43,-10pt){\fbox{\parbox{0.52in}{{\Huge\color{jhappurple}\noindent JH\\\noindent\hspace*{4.5pt}AP}}}}
 
-\noindent JH\newline\\[-10pt]
-\noindent \hspace*{4.5pt}AP
-
-}}}}}
 
 $if(abstract)$
 \noindent\phantom{.}\hfill\parbox{3.8in}{
