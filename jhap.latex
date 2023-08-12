@@ -252,15 +252,40 @@ $endif$
 
 %define JHAP page
 \newcommand{\jhappage}{%
+\thispagestyle{empty}
 \begin{center}
 
-\begin{LARGE}
+\begin{Huge}
 \noindent\textcolor{jhappurple}{Journal for the History\\
 of Analytical Philosophy}
 
-\end{LARGE}
+\end{Huge}
 
-\textsf{$if(volume)$VOLUME $volume$$if(number)$, NUMBER $number$$endif$$endif$$if(year)$ ($year$)$endif$}
+\bigskip\textsf{$if(volume)$VOLUME $volume$$if(number)$, NUMBER $number$$endif$$endif$$if(year)$ ($year$)$endif$}
+
+
+\vfill$if(jhapeditorinchief)$\textsf{\textbf{Editor in Chief}}\\
+$jhapeditorinchief$$endif$
+
+$if(jhapboard)$\bigskip\textsf{\textbf{Editorial Board}}\\
+$for(jhapboard)$$jhapboard$$sep$\\
+$endfor$$endif$
+
+$if(jhapspecialissueseditor)$\bigskip\textsf{\textbf{Editor for Special Issues}}\\
+$jhapspecialissueseditor$$endif$
+
+$if(jhapreviewseditors)$\bigskip\textsf{\textbf{Review Editors}}\\
+$for(jhapreviewseditors)$$jhapreviewseditors$$sep$\\
+$endfor$$endif$
+
+$if(jhapdesign)$\bigskip\textsf{\textbf{Design and Layout}}\\
+$for(jhapdesign)$$jhapdesign$$sep$\\
+$endfor$$endif$
+
+\vfill \textsf{ISSN 2159-0303}
+
+\vfill\begin{large}\href{https://jhaponline.org}{\textsf{\textit{jhaponline.org}}}\end{large}
+
 \end{center}
 }
 
@@ -324,6 +349,7 @@ $body$
 
 $if(twosided)$
 $else$
+\vfill\begin{center}\textsf{Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}\end{center}
 \clearpage\jhappage
 $endif$
 
