@@ -281,6 +281,7 @@ div.mainheader {
 }
 
 div.reviewlabel {
+  margin-top: 1rem;
   text-transform: uppercase;
 }
 
