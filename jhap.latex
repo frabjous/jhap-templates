@@ -229,7 +229,7 @@ $endif$
 \renewcommand{\headruleskip}{-2ex}
 
 \fancyhf{}
-\fancyfoot[C]{\small{\raisebox{1ex}{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}}
+\fancyfoot[R]{\small{\raisebox{1ex}{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}}
 \fancyhead[LE]{\small\textsf{$for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}}
 \fancyhead[LO]{\small\textsf{$if(title)$$title$$endif$}}
 \fancyhead[R]{\small\textsf{\thepage}}
@@ -270,11 +270,18 @@ $endif$$endif$
 }%
 \hfill{\raisebox{1ex}{\fbox{\parbox[t]{0.52in}{{\Huge\color{jhappurple}\noindent JH\\\noindent\hspace*{4.5pt}AP}}}}}
 
+$if(reviewedtitle)$
+\begin{small}\textsf{REVIEW}\end{small}\\
+\begin{Large}\textsf{\textbf{$if(reviewedauthor)$$for(reviewedauthor)$$it$$sep$, $endfor$, $else$$if(reviewededitor)$$for(reviewededitor)$$it$$sep$, $endfor$, ed., $endif$$endif$\textit{$reviewedtitle$$if(reviewedsubtitle)$: $reviewedsubtitle$$endif$}}\end{Large}\\
+\textsf{$if(reviewedauthor)$$if(reviewededitor)$Edited by $for(reviewededitor)$$it$$sep$, $endfor$. $endif$$endif$$if(reviewedplace)$$reviewedplace$: $endif$$if(reviewedpublisher)$$reviewedpublisher$$endif$$if(reviewedyear)$, $reviewedyear$$endif$. $if(reviewedpages)$$reviewedpages$pp. $endif$$if(reviewedcost)$$$$reviewedcost$ $endif$$if(reviewedformat)$$reviewedformat$. $endif$$if(reviewedisbn)$ISBN $reviewedisbn$.$endif$}//
+\textsf{\textit{Reviewed by}}
+$else$
 $if(title)$
 \bigskip\noindent\begin{LARGE}\textsf{\textbf{$title$}}\end{LARGE}
 $endif$
 $if(subtitle)$
 \par\smallskip\noindent\begin{Large}\textsf{$subtitle$}\end{Large}
+$endif$
 $endif$
 
 \bigskip\noindent$for(author)$
