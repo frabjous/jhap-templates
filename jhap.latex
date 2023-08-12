@@ -81,6 +81,7 @@ $endif$
 \NoIndentAfterEnv{quote}
 \NoIndentAfterEnv{itemize}
 \NoIndentAfterEnv{enumerate}
+\NoIndentAfterEnv{figure}
 \NoIndentAfterCmd{\]}
 
 % PDF bookmarks; also loads hyperref
