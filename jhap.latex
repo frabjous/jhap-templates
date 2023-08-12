@@ -249,13 +249,33 @@ $endfor$
 \small%
 \textbf{\textsf{Journal for the History of Analytical Philosophy}}$if(volume)$
 
-\textsf{Volume $volume$$if(number)$, Number $number$$endif$$if(year)$ ($year$)$endif$}$endif$
+\textsf{Volume $volume$$if(number)$, Number $number$$endif$$if(year)$ ($year$)$endif$}$endif$$if(specialvoltitle)$
+
+\textsf{SPECIAL VOLUME}
+
+\textsf{\textit{$specialvoltitle$}}$if(specialvoleditor)$
+
+\textsf{Edited by $for(specialvoleditor/allbutlast)$$it.name$, $it.affiliation$$sep$, $endfor$$if(specialvoleditor/allbutlast)$ and $endif$$for(specialvoleditor/last)$$it.name$, $it.affiliation$$endfor$}
+$endif$$endif$
 }%
 \hfill{\raisebox{1ex}{\fbox{\parbox[t]{0.52in}{{\Huge\color{jhappurple}\noindent JH\\\noindent\hspace*{4.5pt}AP}}}}}
 
+$if(title)$
+\bigskip\noindent\begin{LARGE}\textsf{\textbf{$title$}}\end{LARGE}
+$endif$
+$if(subtitle)$
+\par\smallskip\noindent\begin{Large}\textsf{$subtitle$}\end{Large}
+$endif$
+
+\bigskip\noindent$for(author)$
+\parbox{0.45\linewidth}{%
+\textsf{\textbf{$it.name$}}\\
+\href{mailto:$it.email$}{\textsf{$it.email$}}\\
+\textsf{\textit{$it.affiliation$}}
+} $endfor$
 
 $if(abstract)$
-\noindent\phantom{.}\hfill\parbox{3.8in}{
+\par\bigskip\par\bigskip\noindent\phantom{.}\hfill\parbox{3.8in}{
 
 \setstretch{0.8}
 
@@ -266,6 +286,8 @@ $abstract$
 
 }\hfill{\phantom{.}
 $endif$
+
+\bigskip
 
 $body$
 
