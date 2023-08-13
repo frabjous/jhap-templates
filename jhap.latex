@@ -229,16 +229,26 @@ $endif$
 % header/footer
 
 \fancyhf{}
+$if(twosided)$
+\newcounter{fakepage}
+\setcounter{fakepage}{0}
+\fancyfoot[R]{\small{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}
+$else$
 \fancyfoot[R]{\small{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}
 \fancyhead[LE]{\small\textsf{$for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}}
 \fancyhead[LO]{\small\textsf{$if(reviewedtitle)$Review of \textit{$reviewedtitle$}$else$$if(title)$$title$$endif$$endif$}}
 \fancyhead[R]{\small\textsf{\thepage}}
+$endif$
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
 
 \fancypagestyle{plain}{%
     \fancyhf{}
+$if(twosided)$
+    \fancyfoot[R]{\parbox{4.3in}{\centering\small\refstepcounter{fakepage}\textsf{\arabic{fakepage}}}}
+$else$
     \fancyfoot[C]{\small\textsf{\thepage}}
+$endif$
     \renewcommand{\headrulewidth}{0pt}
     \renewcommand{\footrulewidth}{0pt}
 }
