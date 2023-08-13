@@ -4,21 +4,21 @@
     "contactemail": "klement@umass.edu",
     "importreplacements": {
         " -- ": "---",
-        "\\. \\. \\.": "...",
-        "\\[\\.\\.\\.\\]": "...",
+        "\\. \\. \\.": "…",
+        "\\[\\.\\.\\.\\]": "…",
         "\\[…\\]": "…",
-        "\\b([A-Z])\\. ?([A-Z])\\. ?([A-Z])\\.": "\\1. \\2. \\3.",
-        "\\b([A-Z])\\. ?([A-Z])\\.": "\\1. \\2."
+        "\\b([A-Z])\\. ?([A-Z])\\. ?([A-Z])\\.": "\\1. \\2. \\3.",
+        "\\b([A-Z])\\. ?([A-Z])\\.": "\\1. \\2."
     },
     "assignmentTypes": {
         "article": {
             "createEdition": [
                 {
-                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% -t epub -o %documentid%-%version%.epub main.md",
+                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap --split-level=1 -t epub -o %documentid%-%version%.epub main.md",
                     "outputfile": "%documentid%-%version%.epub"
                 },
                 {
-                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% -t html -o %documentid%-%version%.html main.md",
+                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t html -o %documentid%-%version%.html main.md",
                     "outputfile": "%documentid%-%version%.html"
                 },
                 {
@@ -26,15 +26,19 @@
                     "outputfile": "%documentid%-%version%.md"
                 },
                 {
-                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% -t pdf -o %documentid%-%version%-tmp.pdf main.md && gs -dNOPAUSE -dFastWebView -sDEVICE=pdfwrite -sOUTPUTFILE=%documentid%-%version%.pdf -dBATCH %documentid%-%version%-tmp.pdf && rm %documentid%-%version%-tmp.pdf",
+                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t pdf -o %documentid%-%version%-tmp.pdf main.md && gs -dNOPAUSE -dFastWebView -sDEVICE=pdfwrite -sOUTPUTFILE=%documentid%-%version%.pdf -dBATCH %documentid%-%version%-tmp.pdf && rm %documentid%-%version%-tmp.pdf",
                     "outputfile": "%documentid%-%version%.pdf"
+                },
+                                {
+                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml -M twosided=true --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t pdf -o %documentid%-twocolumn-%version%-tmp.pdf main.md && gs -dNOPAUSE -dFastWebView -sDEVICE=pdfwrite -sOUTPUTFILE=%documentid%-twocolumn-%version%.pdf -dBATCH %documentid%-twocolumn-%version%-tmp.pdf && rm %documentid%-twocolumn-%version%-tmp.pdf",
+                    "outputfile": "%documentid%-twocolumn-%version%.pdf"
                 },
                 {
                     "command": "php -r 'echo json_decode(file_get_contents(\"metadata.json\"))->abstract;' | pandoc -f markdown -t plain --wrap none -o abstract.txt",
                     "outputfile": "abstract.txt"
                 },
                 {
-                    "command": "echo \"\" | pandoc --metadata-file metadata.yaml --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --wrap none -t plain -o references.txt",
+                    "command": "echo \"\" | pandoc --metadata-file metadata.yaml --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --wrap none -t plain -o references.txt",
                     "outputfile": "references.txt"
                 },
                 {
@@ -44,13 +48,13 @@
             ],
             "output": {
                 "pdf": {
-                    "editorcommand": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --template jhap -t pdf -o %outputfile% %rootdocument%"
+                    "editorcommand": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t pdf -o %outputfile% %rootdocument%"
                 },
                 "html": {
-                    "editorcommand": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --template jhap -t html -o %outputfile% %rootdocument%"
+                    "editorcommand": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t html -o %outputfile% %rootdocument%"
                 },
                 "epub": {
-                    "editorcommand": "pandoc --metadata-file %projectdir%/editors.yaml --embed-resources --metadata-file metadata.yaml --wrap preserve --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --template jhap --split-level=1 -t epub -o %outputfile% %rootdocument%"
+                    "editorcommand": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap --split-level=1 -t epub -o %outputfile% %rootdocument%"
                 }
             },
             "splitsentences": true,
@@ -158,11 +162,11 @@
             "convert": "pandoc %upload% -t markdown --quiet --reference-location=block --wrap=none",
             "createEdition": [
                 {
-                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% -t epub -o %documentid%-%version%.epub main.md",
+                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap --split-level=1 -t epub -o %documentid%-%version%.epub main.md",
                     "outputfile": "%documentid%-%version%.epub"
                 },
                 {
-                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% -t html -o %documentid%-%version%.html main.md",
+                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t html -o %documentid%-%version%.html main.md",
                     "outputfile": "%documentid%-%version%.html"
                 },
                 {
@@ -170,15 +174,19 @@
                     "outputfile": "%documentid%-%version%.md"
                 },
                 {
-                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% -t pdf -o %documentid%-%version%-tmp.pdf main.md && gs -dNOPAUSE -dFastWebView -sDEVICE=pdfwrite -sOUTPUTFILE=%documentid%-%version%.pdf -dBATCH %documentid%-%version%-tmp.pdf && rm %documentid%-%version%-tmp.pdf",
-                    "outputfile": "%documentid%-onecolumn-%version%.pdf"
+                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t pdf -o %documentid%-%version%-tmp.pdf main.md && gs -dNOPAUSE -dFastWebView -sDEVICE=pdfwrite -sOUTPUTFILE=%documentid%-%version%.pdf -dBATCH %documentid%-%version%-tmp.pdf && rm %documentid%-%version%-tmp.pdf",
+                    "outputfile": "%documentid%-%version%.pdf"
+                },
+                                {
+                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml -M twosided=true --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t pdf -o %documentid%-twocolumn-%version%-tmp.pdf main.md && gs -dNOPAUSE -dFastWebView -sDEVICE=pdfwrite -sOUTPUTFILE=%documentid%-twocolumn-%version%.pdf -dBATCH %documentid%-twocolumn-%version%-tmp.pdf && rm %documentid%-twocolumn-%version%-tmp.pdf",
+                    "outputfile": "%documentid%-twocolumn-%version%.pdf"
                 },
                 {
                     "command": "php -r 'echo json_decode(file_get_contents(\"metadata.json\"))->abstract;' | pandoc -f markdown -t plain --wrap none -o abstract.txt",
                     "outputfile": "abstract.txt"
                 },
                 {
-                    "command": "echo \"\" | pandoc --metadata-file metadata.yaml --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --wrap none -t plain -o references.txt",
+                    "command": "echo \"\" | pandoc --metadata-file metadata.yaml --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --wrap none -t plain -o references.txt",
                     "outputfile": "references.txt"
                 },
                 {
@@ -188,13 +196,13 @@
             ],
             "output": {
                 "pdf": {
-                    "editorcommand": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% -t pdf -o %outputfile% %rootdocument%"
+                    "editorcommand": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t pdf -o %outputfile% %rootdocument%"
                 },
                 "html": {
-                    "editorcommand": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% -t html -o %outputfile% %rootdocument%"
+                    "editorcommand": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t html -o %outputfile% %rootdocument%"
                 },
                 "epub": {
-                    "editorcommand": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% -t epub -o %outputfile% %rootdocument%"
+                    "editorcommand": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap --split-level=1 -t epub -o %outputfile% %rootdocument%"
                 }
             },
             "splitsentences": true,
