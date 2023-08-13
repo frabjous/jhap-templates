@@ -533,7 +533,7 @@ $endif$
 $body$
 </article>
 <footer>
-    Copyright © $if(year)$$year$$endif$ $if(author)$$for(author)$$it.name$$sep$, $endfor$$endif$
+    Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$
 </footer>
 </main>
 <footer>
