@@ -182,10 +182,6 @@
                     "outputfile": "%documentid%-twocolumn-%version%.pdf"
                 },
                 {
-                    "command": "php -r 'echo json_decode(file_get_contents(\"metadata.json\"))->abstract;' | pandoc -f markdown -t plain --wrap none -o abstract.txt",
-                    "outputfile": "abstract.txt"
-                },
-                {
                     "command": "echo \"\" | pandoc --metadata-file metadata.yaml --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --wrap none -t plain -o references.txt",
                     "outputfile": "references.txt"
                 },
