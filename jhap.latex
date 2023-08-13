@@ -344,9 +344,9 @@ $if(subtitle)$
 $endif$
 $endif$
 
-$if(reviewedtitle)$\medskip$else$\bigskip$endif$\noindent$for(author)$
+\noindent$for(author)$
 \parbox{0.45\linewidth}{%
-\textsf{\textbf{$it.name$}}\\
+$if(reviewedtitle)$\medskip$else$\bigskip$endif$\textsf{\textbf{$it.name$}}\\
 \href{mailto:$it.email$}{\textsf{$it.email$}}\\
 \textsf{\textit{$it.affiliation$}}
 }\hfill$endfor$
