@@ -300,9 +300,9 @@ $endfor$$endif$
 \bigskip\begin{large}\href{https://jhaponline.org}{\textsf{\textit{jhaponline.org}}}\end{large}
 $if(twosided)$
 
-\bigskip\textsf{Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}
+\bigskip\textsf{Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}%
 $endif$
-\end{$if(twosided)$flushright$else$center$endif$}
+\end{$if(twosided)$flushright$else$center$endif$}%
 }
 
 $for(header-includes)$
