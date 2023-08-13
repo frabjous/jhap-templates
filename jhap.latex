@@ -7,9 +7,9 @@
 % set page dimensions
 \usepackage{geometry}
 $if(twosided)$
-\geometry{showframe,twoside,twocolumn,includehead,includefoot,landscape,papersize={8.5in,11in},left=0.7in,right=0.7in,top=0.5in=bottom=0.5in,columnsep=1in}
+\geometry{twoside,twocolumn,includehead,includefoot,landscape,papersize={8.5in,11in}, left=0.8in, right=0.8in, top=0.5in, bottom=0.5in,columnsep=0.8in}
 $else$
-\geometry{showframe,twoside,includehead,includefoot,papersize={5.5in,8.5in},left=0.6in, right=0.6in, top=0.5in, bottom=0.5in}
+\geometry{twoside,includehead,includefoot,papersize={5.5in,8.5in},left=0.6in, right=0.6in, top=0.5in, bottom=0.5in}
 $endif$
 
 % AMS math commands, symbols, font
@@ -254,7 +254,7 @@ $endif$
 %define JHAP page
 \newcommand{\jhappage}{%
 \thispagestyle{empty}
-\begin{center}
+\begin{$if(twosided)$flushright$else$center$endif$}
 
 \begin{Huge}
 \noindent\textcolor{jhappurple}{Journal for the History\\
@@ -286,21 +286,26 @@ $endfor$$endif$
 \vfill \textsf{ISSN 2159-0303}
 
 \bigskip\begin{large}\href{https://jhaponline.org}{\textsf{\textit{jhaponline.org}}}\end{large}
+$if(twosided)$
 
-\end{center}
+\bigskip\textsf{Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}
+$endif$
+\end{$if(twosided)$flushright$else$center$endif$}
 }
 
 $for(header-includes)$
 $header-includes$
 $endfor$
 
-\begin{document}\vspace*{-7ex}\thispagestyle{plain}
+\begin{document}%
+$if(twosided)$\vspace*{-7ex}\jhappage$endif$
+\vspace*{-7ex}\thispagestyle{plain}
 \noindent\leavevmode%
 \parbox[t]{3in}{%
 \small%
-\textbf{\textsf{Journal for the History of Analytical Philosophy}}$if(volume)$
+$if(twosided)$\phantom{$endif$\textbf{\textsf{Journal for the History of Analytical Philosophy}}$if(twosided)$}$endif$$if(volume)$
 
-\textsf{Volume $volume$$if(number)$, Number $number$$endif$$if(year)$ ($year$)$endif$}$endif$$if(specialvoltitle)$
+$if(twosided)$\phantom{$endif$\textsf{Volume $volume$$if(number)$, Number $number$$endif$$if(year)$ ($year$)$endif$}$if(twosided)$}$endif$$endif$$if(specialvoltitle)$
 
 \textsf{SPECIAL VOLUME}
 
