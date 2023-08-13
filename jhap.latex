@@ -233,6 +233,8 @@ $if(twosided)$
 \newcounter{fakepage}
 \setcounter{fakepage}{0}
 \fancyfoot[R]{\small{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}
+\fancyhead[L]{\parbox{4.3in}{\small\refstepcounter{fakepage}\textsf{\arabic{fakepage}}\hfill\textsf{$for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}}}
+\fancyhead[R]{\parbox{4.3in}{\small\textsf{$if(reviewedtitle)$Review of \textit{$reviewedtitle$}$else$$if(title)$$title$$endif$$endif$\hfill\refstepcounter{fakepage}\arabic{fakepage}}}}
 $else$
 \fancyfoot[R]{\small{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}
 \fancyhead[LE]{\small\textsf{$for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}}
