@@ -18,7 +18,6 @@ $endif$
 % T1 output font encoding
 \usepackage[T1]{fontenc}
 
-\usepackage[sfdefault]{noto}
 \usepackage{notomath}
 
 % some symbols like Euro
