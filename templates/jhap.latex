@@ -20,6 +20,7 @@ $endif$
 
 \usepackage{sourcesanspro}
 \usepackage[default,regular,oldstyle,bold]{sourceserifpro}
+\usepackage[italic]{mathastext}
 
 % some symbols like Euro
 \usepackage{textcomp}
