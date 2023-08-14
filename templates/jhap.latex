@@ -23,11 +23,16 @@ $endif$
 %\usepackage{libertinust1math}
 
 % font choice: TeX Gyre Pagella
-\usepackage[osf]{newpxtext}
-\usepackage{newpxmath}
+%\usepackage[osf]{newpxtext}
+%\usepackage{newpxmath}
+%
+%%Open Sans as default sans
+%\usepackage[defaultsans]{opensans}
 
-%Open Sans as default sans
-\usepackage[defaultsans]{opensans}
+\usepackage{newtxmath}
+\usepackage{librefranklin}
+\usepackage{librebaskerville}
+\usepackage[italic]{mathastext}
 
 % some symbols like Euro
 \usepackage{textcomp}
