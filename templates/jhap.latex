@@ -18,9 +18,10 @@ $endif$
 % T1 output font encoding
 \usepackage[T1]{fontenc}
 
-\usepackage{sourcesanspro}
-\usepackage{fbb}
-\usepackage[italic]{mathastext}
+\usepackage[osf]{newpxtext}
+\usepackage{newpxmath}
+
+\usepackage[defaultsans]{opensans}
 
 % some symbols like Euro
 \usepackage{textcomp}
