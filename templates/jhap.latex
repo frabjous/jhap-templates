@@ -16,7 +16,7 @@ $endif$
 \usepackage{amsmath,amssymb}
 
 % T1 output font encoding
-%\usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc}
 
 % font-choice Libertinus
 %\usepackage{libertinus}
@@ -29,9 +29,10 @@ $endif$
 %%Open Sans as default sans
 %\usepackage[defaultsans]{opensans}
 
-\usepackage[cmintegrals,cmbraces]{newtxmath}
-\usepackage{ebgaramond-maths}
-%\usepackage{inter}
+\usepackage{inter}
+\usepackage{garamondx}
+\usepackage[garamondx,cmbraces]{newtxmath}
+
 
 % some symbols like Euro
 \usepackage{textcomp}
