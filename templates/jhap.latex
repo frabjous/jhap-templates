@@ -22,12 +22,16 @@ $endif$
 %\usepackage{libertinus}
 %\usepackage{libertinust1math}
 
-% font choice: TeX Gyre Pagella
-\usepackage[osf]{newpxtext}
-\usepackage{newpxmath}
+%% font choice: TeX Gyre Pagella
+%\usepackage[osf]{newpxtext}
+%\usepackage{newpxmath}
+%
+%%Open Sans as default sans
+%\usepackage[defaultsans]{opensans}
 
-%Open Sans as default sans
-\usepackage[defaultsans]{opensans}
+\usepackage[cmintegrals,cmbraces]{newtxmath}
+\usepackage{ebgaramond-maths}
+\usepackage[sfdefault]{inter}
 
 % some symbols like Euro
 \usepackage{textcomp}
