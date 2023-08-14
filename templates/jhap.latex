@@ -31,7 +31,7 @@ $endif$
 
 \usepackage{newtxmath}
 \usepackage{librefranklin}
-\usepackage{librebaskerville}
+\usepackage[scale=0.85]{librebaskerville}
 \usepackage[italic]{mathastext}
 
 % some symbols like Euro
