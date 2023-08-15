@@ -18,21 +18,9 @@ $endif$
 % T1 output font encoding
 \usepackage[T1]{fontenc}
 
-% font-choice Libertinus
-%\usepackage{libertinus}
-%\usepackage{libertinust1math}
-
-%% font choice: TeX Gyre Pagella
-%\usepackage[osf]{newpxtext}
-%\usepackage{newpxmath}
-%
-%%Open Sans as default sans
-%\usepackage[defaultsans]{opensans}
-
 \usepackage{inter}
-\usepackage{garamondx}
-\usepackage[garamondx,cmbraces]{newtxmath}
-
+\usepackage[cmintegrals,cmbraces]{newtxmath}
+\usepackage{ebgaramond-maths}
 
 % some symbols like Euro
 \usepackage{textcomp}
