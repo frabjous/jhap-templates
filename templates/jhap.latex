@@ -82,6 +82,7 @@ $endif$
 \NoIndentAfterEnv{quote}
 \NoIndentAfterEnv{itemize}
 \NoIndentAfterEnv{enumerate}
+\NoIndentAfterEnv{description}
 \NoIndentAfterEnv{figure}
 \NoIndentAfterCmd{\]}
 

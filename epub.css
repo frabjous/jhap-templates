@@ -9,13 +9,33 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   font-size: 100%;
   vertical-align: baseline;
 }
-ol, ul, li, dl, dt, dd {
+ol, ul, li {
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
   vertical-align: baseline;
 }
+
+dl {
+    padding: 0 0 0 1.5rem;
+    font-size: 100%;
+    vertical-align: baseline;
+    text-indent: -1.5rem;
+    margin: 1.5rem 0 0.5rem 0;
+}
+
+dt {
+    font-weight: bold;
+    display: inline;
+}
+
+dd {
+    display: inline;
+    margin-left: 0.5rem;
+}
+
+
 html {
   line-height: 1.2;
   font-family: serif;
