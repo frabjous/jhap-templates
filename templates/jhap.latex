@@ -18,16 +18,14 @@ $endif$
 % T1 output font encoding
 \usepackage[T1]{fontenc}
 
-% font-choice Libertinus
-%\usepackage{libertinus}
-%\usepackage{libertinust1math}
-
 % font choice: TeX Gyre Pagella
-\usepackage[osf]{newpxtext}
-\usepackage{newpxmath}
+%\usepackage[osf]{newpxtext}
+%\usepackage{newpxmath}
 
 %Open Sans as default sans
-\usepackage[defaultsans]{opensans}
+%\usepackage[defaultsans]{opensans}
+
+\usepackage{notomath}
 
 % some symbols like Euro
 \usepackage{textcomp}
@@ -318,7 +316,7 @@ $if(twosided)$\vspace*{-7ex}\jhappage$endif$
 \small%
 $if(twosided)$\phantom{$endif$\textbf{\textsf{Journal for the History of Analytical Philosophy}}$if(twosided)$}$endif$$if(volume)$
 
-$if(twosided)$\phantom{$endif$\textsf{Volume $volume$$if(number)$, Number $number$$endif$$if(year)$ ($year$)$endif$}$if(twosided)$}$endif$$endif$$if(specialvoltitle)$
+\par$if(twosided)$\phantom{$endif$\textsf{Volume $volume$$if(number)$, Number $number$$endif$$if(year)$ ($year$)$endif$}$if(twosided)$}$endif$$endif$$if(specialvoltitle)$
 
 \par\smallskip\textsf{SPECIAL VOLUME}
 
@@ -327,7 +325,7 @@ $if(twosided)$\phantom{$endif$\textsf{Volume $volume$$if(number)$, Number $numbe
 \par\raggedright\smallskip\textsf{Edited by $for(specialvoleditor/allbutlast)$$it.name$, $it.affiliation$$sep$, $endfor$$if(specialvoleditor/allbutlast)$ and $endif$$for(specialvoleditor/last)$$it.name$, $it.affiliation$$endfor$}}
 $endif$$endif$
 }%
-\hfill{\raisebox{1ex}{\fbox{\parbox[t]{0.52in}{{\Huge\color{jhappurple}\noindent JH\\\noindent\hspace*{4.5pt}AP}}}}}
+\hfill{\raisebox{1ex}{\fbox{\parbox[t]{0.52in}{{\Huge\color{jhappurple}\noindent \hspace*{0.1em}JH\\\noindent\hspace*{4.5pt}\,AP}}}}}
 
 $if(reviewedtitle)$
 {\raggedright
