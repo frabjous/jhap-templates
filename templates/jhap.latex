@@ -18,10 +18,14 @@ $endif$
 % T1 output font encoding
 \usepackage[T1]{fontenc}
 
-\usepackage[osf]{newpxtext}
-\usepackage{newpxmath}
+% font choice: TeX Gyre Pagella
+%\usepackage[osf]{newpxtext}
+%\usepackage{newpxmath}
 
-\usepackage[defaultsans]{opensans}
+%Open Sans as default sans
+%\usepackage[defaultsans]{opensans}
+
+\usepackage{notomath}
 
 % some symbols like Euro
 \usepackage{textcomp}
@@ -76,6 +80,7 @@ $endif$
 \NoIndentAfterEnv{quote}
 \NoIndentAfterEnv{itemize}
 \NoIndentAfterEnv{enumerate}
+\NoIndentAfterEnv{description}
 \NoIndentAfterEnv{figure}
 \NoIndentAfterCmd{\]}
 
@@ -320,7 +325,7 @@ $if(twosided)$\phantom{$endif$\textbf{\textsf{Journal for the History of Analyti
 \par\raggedright\smallskip\textsf{Edited by $for(specialvoleditor/allbutlast)$$it.name$, $it.affiliation$$sep$, $endfor$$if(specialvoleditor/allbutlast)$ and $endif$$for(specialvoleditor/last)$$it.name$, $it.affiliation$$endfor$}}
 $endif$$endif$
 }%
-\hfill{\raisebox{1ex}{\fbox{\parbox[t]{0.52in}{{\Huge\color{jhappurple}\noindent JH\\\noindent\hspace*{4.5pt}AP}}}}}
+\hfill{\raisebox{1ex}{\fbox{\parbox[t]{0.52in}{{\Huge\color{jhappurple}\noindent \hspace*{0.1em}JH\\\noindent\hspace*{4.5pt}\,AP}}}}}
 
 $if(reviewedtitle)$
 {\raggedright
