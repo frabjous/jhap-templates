@@ -185,7 +185,7 @@ main > header > div.authorblock span.authoraffiliation {
 }
 
 main > header > div.abstractblock {
-    margin: 4rem 3rem 0 2rem;
+    margin: 4rem 3rem 0 2.5rem;
     padding-left: 1rem;
     border-left: 3px solid var(--lightblue);
 }
@@ -242,6 +242,31 @@ main article p {
 
 main article p:first-child {
     margin-top: 3rem;
+}
+
+main {
+    counter-reset: examplenumber;
+}
+
+ol.example > li {
+    list-style: none;
+    position: relative;
+}
+
+.indent {
+    margin-left: 1.4rem;
+}
+
+.spacer {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+ol.example > li:before {
+    counter-increment: examplenumber;
+    content: '(' counter(examplenumber, arabic) ') ';
+    position: relative;
+    left: -1.4em;
 }
 
 div.volinfo {

@@ -9,6 +9,23 @@
 $if(highlighting-css)$
     $highlighting-css$
 $endif$
+
+body {
+    counter-reset: examplenumber;
+}
+
+ol.example > li {
+    list-style: none;
+    position: relative;
+}
+
+ol.example > li:before {
+    counter-increment: examplenumber;
+    content: '(' counter(examplenumber, arabic) ') ';
+    position: relative;
+    left: -1.4em;
+}
+
   </style>
 $for(css)$
   <link rel="stylesheet" type="text/css" href="$css$" />

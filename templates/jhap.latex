@@ -78,6 +78,9 @@ $endif$
 % better underlining and strikeout
 \usepackage[normalem]{ulem}
 
+%allow fancy enumerations
+\usepackage{enumitem}
+
 % prevent pandoc trying to indent everything
 \usepackage{noindentafter}
 \NoIndentAfterEnv{quote}
