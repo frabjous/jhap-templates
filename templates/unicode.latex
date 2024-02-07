@@ -236,9 +236,13 @@
 \newunicodechar{⊒}{\ensuremath{\mathrel{\sqsupseteq}}}
 \newunicodechar{⊓}{\ensuremath{\mathbin{\sqcap}}}
 \newunicodechar{⊔}{\ensuremath{\mathbin{\sqcup}}}
+\newunicodechar{⊦}{\ensuremath{\mathrel{\vdash}}}
+\newunicodechar{├}{\ensuremath{\mathrel{\vdash}}}
+\newunicodechar{─}{\ensuremath{\mathord{\text{---}}}}
 \newunicodechar{⊢}{\ensuremath{\mathrel{\vdash}}}
 \newunicodechar{⊣}{\ensuremath{\mathrel{\dashv}}}
 \newunicodechar{⊤}{\ensuremath{\mathord{\top}}}
+\newunicodechar{┬}{\ensuremath{\mathord{\top}}}
 \newunicodechar{⊥}{\ensuremath{\mathord{\bot}}}
 \newunicodechar{⊦}{\ensuremath{\mathrel{\vdash}}}
 \newunicodechar{⊧}{\ensuremath{\mathrel{\models}}}
