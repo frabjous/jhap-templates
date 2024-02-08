@@ -377,7 +377,6 @@ $abstract$
 $endif$
 
 \bigskip
-\renewcommand{\ldots}{AAA}
 \noindent $body$
 
 $if(twosided)$
