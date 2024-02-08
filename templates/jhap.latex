@@ -273,10 +273,6 @@ $endif$
 \xspaceskip=\fontdimen2\font plus \fontdimen3\font minus \fontdimen4\font
 \advance\xspaceskip by \fontdimen7\font
 
-% remove some extra space after ellipses
-\let\oldldots=\ldots
-\renewcommand{\ldots}{\oldldots\negthinspace}
-
 %define JHAP page
 \newcommand{\jhappage}{%
 \thispagestyle{empty}
@@ -324,6 +320,7 @@ $header-includes$
 $endfor$
 
 \begin{document}%
+
 $if(twosided)$\vspace*{-7ex}\jhappage$endif$
 \vspace*{-7ex}\thispagestyle{plain}
 \noindent\leavevmode%
@@ -380,7 +377,7 @@ $abstract$
 $endif$
 
 \bigskip
-
+\renewcommand{\ldots}{AAA}
 \noindent $body$
 
 $if(twosided)$
