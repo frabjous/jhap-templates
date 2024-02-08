@@ -273,6 +273,10 @@ $endif$
 \xspaceskip=\fontdimen2\font plus \fontdimen3\font minus \fontdimen4\font
 \advance\xspaceskip by \fontdimen7\font
 
+% remove some extra space after ellipses
+\let\oldldots=\ldots
+\renewcommand{\ldots}{\oldldots\negthinspace}
+
 %define JHAP page
 \newcommand{\jhappage}{%
 \thispagestyle{empty}
