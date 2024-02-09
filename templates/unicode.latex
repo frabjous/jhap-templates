@@ -151,8 +151,8 @@
     \newunicodechar{€}{\ensuremath{\mathord{\euro}}}
 }
 \makeatother
-% fix lousy elipsis
-\newunicodechar{…}{\ldots\negthickspace}
+% fix lousy elipsis spacing
+\newunicodechar{…}{\ensuremath{\ldots}}
 
 % math stuff
 \newunicodechar{ℵ}{\ensuremath{\mathalpha{\aleph}}}

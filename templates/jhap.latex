@@ -28,8 +28,6 @@ $endif$
 %Open Sans as default sans
 \usepackage[defaultsans]{opensans}
 
-%\usepackage{notomath}
-
 % some symbols like Euro
 \usepackage{textcomp}
 
