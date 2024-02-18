@@ -150,21 +150,6 @@ $endif$
 % allow verbatim text in footnotes
 \VerbatimFootnotes
 
-$if(tables)$
-\usepackage{longtable,booktabs,array}
-$if(multirow)$
-\usepackage{multirow}
-$endif$
-% get rid of longtable centering
-\setlength{\LTleft}{0pt}
-\setlength{\LTright}{\fill}
-% get rid of table lines
-\renewcommand{\toprule}{\relax}
-\renewcommand{\bottomrule}{\relax}
-% small vertical strech
-\renewcommand{\arraystretch}{1.4}
-
-$endif$
 % Set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
