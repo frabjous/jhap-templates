@@ -1,7 +1,6 @@
 
 \PassOptionsToPackage{HTML}{xcolor}
 
-% JHAP pandoc template v0.1 2023-08-11
 \documentclass[10pt]{article}
 
 % utf8 character encoding in source
