@@ -47,6 +47,10 @@ span.fregeify.bottom {
     vertical-align: baseline;
 }
 
+.math.inline {
+    white-space: nowrap;
+}
+
   </style>
 $for(css)$
   <link rel="stylesheet" type="text/css" href="$css$" />
