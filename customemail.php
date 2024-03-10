@@ -4,8 +4,19 @@
 $libemail='none';
 
 // look in home
+
 $home = getenv("HOME");
-if ($home !== false && file_exists("$home/bin/kckmail/libemail.php")) {
+if ((!$home) || ($home == '')) {
+    if (is_dir('/home/logicuma')) {
+        $home = '/home/logicuma';
+    } else {
+        if (is_dir('/home/kck')) {
+            $home = '/home/kck/';
+        }
+    }
+}
+
+if (file_exists("$home/bin/kckmail/libemail.php")) {
     $libemail = "$home/bin/kckmail/libemail.php";
 }
 
