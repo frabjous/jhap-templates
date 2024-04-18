@@ -26,11 +26,11 @@
                     "outputfile": "%documentid%-%version%.md"
                 },
                 {
-                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t pdf -o %documentid%-%version%-tmp.pdf main.md && gs -dNOPAUSE -dFastWebView -sDEVICE=pdfwrite -sOUTPUTFILE=%documentid%-%version%.pdf -dBATCH %documentid%-%version%-tmp.pdf && rm %documentid%-%version%-tmp.pdf",
+                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t pdf -o %documentid%-%version%-tmp.pdf main.md && gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=%documentid%-%version%.pdf -dBATCH %documentid%-%version%-tmp.pdf && rm %documentid%-%version%-tmp.pdf",
                     "outputfile": "%documentid%-%version%.pdf"
                 },
                                 {
-                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml -M twosided=true --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t pdf -o %documentid%-twocolumn-%version%-tmp.pdf main.md && gs -dNOPAUSE -dFastWebView -sDEVICE=pdfwrite -sOUTPUTFILE=%documentid%-twocolumn-%version%.pdf -dBATCH %documentid%-twocolumn-%version%-tmp.pdf && rm %documentid%-twocolumn-%version%-tmp.pdf",
+                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml -M twosided=true --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t pdf -o %documentid%-twocolumn-%version%-tmp.pdf main.md && gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=%documentid%-twocolumn-%version%.pdf -dBATCH %documentid%-twocolumn-%version%-tmp.pdf && rm %documentid%-twocolumn-%version%-tmp.pdf",
                     "outputfile": "%documentid%-twocolumn-%version%.pdf"
                 },
                 {
@@ -174,11 +174,11 @@
                     "outputfile": "%documentid%-%version%.md"
                 },
                 {
-                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t pdf -o %documentid%-%version%-tmp.pdf main.md && gs -dNOPAUSE -dFastWebView -sDEVICE=pdfwrite -sOUTPUTFILE=%documentid%-%version%.pdf -dBATCH %documentid%-%version%-tmp.pdf && rm %documentid%-%version%-tmp.pdf",
+                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t pdf -o %documentid%-%version%-tmp.pdf main.md && gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=%documentid%-%version%.pdf -dBATCH %documentid%-%version%-tmp.pdf && rm %documentid%-%version%-tmp.pdf",
                     "outputfile": "%documentid%-%version%.pdf"
                 },
                                 {
-                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml -M twosided=true --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t pdf -o %documentid%-twocolumn-%version%-tmp.pdf main.md && gs -dNOPAUSE -dFastWebView -sDEVICE=pdfwrite -sOUTPUTFILE=%documentid%-twocolumn-%version%.pdf -dBATCH %documentid%-twocolumn-%version%-tmp.pdf && rm %documentid%-twocolumn-%version%-tmp.pdf",
+                    "command": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml -M twosided=true --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t pdf -o %documentid%-twocolumn-%version%-tmp.pdf main.md && gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=%documentid%-twocolumn-%version%.pdf -dBATCH %documentid%-twocolumn-%version%-tmp.pdf && rm %documentid%-twocolumn-%version%-tmp.pdf",
                     "outputfile": "%documentid%-twocolumn-%version%.pdf"
                 },
                 {
