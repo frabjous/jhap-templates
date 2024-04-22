@@ -117,6 +117,7 @@ $endif$
 % get rid of table lines
 \renewcommand{\toprule}{\relax}
 \renewcommand{\bottomrule}{\relax}
+\renewcommand{\noalign}{\relax}
 % small vertical strech
 \renewcommand{\arraystretch}{1.4}
 
