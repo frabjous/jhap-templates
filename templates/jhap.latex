@@ -1,5 +1,5 @@
 
-\PassOptionsToPackage{HTML}{xcolor}
+\PassOptionsToPackage{HTML,table}{xcolor}
 
 \documentclass[10pt]{article}
 
@@ -29,6 +29,9 @@ $endif$
 
 % some symbols like Euro
 \usepackage{textcomp}
+
+% allows betters underlining
+\usepackage{soul}
 
 % for patching commands
 \usepackage{etoolbox}
