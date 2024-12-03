@@ -14,11 +14,11 @@
         "article": {
             "createEdition": [
                 {
-                    "command": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifier_pandoc_filter.php --default-image-extension=png --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap --split-level=1 -t epub -o %documentid%-%version%.epub main.md",
+                    "command": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifierPandocFilter.mjs --default-image-extension=png --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap --split-level=1 -t epub -o %documentid%-%version%.epub main.md",
                     "outputfile": "%documentid%-%version%.epub"
                 },
                 {
-                    "command": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifier_pandoc_filter.php --default-image-extension=png --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t html -o %documentid%-%version%.html main.md",
+                    "command": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifierPandocFilter.mjs --default-image-extension=png --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t html -o %documentid%-%version%.html main.md",
                     "outputfile": "%documentid%-%version%.html"
                 },
                 {
@@ -34,7 +34,7 @@
                     "outputfile": "%documentid%-twocolumn-%version%.pdf"
                 },
                 {
-                    "command": "php -r 'echo json_decode(file_get_contents(\"metadata.json\"))->abstract;' | pandoc -f markdown -t plain --wrap none -o abstract.txt",
+                    "command": "jq .abstract metadata.json | sed -e 's/^\"//' -e 's/\"$//' -e 's:\\\":\":g' | pandoc -f markdown -t plain --wrap none -o abstract.txt",
                     "outputfile": "abstract.txt"
                 },
                 {
@@ -51,10 +51,10 @@
                     "editorcommand": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t pdf -o %outputfile% %rootdocument%"
                 },
                 "html": {
-                    "editorcommand": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifier_pandoc_filter.php --default-image-extension=png --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t html -o %outputfile% %rootdocument%"
+                    "editorcommand": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifierPandocFilter.mjs --default-image-extension=png --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t html -o %outputfile% %rootdocument%"
                 },
                 "epub": {
-                    "editorcommand": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifier_pandoc_filter.php --default-image-extension=png --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap --split-level=1 -t epub -o %outputfile% %rootdocument%"
+                    "editorcommand": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifierPandocFilter.mjs --default-image-extension=png --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap --split-level=1 -t epub -o %outputfile% %rootdocument%"
                 }
             },
             "splitsentences": true,
@@ -162,11 +162,11 @@
             "convert": "pandoc %upload% -t markdown --quiet --reference-location=block --wrap=none",
             "createEdition": [
                 {
-                    "command": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifier_pandoc_filter.php --default-image-extension=png --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap --split-level=1 -t epub -o %documentid%-%version%.epub main.md",
+                    "command": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifierPandocFilter.mjs --default-image-extension=png --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap --split-level=1 -t epub -o %documentid%-%version%.epub main.md",
                     "outputfile": "%documentid%-%version%.epub"
                 },
                 {
-                    "command": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifier_pandoc_filter.php --default-image-extension=png --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t html -o %documentid%-%version%.html main.md",
+                    "command": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifierPandocFilter.mjs --default-image-extension=png --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t html -o %documentid%-%version%.html main.md",
                     "outputfile": "%documentid%-%version%.html"
                 },
                 {
@@ -195,10 +195,10 @@
                     "editorcommand": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t pdf -o %outputfile% %rootdocument%"
                 },
                 "html": {
-                    "editorcommand": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifier_pandoc_filter.php --default-image-extension=png --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t html -o %outputfile% %rootdocument%"
+                    "editorcommand": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifierPandocFilter.mjs --default-image-extension=png --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t html -o %outputfile% %rootdocument%"
                 },
                 "epub": {
-                    "editorcommand": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifier_pandoc_filter.php --default-image-extension=png --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap --split-level=1 -t epub -o %outputfile% %rootdocument%"
+                    "editorcommand": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifierPandocFilter.mjs --default-image-extension=png --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap --split-level=1 -t epub -o %outputfile% %rootdocument%"
                 }
             },
             "splitsentences": true,
