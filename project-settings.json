@@ -34,7 +34,7 @@
           "outputfile": "%documentid%-twocolumn-%version%.pdf"
         },
         {
-          "command": "jq .abstract metadata.json | sed -e 's/^\"//' -e 's/\"$//' -e 's:\\\":\":g' | pandoc -f markdown -t plain --wrap none -o abstract.txt",
+          "command": "jq -r .abstract metadata.json | pandoc -f markdown -t plain --wrap none -o abstract.txt",
           "outputfile": "abstract.txt"
         },
         {
