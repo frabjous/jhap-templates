@@ -6,7 +6,7 @@
 // Defines a function imported by the open guide typesetting framework for
 // sending email from the server
 
-import {azureSend} from '../../../lib/serveremail/azureEmail.mjs';
+import {azureSend} from '../../../http/serveremail/azureEmail.mjs';
 
 const emailFootnote =
   '\r\n<p></p><p style="font-size: 80%; font-style: italic;">' +
