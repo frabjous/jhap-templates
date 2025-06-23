@@ -272,11 +272,11 @@ of Analytical Philosophy}
 
 \bigskip\textsf{$if(volume)$VOLUME $volume$$if(number)$, NUMBER $number$$endif$$endif$$if(year)$ ($year$)$endif$}
 
-
-\vfill$if(jhapeditorinchief)$\textsf{\textbf{Editor in Chief}}\\
+%\begin{small}
+\vfill$if(jhapeditorinchief)$\bigskip\textsf{\textbf{Editor in Chief}}\\
 $jhapeditorinchief$$endif$
 
-$if(jhapassistant)$\textsf{\textbf{Editorial Assistant}}\\
+$if(jhapassistant)$\bigskip\textsf{\textbf{Editorial Assistant}}\\
 $jhapassistant$$endif$
 
 $if(jhapboard)$\bigskip\textsf{\textbf{Editorial Board}}\\
@@ -294,8 +294,9 @@ $endfor$$endif$
 $if(jhapdesign)$\bigskip\textsf{\textbf{Design and Layout}}\\
 $for(jhapdesign)$$jhapdesign$$sep$\\
 $endfor$$endif$
+%\end{small}
 
-\vfill \textsf{ISSN 2159-0303}
+\vfill \medskip\textsf{ISSN 2159-0303}
 
 \bigskip\begin{large}\href{https://jhaponline.org}{\textsf{\textit{jhaponline.org}}}\end{large}
 $if(twosided)$

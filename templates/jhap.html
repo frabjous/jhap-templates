@@ -613,20 +613,21 @@ $body$
 <p><em>Journal for the History of Analytical Philosophy</em> (JHAP) ∙ <a href="https://jhaponline.org" target="_blank">jhaponline.org</a> ∙ ISSN 2159-0303</p>
 <div class="jhapeditorinfo">
     <div>
-        $if(jhapeditorinchief)$<strong>Editor in Chief</strong><br>
-        $jhapeditorinchief$<br><br>$endif$
-        $if(jhapassistant)$<strong>Editorial Assistant</strong><br>
-        $jhapassistant$<br><br>$endif$
-        $if(jhapboard)$<strong>Editorial Board</strong><br>
-        $for(jhapboard)$$jhapboard$<br>$endfor$$endif$
+      $if(jhapeditorinchief)$<strong>Editor in Chief</strong><br>
+      $jhapeditorinchief$<br><br>$endif$
+      $if(jhapassistant)$<strong>Editorial Assistant</strong><br>
+      $jhapassistant$<br><br>$endif$
+      $if(jhapspecialissueseditors)$<strong>Editors for Special Issues</strong><br>
+      $for(jhapspecialissueseditors)$$jhapspecialissueseditors$<br>$endfor$<br>$endif$
+      $if(jhapdesign)$<strong>Design and Layout</strong><br>
+      $for(jhapdesign)$$jhapdesign$<br>$endfor$$endif$
+
     </div>
     <div>
-        $if(jhapspecialissueseditors)$<strong>Editors for Special Issues</strong><br>
-        $for(jhapspecialissueseditors)$$jhapspecialissueseditors$<br>$endfor$<br>$endif$
-        $if(jhapreviewseditors)$<strong>Review Editors</strong><br>
-        $for(jhapreviewseditors)$$jhapreviewseditors$<br>$endfor$<br>$endif$
-        $if(jhapdesign)$<strong>Design and Layout</strong><br>
-        $for(jhapdesign)$$jhapdesign$<br>$endfor$$endif$
+      $if(jhapboard)$<strong>Editorial Board</strong><br>
+      $for(jhapboard)$$jhapboard$<br>$endfor$<br>$endif$
+      $if(jhapreviewseditors)$<strong>Review Editors</strong><br>
+      $for(jhapreviewseditors)$$jhapreviewseditors$<br>$endfor$$endif$
     </div>
     <div>
     </div>
