@@ -1,4 +1,5 @@
 jhapeditorinchief: 'Annalisa Coliva, UC Irvine'
+jhapassistant: 'Louis Doulas, McGill University'
 jhapboard:
 - 'Vera Flocke, Indiana University, Bloomington'
 - 'Henry Jackman, York University'
@@ -9,7 +10,10 @@ jhapboard:
 - 'Anthony Skelton, Western University'
 - 'Mark Textor, King’s College London'
 - 'Audrey Yap, University of Victoria'
-jhapspecialissueseditor: 'Frederique Janssen-Lauret, University of Manchester'
+jhapspecialissueseditors:
+- 'Frederique Janssen-Lauret, University of Manchester'
+- 'James Pearson, Bridgeweter State University'
+- 'Ellie Robson, King’s College London'
 jhapreviewseditors:
 - 'Rachel Boddy, IUSS - Pavia'
 - 'Sean Morris, Metropolitan State University of Denver'

@@ -276,12 +276,16 @@ of Analytical Philosophy}
 \vfill$if(jhapeditorinchief)$\textsf{\textbf{Editor in Chief}}\\
 $jhapeditorinchief$$endif$
 
+$if(jhapassistant)$\textsf{\textbf{Editorial Assistant}}\\
+$jhapassistant$$endif$
+
 $if(jhapboard)$\bigskip\textsf{\textbf{Editorial Board}}\\
 $for(jhapboard)$$jhapboard$$sep$\\
 $endfor$$endif$
 
-$if(jhapspecialissueseditor)$\bigskip\textsf{\textbf{Editor for Special Issues}}\\
-$jhapspecialissueseditor$$endif$
+$if(jhapspecialissueseditors)$\bigskip\textsf{\textbf{Editors for Special Issues}}\\
+$for(jhapspecialissueseditors)$$jhapspecialissueseditors$$sep$\\
+$endfor$$endif$
 
 $if(jhapreviewseditors)$\bigskip\textsf{\textbf{Review Editors}}\\
 $for(jhapreviewseditors)$$jhapreviewseditors$$sep$\\
