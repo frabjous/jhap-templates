@@ -109,6 +109,7 @@ $endif$
 
 $unicode.latex()$
 
+
 $if(tables)$
 \usepackage{longtable,booktabs,array}
 $if(multirow)$
@@ -117,14 +118,31 @@ $endif$
 % get rid of longtable centering
 \setlength{\LTleft}{0pt}
 \setlength{\LTright}{\fill}
-% get rid of table lines
-\renewcommand{\toprule}{\relax}
-\renewcommand{\bottomrule}{\relax}
-\renewcommand{\noalign}{\relax}
+% get rid of lines
+\renewcommand{\toprule}{}
+\renewcommand{\midrule}{}
+\renewcommand{\bottomrule}{}
 % small vertical strech
-\renewcommand{\arraystretch}{1.4}
-
+\renewcommand{\arraystretch}{1.2}
+\usepackage{calc} % for calculating minipage widths
+$if(beamer)$
+\usepackage{caption}
+% Make caption package work with longtable
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+$else$
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 $endif$
+$endif$
+
 % PDF bookmarks; also loads hyperref
 \usepackage{bookmark}
 
