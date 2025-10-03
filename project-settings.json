@@ -72,6 +72,13 @@
           "inputtype": "text",
           "pandoc": "yaml"
         },
+        "shorttitle": {
+          "required": false,
+          "label": "Short title",
+          "inputtype": "text",
+          "pandoc": "yaml",
+          "placeholder": "for headers; leave blank if unneeded"
+        },
         "author": {
           "subcategories": true,
           "label": "Author(s)",
@@ -236,6 +243,13 @@
           "label": "Subtitle of reviewed work",
           "inputtype": "text",
           "pandoc": "yaml"
+        },
+        "shorttitle": {
+          "required": false,
+          "label": "Short title",
+          "inputtype": "text",
+          "pandoc": "yaml",
+          "placeholder": "for headers; leave blank if unneeded"
         },
         "reviewedauthor": [
           {
