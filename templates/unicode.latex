@@ -135,6 +135,7 @@
 \newunicodechar{ϴ}{\ensuremath{\mathalpha{\KCKvarTheta}}}
 \newunicodechar{ϵ}{\ensuremath{\mathalpha{\KCKvarepsilon}}}
 \newunicodechar{϶}{\ensuremath{\mathord{\KCKbackepsilon}}}
+\newunicodechar{ɒ}{\rotatebox[origin=c]{180}{\ensuremath{\alpha}}}
 
 \newunicodechar{†}{\dag}
 \newunicodechar{‡}{\ddag}
