@@ -7,6 +7,9 @@
 // sending email from the server
 
 import {azureSend} from '../../../http/serveremail/azureEmail.mjs';
+import fs from '../../../lib/misclibs/fs.mjs';
+
+const logdir = process.env.HOME + '/data/ogtf/jhap/emaillogs';
 
 const emailFootnote =
   '\r\n<p></p><p style="font-size: 80%; font-style: italic;">' +
@@ -17,10 +20,17 @@ const emailFootnote =
   '\r\nalong a message to the appropriate people! –Kevin</p>\r\n';
 
 export default async function customMailer(emailto, subject, contents, contact) {
-  return await azureSend({
+  const msg = {
     from: contact,
     to: emailto,
     html: contents + emailFootnote,
     subject
-  });
+  }
+  const emailres = await azureSend(msg);
+  if (!emailres) {
+    const ts = Date.now().toString();
+    const failfile = logdir + '/failed-email-' + ts + '.json';
+    fs.savejson(failfile, msg);
+  }
+  return emailres;
 }
