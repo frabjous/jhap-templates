@@ -15,7 +15,7 @@ Submissions may be returned to authors who do not adhere to these guidelines.
 
 - [x] The document is clearly readable, uses standard font sizes and typeface styles, and all illustrations, figures, and tables are included.
 
-- [x] The document has been prepared for anonymous review, following [the instructions described below](#anonreview).
+- [x] The document has been prepared for anonymous review, following [the instructions described below](#preparing-the-submission-for-anonymous-review).
 
 - [x] Those submitting a [special issue proposal](https://mulpress.mcmaster.ca/jhap/announcement/view/18) have used the dedicated [submission form](https://mulpress.mcmaster.ca/public/journals/1/SpecialIssueSubmissionForm.pdf) and have contacted the [editors for special issues](https://jhaponline.org/about/editorialTeam) directly.
 
@@ -29,15 +29,15 @@ Please ensure that the following are true before submitting the final version of
 
 - [x] The text has been proofread carefully by a fluent speaker of English.
 
-- [x] Steps have been taken to ensure the work is optimized for producing multiple output formats, as [described below](#multipleoutput).
+- [x] Steps have been taken to ensure the work is optimized for producing multiple output formats, as [described below](#optimizing-for-multiple-output-formats-multipleoutput).
 
 - [x] Full bibliographical information is provided, including URLs for references to online resources and the dates they were accessed.
 
-- [x] The citations and bibliography style are consistent with those used by the journal. [See below for details.](#citestyle)
+- [x] The citations and bibliography style are consistent with those used by the journal. [See below for details.](#citations-and-bibliographies)
 
 - [x] The journal's conventions regarding headings, punctuation, and so on, [as outlined below](#conventions), are followed as closely as possible.
 
-## Preparing the submission for anonymous review {#anonreview}
+## Preparing the submission for anonymous review
 
 To ensure the integrity of the anonymous peer-reviewing process for submissions, every effort should be made to prevent the identities of the authors and reviewers from being known to each other.
 This involves the authors, editors, and reviewers (who upload documents as part of their review) checking to see if the following steps have been taken with regard to the text and the file properties:
@@ -90,9 +90,9 @@ Rather than something that directly modifies the text appearance like:
 
 Accepted papers and reviews that are submitted in a plain-text-based markup format such as markdown, html, or LaTeX will likely be typeset and published in a shorter amount of time.
 
-## Citations and bibliographies {#citestyle}
+## Citations and bibliographies
 
-Citations and bibliographical listings published by JHAP make use of the [*Chicago Manual of Style*](https://owl.purdue.edu/owl/research_and_citation/chicago_manual_18th_edition/cmos_formatting_and_style_guide/chicago_manual_of_style_18th_edition.html) (17th edition) Author-Date style.
+Citations and bibliographical listings published by JHAP make use of the [*Chicago Manual of Style*](https://www.chicagomanualofstyle.org/book/ed17/frontmatter/toc.html) (17th edition) Author-Date style.
 
 Compatibility with this style can be ensured by utilizing the corresponding [Citation Style Language](https://citationstyles.org/) (CSL) specification, or by making use of software that can apply CSL styles automatically for you, such as [Zotero](https://www.zotero.org/), [Mendeley](https://www.mendeley.com/), the [citation-style-language](https://ctan.org/pkg/citation-style-language) LaTeX package, or [pandoc's implementation of citeproc](https://pandoc.org/MANUAL.html#citations).
 The Chicago author-date .csl file and thousands of others can be found in [the CSL styles repository](https://github.com/citation-style-language).
@@ -107,39 +107,19 @@ Citations to specific pages, sections, etc., should include the full range such 
 
 In the bibliography, books are listed with the name, publication year, title, place of publication, and publisher as so:
 
-<style>
-  .bibexample {
-    text-indent: -1rem;
-    padding-left: 2rem;
-    padding-right: 1.5rem;
-    font-family: sans-serif;
-  }
-  body {
-    font-family: serif;
-  }
-</style>
-
-:::{.bibexample}
-Fricker, Miranda. 2007. *Epistemic Injustice: Power and Ethics of Knowing*. New York: Oxford University Press.
-:::
+> Fricker, Miranda. 2007. *Epistemic Injustice: Power and Ethics of Knowing*. New York: Oxford University Press.
 
 If there are multiple authors, subsequent names begin with the given name. Journal articles should specify the volume, optionally the issue number, and page range as follows.
 
-:::{.bibexample}
-Sultanescu, Olivia, and Claudine Verheggen. 2019. “Davidson’s Answer to Kripke’s Sceptic.” *Journal for the History of Analytical Philosophy* 7(2): 9–28.
-:::
+> Sultanescu, Olivia, and Claudine Verheggen. 2019. “Davidson’s Answer to Kripke’s Sceptic.” *Journal for the History of Analytical Philosophy* 7(2): 9–28.
 
 The abbreviations "ed." or "eds." follow the name of editors prior to the date in works without a primary author:
 
-:::{.bibexample}
-Biggs, Stephen, and Heimir Giersson, eds. 2021. *The Routledge Handbook of Linguistic Reference*. New York: Routledge.
-:::
+> Biggs, Stephen, and Heimir Giersson, eds. 2021. *The Routledge Handbook of Linguistic Reference*. New York: Routledge.
 
 Book chapters and anthology contributions place the editors' names after both the contribution title and book title, followed by the page range, place of publication and publisher.
 
-:::{.bibexample}
-Smith, Barry C. 1998. “On Knowing One’s Own Language.” In *On Knowing Our Own Minds*, edited by C. Wright, B. C. Smith, and C. Macdonald, 391–428. Oxford: Clarendon Press.
-:::
+> Smith, Barry C. 1998. “On Knowing One’s Own Language.” In *On Knowing Our Own Minds*, edited by C. Wright, B. C. Smith, and C. Macdonald, 391–428. Oxford: Clarendon Press.
 
 Full given names are used for authors and for editors of works listed at the start of an entry, unless not included in the original publication.
 Initials for given names may be used for translators or editors appearing later in the entry, as above.
@@ -148,21 +128,21 @@ Although it is not required, the journal encourages submission of structured bib
 
 ## Conventions regarding headings, punctuation, etc.
 
-#) Section Headings (Heading 1) Should Be In Title Case, but Subsection (Heading 2+) and lower headings should be in sentence case.
+1) Section Headings (Heading 1) Should Be In Title Case, but Subsection (Heading 2+) and lower headings should be in sentence case.
 
-#) Ellipses … are used for deletions inside quotations, and [brackets] for insertions. Use of both at the same time […], paradoxically suggesting that a deletion has been inserted, should be avoided.
+2) Ellipses … are used for deletions inside quotations, and [brackets] for insertions. Use of both at the same time […], paradoxically suggesting that a deletion has been inserted, should be avoided.
 
-#) JHAP uses em-dashes without spaces around them---like this---for breaking up text, rather than en-dashes -- like this -- with spaces. En-dashes are used for number ranges, such as 131--156. Dashes should not be confused with hyphens, which appear in hyphenated words like space-time, nor with the mathematical minus/subtraction sign −.
+3) JHAP uses em-dashes without spaces around them---like this---for breaking up text, rather than en-dashes -- like this -- with spaces. En-dashes are used for number ranges, such as 131--156. Dashes should not be confused with hyphens, which appear in hyphenated words like space-time, nor with the mathematical minus/subtraction sign −.
 
-    Traditional word processors often try to autocorrect typed hyphens to the correct punctuation sign, but often make mistakes, and the results should be checked. In LaTeX and pandoc markdown, a single ASCII `-` can be used to produce a regular hyphen (U+002D), two `--` to produce a unicode en-dash – (U+2013), three `---` to produce an em-dash — (U+2014), and a hyphen in math mode `$-$` to produce the subtraction sign − (U+2212). 
+    Traditional word processors often try to autocorrect typed hyphens to the correct punctuation sign, but often make mistakes, and the results should be checked. In LaTeX and pandoc markdown, a single ASCII `-` can be used to produce a regular hyphen (U+002D), two `--` to produce a unicode en-dash – (U+2013), three `---` to produce an em-dash — (U+2014), and a hyphen in math mode `$-$` to produce the subtraction sign − (U+2212).
 
-#) Dates should be in an international format but with the month spelled out, such as "5 May 1915", rather than the US format "May 5, 1915", if possible.
+4) Dates should be in an international format but with the month spelled out, such as "5 May 1915", rather than the US format "May 5, 1915", if possible.
 
-#) Common English names of places are used rather than native names, if different, e.g., “Munich”, not “München”.
+5) Common English names of places are used rather than native names, if different, e.g., “Munich”, not “München”.
 
-#) Authors may use either single quotation marks (as is 'typical' in British English) or double quotes (as is "typical" in American English) primarily, as they prefer, but should be consistent in their choices.
+6) Authors may use either single quotation marks (as is 'typical' in British English) or double quotes (as is "typical" in American English) primarily, as they prefer, but should be consistent in their choices.
 
-#) Unnecessary Latin-isms such as "cf." and "viz." should be avoided in favor of ordinary words such as "compare" and "namely". The Latin abbreviations "i.e." or "e.g." may be used sparingly. They should be followed by commas in most cases, e.g., like this.
+7) Unnecessary Latin-isms such as "cf." and "viz." should be avoided in favor of ordinary words such as "compare" and "namely". The Latin abbreviations "i.e." or "e.g." may be used sparingly. They should be followed by commas in most cases, e.g., like this.
 
 ## Articles
 
