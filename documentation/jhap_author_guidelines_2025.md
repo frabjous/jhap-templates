@@ -35,7 +35,7 @@ Please ensure that the following are true before submitting the final version of
 
 - [x] The citations and bibliography style are consistent with those used by the journal. [See below for details.](#citations-and-bibliographies)
 
-- [x] The journal's conventions regarding headings, punctuation, and so on, [as outlined below](#conventions), are followed as closely as possible.
+- [x] The journal's conventions regarding headings, punctuation, and so on, [as outlined below](#conventions-regarding-headings-punctuation-etc), are followed as closely as possible.
 
 ## Preparing the submission for anonymous review
 
