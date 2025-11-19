@@ -25,7 +25,7 @@ Please ensure that the following are true before submitting the final version of
 
 - [x] The file for the final version is in **.DOCX** (MS Word/OnlyOffice), **.ODT** (LibreOffice), **.EPUB** (eBook), **.RTF** (rich text), **.HTML** (web page), **.TEX** (LaTeX), or **.MD** (markdown) formats.
 
-- [x] An abstract (100--200 words) has been provided, either in the document or separately to the managing editor.
+- [x] An abstract (100–200 words) has been provided, either in the document or separately to the managing editor.
 
 - [x] The text has been proofread carefully by a fluent speaker of English.
 
@@ -99,11 +99,11 @@ The Chicago author-date .csl file and thousands of others can be found in [the C
 
 Citations in this style typically appear in the body of the text in parentheses, containing the author's name and year of publication, followed (when appropriate) by a comma and specific textual location such as a page, page range or section number: (Raven 1998, 36).
 Multiple works are separated by semi-colons (Marion 2006; Tuborg 2008).
-If the cited author's name appears in the sentence, then it may simply be followed by the year (and textual location, if applicable) in parentheses, for example if it mentions Bertrand Russell (1903, secs. 10--12).
+If the cited author's name appears in the sentence, then it may simply be followed by the year (and textual location, if applicable) in parentheses, for example if it mentions Bertrand Russell (1903, secs. 10–12).
 
 Most citations should be in the body of the text. Footnotes should never be purely citational. A footnote may introduce a citation and then comment on it, or may include citations specifically relevant to other content in the footnote.
 
-Citations to specific pages, sections, etc., should include the full range such as (Landini 1997, 127--129), rather than use “f.” or “ff.”.
+Citations to specific pages, sections, etc., should include the full range such as (Landini 1997, 127–129), rather than use “f.” or “ff.”.
 
 In the bibliography, books are listed with the name, publication year, title, place of publication, and publisher as so:
 
@@ -157,14 +157,14 @@ Reviews are usually commissioned by the Review Editors. If you would like to mak
 
 JHAP publishes two kinds of reviews of books.
 
-*Reviews* are informative pieces (about 2000--4000 words) that present the content of the book and raise some critical points.
+*Reviews* are informative pieces (about 2000–4000 words) that present the content of the book and raise some critical points.
 
-*Critical notices/studies* are longer pieces (about 4000--6000 words) that present the content of the book and provide more in-depth discussion of some critical points.
+*Critical notices/studies* are longer pieces (about 4000–6000 words) that present the content of the book and provide more in-depth discussion of some critical points.
 
 Whatever the format, criticisms should be raised in a fair and respectful manner.
 
 JHAP also welcomes contributions in the style of “author meets critics” to be considered for a journal’s special issue.
-These symposia generally consist of 2--4 pieces (of about 4000-6000 words) by different contributors, and will discuss some central themes of the book, followed by the author’s response (about 4000--8000 words).
+These symposia generally consist of 2–4 pieces (of about 4000-6000 words) by different contributors, and will discuss some central themes of the book, followed by the author’s response (about 4000–8000 words).
 
 To make a new review or critical notice/studies submission: [click here](https://jhaponline.org/submission/wizard?sectionId=2).
 
