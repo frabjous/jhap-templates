@@ -29,7 +29,7 @@ Please ensure that the following are true before submitting the final version of
 
 - [x] The text has been proofread carefully by a fluent speaker of English.
 
-- [x] Steps have been taken to ensure the work is optimized for producing multiple output formats, as [described below](#optimizing-for-multiple-output-formats-multipleoutput).
+- [x] Steps have been taken to ensure the work is optimized for producing multiple output formats, as [described below](#optimizing-for-multiple-output-formats).
 
 - [x] Full bibliographical information is provided, including URLs for references to online resources and the dates they were accessed.
 
@@ -45,7 +45,7 @@ This involves the authors, editors, and reviewers (who upload documents as part 
 * The authors of the submission have deleted their names from the text. References to the authors' own works should be excluded.
 * Anything identifying the authors should also be removed from the properties of the file, its metadata, and revision and undo history.
 
-## Optimizing for multiple output formats {#multipleoutput}
+## Optimizing for multiple output formats
 
 JHAP publishes its accepted articles and reviews in a variety of output formats, for accessibility, convenience, and other purposes.
 Your document therefore should not be composed with one particular output in mind.
@@ -55,7 +55,7 @@ The best way to do this is to separate style and content. How this is done depen
 
 ### Separating style and content with traditional word processors
 
-Separation of style and content with a traditional word processor requires the consistent use of common text and paragraph styles such as "Heading 1", "Heading 2", "Block Quotation", etc.
+Separation of style and content with a traditional word processor requires the consistent use of common text and paragraph styles such as “Heading 1”, “Heading 2”, “Block Quotation”, etc.
 These styles are usually available from a drop-down on the word processor's toolbar.
 These should be used instead of applying things like the font face, font size, indentation, color, spacing, and so on, which modify appearance directly.
 Consistent use of named styles clarifies the roles things play in the document's overall structure, making it unambiguous what is meant as a section heading, what is meant as a subsection heading, and so on.
@@ -63,7 +63,7 @@ Consistent use of named styles clarifies the roles things play in the document's
 For the purposes of review, the precise configuration of the styles can be changed, but usually it is best to maintain something close to the default values.
 For example, a 12 point serif font with double spacing for the body text will ensure readability for the reviewers.
 
-When applying styles such as "*emphasis*" to smaller spans of text, care should be taken with regard to their exact boundaries. For example, when an individual word is emphasized (italicized), do not apply the style to the spaces or punctuation surrounding it.
+When applying styles such as “*emphasis*” to smaller spans of text, care should be taken with regard to their exact boundaries. For example, when an individual word is emphasized (italicized), do not apply the style to the spaces or punctuation surrounding it.
 It is easy to make mistakes with WYSIWYG word processors which seem small, but they can lead to oddities especially when the same document is presented in a different way.
 
 ### Separating style and content in markup languages (LaTeX, markdown, html)
@@ -95,7 +95,7 @@ Accepted papers and reviews that are submitted in a plain-text-based markup form
 Citations and bibliographical listings published by JHAP make use of the [*Chicago Manual of Style*](https://www.chicagomanualofstyle.org/book/ed17/frontmatter/toc.html) (17th edition) Author-Date style.
 
 Compatibility with this style can be ensured by utilizing the corresponding [Citation Style Language](https://citationstyles.org/) (CSL) specification, or by making use of software that can apply CSL styles automatically for you, such as [Zotero](https://www.zotero.org/), [Mendeley](https://www.mendeley.com/), the [citation-style-language](https://ctan.org/pkg/citation-style-language) LaTeX package, or [pandoc's implementation of citeproc](https://pandoc.org/MANUAL.html#citations).
-The Chicago author-date .csl file and thousands of others can be found in [the CSL styles repository](https://github.com/citation-style-language).
+The Chicago author-date .csl file and thousands of others can be found in [the CSL styles repository](https://github.com/citation-style-language/styles).
 
 Citations in this style typically appear in the body of the text in parentheses, containing the author's name and year of publication, followed (when appropriate) by a comma and specific textual location such as a page, page range or section number: (Raven 1998, 36).
 Multiple works are separated by semi-colons (Marion 2006; Tuborg 2008).
@@ -103,7 +103,7 @@ If the cited author's name appears in the sentence, then it may simply be follow
 
 Most citations should be in the body of the text. Footnotes should never be purely citational. A footnote may introduce a citation and then comment on it, or may include citations specifically relevant to other content in the footnote.
 
-Citations to specific pages, sections, etc., should include the full range such as (Landini 1997, 127--129), rather than use "f." or "ff.".
+Citations to specific pages, sections, etc., should include the full range such as (Landini 1997, 127--129), rather than use “f.” or “ff.”.
 
 In the bibliography, books are listed with the name, publication year, title, place of publication, and publisher as so:
 
@@ -113,7 +113,7 @@ If there are multiple authors, subsequent names begin with the given name. Journ
 
 > Sultanescu, Olivia, and Claudine Verheggen. 2019. “Davidson’s Answer to Kripke’s Sceptic.” *Journal for the History of Analytical Philosophy* 7(2): 9–28.
 
-The abbreviations "ed." or "eds." follow the name of editors prior to the date in works without a primary author:
+The abbreviations “ed.” or “eds.” follow the name of editors prior to the date in works without a primary author:
 
 > Biggs, Stephen, and Heimir Giersson, eds. 2021. *The Routledge Handbook of Linguistic Reference*. New York: Routledge.
 
@@ -132,17 +132,17 @@ Although it is not required, the journal encourages submission of structured bib
 
 2) Ellipses … are used for deletions inside quotations, and [brackets] for insertions. Use of both at the same time […], paradoxically suggesting that a deletion has been inserted, should be avoided.
 
-3) JHAP uses em-dashes without spaces around them---like this---for breaking up text, rather than en-dashes -- like this -- with spaces. En-dashes are used for number ranges, such as 131--156. Dashes should not be confused with hyphens, which appear in hyphenated words like space-time, nor with the mathematical minus/subtraction sign −.
+3) JHAP uses em-dashes without spaces around them—like this—for breaking up text, rather than en-dashes – like this – with spaces. En-dashes are used for number ranges, such as 131–156. Dashes should not be confused with hyphens, which appear in hyphenated words like space-time, nor with the mathematical minus/subtraction sign −.
 
     Traditional word processors often try to autocorrect typed hyphens to the correct punctuation sign, but often make mistakes, and the results should be checked. In LaTeX and pandoc markdown, a single ASCII `-` can be used to produce a regular hyphen (U+002D), two `--` to produce a unicode en-dash – (U+2013), three `---` to produce an em-dash — (U+2014), and a hyphen in math mode `$-$` to produce the subtraction sign − (U+2212).
 
-4) Dates should be in an international format but with the month spelled out, such as "5 May 1915", rather than the US format "May 5, 1915", if possible.
+4) Dates should be in an international format but with the month spelled out, such as “5 May 1915”, rather than the US format “May 5, 1915”, if possible.
 
 5) Common English names of places are used rather than native names, if different, e.g., “Munich”, not “München”.
 
-6) Authors may use either single quotation marks (as is 'typical' in British English) or double quotes (as is "typical" in American English) primarily, as they prefer, but should be consistent in their choices.
+6) Authors may use either single quotation marks (as is 'typical' in British English) or double quotes (as is “typical” in American English) primarily, as they prefer, but should be consistent in their choices.
 
-7) Unnecessary Latin-isms such as "cf." and "viz." should be avoided in favor of ordinary words such as "compare" and "namely". The Latin abbreviations "i.e." or "e.g." may be used sparingly. They should be followed by commas in most cases, e.g., like this.
+7) Unnecessary Latin-isms such as “cf.” and “viz.” should be avoided in favor of ordinary words such as “compare” and “namely”. The Latin abbreviations “i.e.” or “e.g.” may be used sparingly. They should be followed by commas in most cases, e.g., like this.
 
 ## Articles
 
