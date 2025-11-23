@@ -6,7 +6,11 @@ It is structured to serve as the target of pandoc’s `--data-dir` option.
 
 It also contains images/resources used by the templates and thus could also serve as the target of pandoc’s `--resource-path` option.
 
-Finally it backs up the settings file `project-settings.json` used by the [Open Guide Typesetting Framework](https://github.com/frabjous/open-guide-typesettings-framework) for JHAP.
+It backs up the settings file `project-settings.json` used by the [Open Guide Typesetting Framework](https://github.com/frabjous/open-guide-typesettings-framework) for JHAP.
+
+The `documentation/` subdirector contains some relevant documentation for JHAP editors/typesetters.
+Note that these are pandoc markdown files, not GitHub markdown files.
+They should be processed by pandoc to html rather than viewed on GitHub.
 
 # License
 
