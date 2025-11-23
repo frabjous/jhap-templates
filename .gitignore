@@ -2,3 +2,6 @@ users.json
 articles/
 reviews/
 emaillogs/
+documentation/*.html
+documentation/*.pdf
+documentation/oge-settings.json

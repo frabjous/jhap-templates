@@ -132,17 +132,22 @@ Although it is not required, the journal encourages submission of structured bib
 
 2) Ellipses … are used for deletions inside quotations, and [brackets] for insertions. Use of both at the same time […], paradoxically suggesting that a deletion has been inserted, should be avoided.
 
-3) JHAP uses em-dashes without spaces around them—like this—for breaking up text, rather than en-dashes – like this – with spaces. En-dashes are used for number ranges, such as 131–156. Dashes should not be confused with hyphens, which appear in hyphenated words like space-time, nor with the mathematical minus/subtraction sign −.
 
-    Traditional word processors often try to autocorrect typed hyphens to the correct punctuation sign, but often make mistakes, and the results should be checked. In LaTeX and pandoc markdown, a single ASCII `-` can be used to produce a regular hyphen (U+002D), two `--` to produce a unicode en-dash – (U+2013), three `---` to produce an em-dash — (U+2014), and a hyphen in math mode `$-$` to produce the subtraction sign − (U+2212).
+3) JHAP uses em-dashes (U+2014) without spaces around them—like this—for breaking up text, rather than en-dashes – like this – with spaces. En-dashes (U+2013) are used for number ranges, such as 131–156. Dashes should not be confused with regular hyphens (U+002D), which appear in hyphenated words like "space-time", nor with the mathematical minus/subtraction sign − (U+2212).
 
-4) Dates should be in an international format but with the month spelled out, such as “5 May 1915”, rather than the US format “May 5, 1915”, if possible.
+    Only the hyphen appears on most keyboards. Traditional word processors often try to autocorrect typed hyphens to the correct punctuation sign, but often make mistakes, and the results should be checked.
 
-5) Common English names of places are used rather than native names, if different, e.g., “Munich”, not “München”.
+   In LaTeX and pandoc markdown, a single ASCII `-` can be used to produce a regular hyphen, two `--` to produce a unicode en-dash –, three `---` to produce an em-dash —, and a hyphen in math mode `$-$` to produce the subtraction sign −.
 
-6) Authors may use either single quotation marks (as is 'typical' in British English) or double quotes (as is “typical” in American English) primarily, as they prefer, but should be consistent in their choices.
+5) Dates should be in an international format but with the month spelled out, such as “5 May 1915”, rather than the US format “May 5, 1915”, if possible.
 
-7) Unnecessary Latin-isms such as “cf.” and “viz.” should be avoided in favor of ordinary words such as “compare” and “namely”. The Latin abbreviations “i.e.” or “e.g.” may be used sparingly. They should be followed by commas in most cases, e.g., like this.
+6) Common English names of places are used rather than native names, if different, e.g., “Munich”, not “München”.
+
+7) Authors may use either single quotation marks (as is 'typical' in British English) or double quotes (as is “typical” in American English) primarily, as they prefer, but should be consistent in their choices.
+
+8) Footnote markers should be placed after end‑of‑sentence punctuation, not before.
+
+9) Unnecessary Latin-isms such as “cf.” and “viz.” should be avoided in favor of ordinary words such as “compare” and “namely”. Simply repeat citations instead of using “ibid.” The Latin abbreviations “i.e.” and “e.g.” may be used sparingly. They should be followed by commas in most cases, e.g., like this.
 
 ## Articles
 
