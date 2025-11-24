@@ -87,6 +87,7 @@ $endif$
 \NoIndentAfterEnv{itemize}
 \NoIndentAfterEnv{enumerate}
 \NoIndentAfterEnv{description}
+\NoIndentAfterEnv{longtable}
 \NoIndentAfterEnv{figure}
 \NoIndentAfterCmd{\]}
 
@@ -109,21 +110,13 @@ $endif$
 
 $unicode.latex()$
 
-
+% tables; unmodified from pandoc templates
 $if(tables)$
 \usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
 $if(multirow)$
 \usepackage{multirow}
 $endif$
-% get rid of longtable centering
-\setlength{\LTleft}{0pt}
-\setlength{\LTright}{\fill}
-% get rid of lines
-\renewcommand{\toprule}{}
-\renewcommand{\midrule}{}
-\renewcommand{\bottomrule}{}
-% small vertical strech
-\renewcommand{\arraystretch}{1.2}
 \usepackage{calc} % for calculating minipage widths
 $if(beamer)$
 \usepackage{caption}
@@ -277,6 +270,8 @@ $endif$
 \xspaceskip=\fontdimen2\font plus \fontdimen3\font minus \fontdimen4\font
 \advance\xspaceskip by \fontdimen7\font
 
+\newcommand{\forceindent}{\hspace*{\parindent}}
+
 %define JHAP page
 \newcommand{\jhappage}{%
 \thispagestyle{empty}
@@ -358,15 +353,16 @@ $if(reviewedtitle)$
 }
 $else$
 $if(title)$
-\bigskip\noindent\begin{LARGE}\textsf{\textbf{$title$}}\end{LARGE}
+{\bigskip\raggedright\noindent\begin{LARGE}\textsf{\textbf{$title$}}\end{LARGE}}
 $endif$
 $if(subtitle)$
-\par\smallskip\noindent\begin{Large}\textsf{$subtitle$}\end{Large}
+\par{\raggedright\smallskip\noindent\begin{Large}\textsf{$subtitle$}\end{Large}}
 $endif$
 $endif$
 
 \noindent$for(author)$
 \parbox{0.45\linewidth}{%
+\raggedright%
 $if(reviewedtitle)$\medskip$else$\bigskip$endif$\textsf{\textbf{$it.name$}}\\
 \href{mailto:$it.email$}{\textsf{$it.email$}}\\
 \textsf{\textit{$it.affiliation$}}

@@ -1,6 +1,6 @@
 ---
 title: JHAP Pandoc Markdown Primer
-date: 19 November 2025
+date: Last edited 23 November 2025
 css: documentation.css
 ---
 
@@ -9,8 +9,11 @@ css: documentation.css
 However, this document is also stored in a code repository on GitHub.
 GitHub provides a preview of markdown documents.
 However, it assumes these documents use **GitHub's version** of markdown, which is less sophisticated than pandoc's.
-If you are viewing this directly on GitHub, it will **not appear correctly** in some places.
-If this is a problem, either download the raw text of this document and process it with pandoc, or contact the repo owner for a PDF.
+If you are viewing this directly on GitHub, it will **not display correctly** in some places.
+
+To view this document as intended, visit:
+
+<https://people.umass.edu/klement/jhap/markdown_primer.html>
 :::
 
 # Introduction
@@ -26,7 +29,7 @@ Pandoc can also convert between certain bibliography formats, including BibTeX, 
 
 ## What is markdown?
 
-Markdown files files are plain text files that have been "marked" in conventional ways with extra information about the text, indicating such things as which words are emphasized, which paragraphs are quotations, what the titles of various sections are, and so on.
+Markdown files are plain text files that have been "marked" in conventional ways with extra information about the text, indicating such things as which words are emphasized, which paragraphs are quotations, what the titles of various sections are, and so on.
 Text written in markdown is meant to be easy to read, fully intelligible when viewed as is, even in plain text format.
 However, markdown files are also meant to be easily converted into other, richer, formats, that can make full use of the "extra information" they contain, with HTML (for web pages) historically being the main target.
 
@@ -35,7 +38,7 @@ Many note-taking applications use it as their base format.
 Markdown is widely used in READMEs for programming code repositories, and software documentation.
 It is also used on many websites hosting discussions, bulletin boards, question and answer posts, and even AI chat assistants, allowing the users to post more than bare text.
 Its popularity has grown significantly over the past few years.
-
+<!--
 Some relevant links:
 
 * [Why I Use Markdown, and Why You Should Too](https://medium.com/@RyanElston/why-i-use-markdown-and-why-you-should-too-c4a7e38c96d5), by Ryan Elston
@@ -43,6 +46,7 @@ Some relevant links:
 * [Markdown and the Slow Fade of the Formatting Fetish](https://ia.net/topics/markdown-and-the-slow-fade-of-the-formatting-fetish), by iA.net
 * [Markdown CMS: The Smart Choice for the AI Age](https://typemill.net/knowledge-hub/markdown-cms), by Sebastian Schürmanns
 * [Is Markdown Taking Over?](https://www.hendrik-erz.de/post/is-markdown-taking-over#h2-final-thoughts) by Hendrik Erz
+-->
 
 ## What is pandoc's markdown?
 
@@ -52,7 +56,7 @@ It has full support for mathematical and logical equations and formulas, compara
 It is one of only a couple flavors that fully support academic citations and bibliographies.
 Much of this is due to its own implementation of citeproc, a program for formatting citations and reference lists based on [Citation Style Language](https://citationstyles.org/).
 
-Its academic-oriented features, together with the ease with which documents using can be used to create a variety of features, is why it was chosen for JHAP's production process.
+Its academic-oriented features, together with the ease with which it can be used to create a variety of output formats, is why it was chosen for JHAP's production process.
 
 Below is a very brief primer. Much more is possible. Consult [the pandoc user's guide](https://pandoc.org/MANUAL.html), and its section on [pandoc's markdown](https://pandoc.org/MANUAL.html#pandocs-markdown) in particular.
 
@@ -70,7 +74,7 @@ Common text and font styles can be added with special but natural decorations.
 | italics and bold | `I _**love**_ it.` | I _**love**_ it. |
 | subscript        | `I ~love~ it.`     | I ~love~ it.     |
 | superscript      | `I ^love^ it.`     | I ^love^ it.     |
-| strikethrough    | `I ~~love~~ it.`   | I ~~love~~ it.   |
+| strike-through   | `I ~~love~~ it.`   | I ~~love~~ it.   |
 :::
 
 # Spans and Divs
@@ -86,8 +90,7 @@ Inline spans are created with brackets around part of a sentence or text range, 
 | `[Great Scott!]{.underline}`                        | [Great Scott!]{.underline}                        |
 | `[Great Scott!]{.mark}`                        | [Great Scott!]{.mark}                        |
 | `[Great Scott!]{style="color: red;"}`               | [Great Scott!]{style="color: red"}                |
-| `[Great Scott!]{style="background-color: yellow;"}` | [Great Scott!]{style="background-color: pink;"} |
-
+| `[Great Scott!]{style="background-color: pink;"}` | [Great Scott!]{style="background-color: pink;"} |
 :::
 
 The journal's template defines common classes such as `.underline` and `.smallcaps`, but use of these is discouraged. Direct application of style attributes should be avoided, as they only work in HTML-based outputs by default.
@@ -111,7 +114,7 @@ Adding style attributes directly to a block is strongly discouraged, and will no
 
 # Block Quotations
 
-Block quotations indicated by lines starting with greater than signs.
+Block quotations are indicated by lines starting with `>`.
 
 ```markdown
 Here is the preceding text.
@@ -119,7 +122,7 @@ Here is the preceding text.
 > This is a quotation and
 > can take multiple lines.
 
-Here is following text.
+Here is the following text.
 ```
 
 :::{.result}
@@ -128,14 +131,14 @@ Here is the preceding text.
 > This is a quotation and
 > can take multiple lines.
 
-Here is following text.
+Here is the following text.
 :::
 
-Quotations can be nested with multiple `> >`.
+Quotations can be nested with multiple `> >` but there must be lines above and below that are blank except for a single `>`.
 
 # Lists
 
-Numbered lists are indicated by a series of lines each starting with a number, or with `#)`. Whichever you use, the numbering automatically done or redone.
+Numbered lists are indicated by a series of lines each starting with a number, or with `#)`. Whichever you use, the numbering is automatically done or redone.
 
 ```markdown
 #) This is item one.
@@ -149,7 +152,7 @@ Numbered lists are indicated by a series of lines each starting with a number, o
 #) This is item three.
 :::
 
-Bullet lists can be made similarly, using asterisks, leading hyphens and plus symbols.
+Bullet lists can be made similarly, using asterisks, leading hyphens, or plus symbols.
 
 ```markdown
 * One thing
@@ -163,7 +166,7 @@ Bullet lists can be made similarly, using asterisks, leading hyphens and plus sy
 * A third thing
 :::
 
-Lists can be nested in one another by using extra indentation.
+Lists can be nested inside one another by using extra indentation.
 
 ```markdown
 * Item
@@ -207,7 +210,7 @@ This is a link to [Google](https://google.com){target=_blank} as well, but opens
 This is a link to [Google](https://google.com){target=_blank} as well, but opens in a new tab.
 :::
 
-Internal links can be created by applying link anchor ids to spans, blocks (or headings, as [described below](#headingsanchors)), for the link targets, and, inside the link, specifying the target with a (hashmarked) link anchor id.
+Internal links can be created by applying link anchor ids to spans, blocks (or headings, as [described below](#headingsanchors)), for the link targets, and, inside the link, specifying the target with a (hash-marked) link anchor id.
 
 ```markdown
 :::{#earlierparagraph}
@@ -215,7 +218,6 @@ This is a paragraph.
 :::
 
 Here is a link to [the earlier paragraph](#earlierparagraph).
-
 ```
 
 :::::{.result}
@@ -224,7 +226,6 @@ This is a paragraph.
 :::
 
 Here is a link to [the earlier paragraph](#earlierparagraph).
-
 :::::
 
 # Headings
@@ -243,20 +244,20 @@ Headings are lines that begin with one or more hashes, the number of hashes indi
 ```
 
 :::{.result}
-# 1. This is a Section {.unlisted}
+# 1. This is a Section {.unlisted .unnumbered}
 
-## 1.1 This is a subsection {.unlisted}
+## 1.1 This is a subsection {.unlisted .unnumbered}
 
-### 1.1.1 This is a subsubsection {.unlisted}
+### 1.1.1 This is a subsubsection {.unlisted .unnumbered}
 
-#### 1.1.1.1 This is a subsubsubsection {.unlisted}
+#### 1.1.1.1 This is a subsubsubsection {.unlisted .unnumbered}
 :::
 
 The convention used by JHAP is that section titles should be written in title case, but subsections and lower should be in sentence case, and only the first word, and words that are capitalized for other reasons (like proper names), are capitalized.
 
 JHAP uses a pandoc option that numbers sections automatically. Numbers should not be included in the markdown heading.
 
-Headings may include a hyperlink anchor, with its id specified in curly braces at the end.
+[Headings]{#headingsanchors} may include a hyperlink anchor, with its id specified in curly braces at the end.
 
 ```markdown
 # Lorem Ipsum {#sect2}
@@ -264,8 +265,8 @@ Headings may include a hyperlink anchor, with its id specified in curly braces a
 As we noted in [Section 2](#sect2) ...
 ```
 
-::: result
-# 2. Lorem Ipsum {#sect2 .unlisted}
+:::{.result}
+# 2. Lorem Ipsum {#sect2 .unlisted .unnumbered}
 
 As we noted in [Section 2](#sect2) ...
 :::
@@ -278,19 +279,19 @@ If the id is not explicitly given, it will use the heading title, but all lowerc
 According to [our data analysis](#data-and-data-analysis), discussed above, ...
 ```
 :::{.result .data}
-## 3.2 Data and data analysis {.unlisted}
+## 3.2 Data and data analysis {.unlisted .unnumbered}
 
 According to [our data analysis](#data-and-data-analysis), discussed above, ...
 :::
 
 # Images
 
-Images can be inserted by using an exclamation mark before brackets with the "alt text", and then soft parentheses with the absolute or relative url of the iamge.
+Images can be inserted by using an exclamation mark before brackets with the "alt text", and then soft parentheses with the absolute or relative url of the image.
 
 The "alt text" is used for screen readers, or if the image does not load, as well as for the caption.
 
 ```markdown
-![Roaring Tiger](/images/tiger.png)
+![Roaring Tiger](./images/tiger.png)
 
 ```
 
@@ -304,7 +305,9 @@ The caption can be suppressed by putting other content on the same line, or inse
 
 # Logical and Mathematical Formulas
 
-Pandoc uses LaTeX's convention of wrapping inline mathematical (and logical) content between dollar signs, and the old plain TeX convention of wrapping dislayed mathematics in double dollar signs. Pandoc can handle simple LaTeX mathematics without any special measures, regardless of the output format.
+Pandoc’s markdown uses LaTeX's convention of wrapping inline mathematical (and logical) content between dollar signs, and the old plain TeX convention of wrapping dislayed mathematics in double dollar signs.
+Standard LaTeX commands may be used inside.
+Pandoc can handle simple LaTeX mathematics without any special measures, regardless of the output format.
 
 ```markdown
 Because $a = b$ it follows that:
@@ -312,7 +315,6 @@ Because $a = b$ it follows that:
 $$
 \forall F (\lnot F(a) \rightarrow \lnot F(b))
 $$
-
 ```
 
 :::{.result}
@@ -321,7 +323,6 @@ Because $a = b$ it follows that:
 $$
 \forall F (\lnot F(a) \rightarrow \lnot F(b))
 $$
-
 :::
 
 The JHAP template also makes it possible to use many unicode symbols directly. These work even outside math mode, but it is still best to put them in math mode for the sake of consistent appearance and spacing.
@@ -337,8 +338,9 @@ $$
 $$
 :::
 
+Pandoc provides a number of [alternative ways](https://pandoc.org/MANUAL.html#math-rendering-in-html) of processing mathematical content in output formats that do not support all of what LaTeX does. The default is good for simple variables, formulas, and equations. JHAP uses the [Fregeifier filter](https://github.com/frabjous/fregeifier) when it needs to make use of more advanced or unusual logic/math in conversions to formats such as HTML.
 
-Pandoc provides a number of [alternative ways](https://pandoc.org/MANUAL.html#math-rendering-in-html) of processing mathematical content in output formats that do not support all of what LaTeX does. The default is good for simple variables, formulas and equations. JHAP uses the [Fregeifier filter](https://github.com/frabjous/fregeifier) when it needs to make use of more advanced or unusual logic/math in conversions to formats such as HTML. See the tips and tricks documentation.
+See the [JHAP Typesetting Guide](./typesetting_guide.html#the-fregeifier-filter) for information on using the Fregeifier.
 
 # Footnotes/Endnotes
 
@@ -362,7 +364,7 @@ Here is some information I want to comment on.^[12](#fn12){#anc12}^ But I also w
 
 :::
 
-Note that the number chosen does not matter, so long as it is unique, as pandoc will renumber them in the output if they become out of order. Indeed, the identifier does not need to be a number all. You can use, e.g., `[^mynote]` as the identifier.
+Note that the number chosen does not matter, so long as it is unique, as pandoc will renumber them in the output if they become out of order. Indeed, the identifier does not need to be a number at all. You can use, e.g., `[^mynote]` as the identifier.
 
 The other, simpler, form inserts the content of the footnote right into the flow of the paragraph, using a caret first and a bracketed span afterwards.
 
@@ -380,8 +382,7 @@ This is a really great sentence,^[13](#fn13){#anc13}^ isn’t it?
 
 :::
 
-Technically, footnotes are only possible in formats that have pages, so you will get endnotes instead in formats without pages, such as HTML.
-
+Footnotes are only possible in formats that have pages, so you will get endnotes instead in formats without pages, such as HTML.
 
 # Citations
 
@@ -390,7 +391,7 @@ Technically, footnotes are only possible in formats that have pages, so you will
 Pandoc has native support for citations.
 They are formatted, along with their corresponding bibliographic entries, automatically by a subprogram called “citeproc”. Citeproc’s formatting follows a specification written in [Citation Style Language](https://citationstyles.org/) (CSL). Thousands of CSL specifications exist for different bibliographic conventions, from Chicago to MLA to IEEP, etc. JHAP currently uses the Chicago Manual of Style 17th Edition Author-Date style.
 
-Citeproc makes use one or more CSL JSON (or CSL YAML) information file with the needed bibliographic information.
+Citeproc makes use of one or more CSL JSON (or CSL YAML) files with the needed bibliographic information.
 In the framework JHAP uses, this file is created using the Bibliography section of the typesetting workflow, usually completed prior to working on the main document.
 Each bibliography entry has a citation key which begins with `@`, often consisting of a name and year.
 
@@ -401,22 +402,22 @@ To process citations when converted to other formats, pandoc must be called usin
 The most common form of citation consists of the cited author's name, year of publication, and if appropriate, a comma and the page range or similar. These are produced in the markdown with the citation key in hard brackets, together with optional information before or after.
 
 ```markdown
-This sentences relies on information from a source [@mysource, 12].
+This sentence relies on information from a source [@mysource, 12].
 
 ```
 
 :::{.result}
-This sentences relies on information from a source (Jones 2002, 12).
+This sentence relies on information from a source (Jones 2002, 12).
 :::
 
 Preceding text can appear inside the brackets.
 
 ```markdown
-Some philosophers believe there are *a posterioi* necessary truths [see for example @kripke1980].
+Some philosophers believe there are *a posteriori* necessary truths [see for example @kripke1980].
 ```
 
 :::{.result}
-Some philosophers believe there are *a posterioi* necessary truths (see for example Kripke 1980).
+Some philosophers believe there are *a posteriori* necessary truths (see for example Kripke 1980).
 :::
 
 ## Author name with parenthetical date
@@ -443,15 +444,18 @@ Bertrand Russell is known for his theory of descriptions [-@russell1905].
 Bertrand Russell is known for his theory of descriptions (1905).
 :::
 
-
 ## Multiple citations
 
 Multiple citations inside the same parenthetical can be achieved by placing a semicolon in between them in markdown. Words may still be inserted before later ones.
 
 ```markdown
-Many analytic philosophers have been interested in intention and action [@anscombe1963; see also @davidson1963, @grice1971].
+Many analytic philosophers have been interested in intention and action [@anscombe1963; see also @davidson1963; @grice1971].
 ```
 
 :::{.result}
 Many analytic philosophers have been interested in intention and action (Anscombe 1963; see also Davidson 1963; Grice 1971).
 :::
+
+# Next Steps
+
+For more advanced tips and tricks, and more about JHAP's specific use of these tools, see the [JHAP Typesetting Guide](./typesetting_guide.html).

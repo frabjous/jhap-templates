@@ -23,7 +23,7 @@ Submissions may be returned to authors who do not adhere to these guidelines.
 
 Please ensure that the following are true before submitting the final version of a work accepted for publication.
 
-- [x] The file for the final version is in **.DOCX** (MS Word/OnlyOffice), **.ODT** (LibreOffice), **.EPUB** (eBook), **.RTF** (rich text), **.HTML** (web page), **.TEX** (LaTeX), or **.MD** (markdown) formats.
+- [x] The file for the final version is in **.DOCX** (MS Word/OnlyOffice), **.ODT** (LibreOffice/Calligra Suite), **.EPUB** (eBook), **.RTF** (rich text), **.HTML** (web page), **.TEX** (LaTeX), or **.MD** (markdown) formats.
 
 - [x] An abstract (100–200 words) has been provided, either in the document or separately to the managing editor.
 
@@ -97,7 +97,7 @@ Citations and bibliographical listings published by JHAP make use of the [*Chica
 Compatibility with this style can be ensured by utilizing the corresponding [Citation Style Language](https://citationstyles.org/) (CSL) specification, or by making use of software that can apply CSL styles automatically for you, such as [Zotero](https://www.zotero.org/), [Mendeley](https://www.mendeley.com/), the [citation-style-language](https://ctan.org/pkg/citation-style-language) LaTeX package, or [pandoc's implementation of citeproc](https://pandoc.org/MANUAL.html#citations).
 The Chicago author-date .csl file and thousands of others can be found in [the CSL styles repository](https://github.com/citation-style-language/styles).
 
-Citations in this style typically appear in the body of the text in parentheses, containing the author's name and year of publication, followed (when appropriate) by a comma and specific textual location such as a page, page range or section number: (Raven 1998, 36).
+Citations in this style typically appear in the body of the text in parentheses, containing the author's name and year of publication, followed (when appropriate) by a comma and specific textual location such as a page, page range or section number (Raven 1998, 36).
 Multiple works are separated by semi-colons (Marion 2006; Tuborg 2008).
 If the cited author's name appears in the sentence, then it may simply be followed by the year (and textual location, if applicable) in parentheses, for example if it mentions Bertrand Russell (1903, secs. 10–12).
 
@@ -109,15 +109,15 @@ In the bibliography, books are listed with the name, publication year, title, pl
 
 > Fricker, Miranda. 2007. *Epistemic Injustice: Power and Ethics of Knowing*. New York: Oxford University Press.
 
-If there are multiple authors, subsequent names begin with the given name. Journal articles should specify the volume, optionally the issue number, and page range as follows.
+If there are multiple authors, subsequent names begin with the given name. Journal articles should specify the volume, optionally the issue number, and page range as follows:
 
 > Sultanescu, Olivia, and Claudine Verheggen. 2019. “Davidson’s Answer to Kripke’s Sceptic.” *Journal for the History of Analytical Philosophy* 7(2): 9–28.
 
-The abbreviations “ed.” or “eds.” follow the name of editors prior to the date in works without a primary author:
+The abbreviations “ed.” or “eds.” follow the names of editors prior to the date in works without a primary author:
 
 > Biggs, Stephen, and Heimir Giersson, eds. 2021. *The Routledge Handbook of Linguistic Reference*. New York: Routledge.
 
-Book chapters and anthology contributions place the editors' names after both the contribution title and book title, followed by the page range, place of publication and publisher.
+Book chapters and anthology contributions place the editors' names after both the contribution title and book title, followed by the page range, place of publication, and publisher.
 
 > Smith, Barry C. 1998. “On Knowing One’s Own Language.” In *On Knowing Our Own Minds*, edited by C. Wright, B. C. Smith, and C. Macdonald, 391–428. Oxford: Clarendon Press.
 
@@ -132,22 +132,21 @@ Although it is not required, the journal encourages submission of structured bib
 
 2) Ellipses … are used for deletions inside quotations, and [brackets] for insertions. Use of both at the same time […], paradoxically suggesting that a deletion has been inserted, should be avoided.
 
-
 3) JHAP uses em-dashes (U+2014) without spaces around them—like this—for breaking up text, rather than en-dashes – like this – with spaces. En-dashes (U+2013) are used for number ranges, such as 131–156. Dashes should not be confused with regular hyphens (U+002D), which appear in hyphenated words like "space-time", nor with the mathematical minus/subtraction sign − (U+2212).
 
     Only the hyphen appears on most keyboards. Traditional word processors often try to autocorrect typed hyphens to the correct punctuation sign, but often make mistakes, and the results should be checked.
 
-   In LaTeX and pandoc markdown, a single ASCII `-` can be used to produce a regular hyphen, two `--` to produce a unicode en-dash –, three `---` to produce an em-dash —, and a hyphen in math mode `$-$` to produce the subtraction sign −.
+   In LaTeX and pandoc markdown, a single ASCII `-` can be used to produce a regular hyphen, two `--` to produce an en-dash –, three `---` to produce an em-dash —, and a hyphen in math mode `$-$` to produce the subtraction sign −.
 
 5) Dates should be in an international format but with the month spelled out, such as “5 May 1915”, rather than the US format “May 5, 1915”, if possible.
 
 6) Common English names of places are used rather than native names, if different, e.g., “Munich”, not “München”.
 
-7) Authors may use either single quotation marks (as is 'typical' in British English) or double quotes (as is “typical” in American English) primarily, as they prefer, but should be consistent in their choices.
+7) Authors may use either single quotation marks (as is 'typical' in British English) or double quotation marks (as is “typical” in American English) primarily, as they prefer, but should be consistent in their choice.
 
 8) Footnote markers should be placed after end‑of‑sentence punctuation, not before.
 
-9) Unnecessary Latin-isms such as “cf.” and “viz.” should be avoided in favor of ordinary words such as “compare” and “namely”. Simply repeat citations instead of using “ibid.” The Latin abbreviations “i.e.” and “e.g.” may be used sparingly. They should be followed by commas in most cases, e.g., like this.
+9) Unnecessary Latin-isms such as “cf.” and “viz.” should be avoided in favor of ordinary words such as “compare” and “namely”. Repeat citations instead of using “ibid.” The Latin abbreviations “i.e.” and “e.g.” may be used sparingly. They should be followed by commas in most cases, e.g., like this.
 
 ## Articles
 
@@ -172,7 +171,3 @@ JHAP also welcomes contributions in the style of “author meets critics” to b
 These symposia generally consist of 2–4 pieces (of about 4000-6000 words) by different contributors, and will discuss some central themes of the book, followed by the author’s response (about 4000–8000 words).
 
 To make a new review or critical notice/studies submission: [click here](https://jhaponline.org/submission/wizard?sectionId=2).
-
-## Discussions
-
-We are not currently accepting Discussion submissions.

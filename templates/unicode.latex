@@ -1,5 +1,6 @@
 % define various extra unicode characters
-\usepackage{newunicodechar}
+\usepackage{newunicodechar, mathrsfs}
+\usepackage[bb = ams]{mathalfa}
 
 % misc
 \newunicodechar{£}{\pounds}
@@ -136,6 +137,8 @@
 \newunicodechar{ϵ}{\ensuremath{\mathalpha{\KCKvarepsilon}}}
 \newunicodechar{϶}{\ensuremath{\mathord{\KCKbackepsilon}}}
 \newunicodechar{ɒ}{\rotatebox[origin=c]{180}{\ensuremath{\alpha}}}
+\newunicodechar{ἀ}{\ensuremath{\overset{,}{\alpha}}}
+\newunicodechar{ἐ}{\ensuremath{\overset{,}{\varepsilon}}}
 
 \newunicodechar{†}{\dag}
 \newunicodechar{‡}{\ddag}
@@ -317,3 +320,75 @@
 \newunicodechar{⅞}{\ensuremath{\frac{7}{8}}}
 \newunicodechar{⅑}{\ensuremath{\frac{1}{9}}}
 \newunicodechar{⅒}{\ensuremath{\frac{1}{10}}}
+
+% Blackboard bold / doube struck
+\newunicodechar{𝔹}{\ensuremath{\mathbb{B}}}
+\newunicodechar{ℂ}{\ensuremath{\mathbb{C}}}
+\newunicodechar{ℍ}{\ensuremath{\mathbb{H}}}
+\newunicodechar{𝕀}{\ensuremath{\mathbb{I}}}
+\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℙ}{\ensuremath{\mathbb{P}}}
+\newunicodechar{ℚ}{\ensuremath{\mathbb{Q}}}
+\newunicodechar{ℝ}{\ensuremath{\mathbb{R}}}
+\newunicodechar{ℤ}{\ensuremath{\mathbb{Z}}}
+
+% Script letters
+\newunicodechar{𝒜}{\ensuremath{\mathscr{A}}}
+\newunicodechar{ℬ}{\ensuremath{\mathscr{B}}}
+\newunicodechar{𝒞}{\ensuremath{\mathscr{C}}}
+\newunicodechar{𝒟}{\ensuremath{\mathscr{D}}}
+\newunicodechar{ℰ}{\ensuremath{\mathscr{E}}}
+
+% Fraktur
+\newunicodechar{𝔄}{\ensuremath{\mathfrak{A}}}
+\newunicodechar{𝔅}{\ensuremath{\mathfrak{B}}}
+\newunicodechar{ℭ}{\ensuremath{\mathfrak{C}}}
+\newunicodechar{𝔇}{\ensuremath{\mathfrak{D}}}
+\newunicodechar{𝔈}{\ensuremath{\mathfrak{E}}}
+\newunicodechar{𝔉}{\ensuremath{\mathfrak{F}}}
+\newunicodechar{𝔊}{\ensuremath{\mathfrak{G}}}
+\newunicodechar{ℌ}{\ensuremath{\mathfrak{H}}}
+\newunicodechar{ℑ}{\ensuremath{\mathfrak{I}}}
+\newunicodechar{𝔍}{\ensuremath{\mathfrak{J}}}
+\newunicodechar{𝔎}{\ensuremath{\mathfrak{K}}}
+\newunicodechar{𝔏}{\ensuremath{\mathfrak{L}}}
+\newunicodechar{𝔐}{\ensuremath{\mathfrak{M}}}
+\newunicodechar{𝔑}{\ensuremath{\mathfrak{N}}}
+\newunicodechar{𝔒}{\ensuremath{\mathfrak{O}}}
+\newunicodechar{𝔓}{\ensuremath{\mathfrak{P}}}
+\newunicodechar{𝔔}{\ensuremath{\mathfrak{Q}}}
+\newunicodechar{ℜ}{\ensuremath{\mathfrak{R}}}
+\newunicodechar{𝔖}{\ensuremath{\mathfrak{S}}}
+\newunicodechar{𝔗}{\ensuremath{\mathfrak{T}}}
+\newunicodechar{𝔘}{\ensuremath{\mathfrak{U}}}
+\newunicodechar{𝔙}{\ensuremath{\mathfrak{V}}}
+\newunicodechar{𝔚}{\ensuremath{\mathfrak{W}}}
+\newunicodechar{𝔛}{\ensuremath{\mathfrak{X}}}
+\newunicodechar{𝔜}{\ensuremath{\mathfrak{Y}}}
+\newunicodechar{ℨ}{\ensuremath{\mathfrak{Z}}}
+\newunicodechar{𝔞}{\ensuremath{\mathfrak{a}}}
+\newunicodechar{𝔟}{\ensuremath{\mathfrak{b}}}
+\newunicodechar{𝔠}{\ensuremath{\mathfrak{c}}}
+\newunicodechar{𝔡}{\ensuremath{\mathfrak{d}}}
+\newunicodechar{𝔢}{\ensuremath{\mathfrak{e}}}
+\newunicodechar{𝔣}{\ensuremath{\mathfrak{f}}}
+\newunicodechar{𝔤}{\ensuremath{\mathfrak{g}}}
+\newunicodechar{𝔥}{\ensuremath{\mathfrak{h}}}
+\newunicodechar{𝔦}{\ensuremath{\mathfrak{i}}}
+\newunicodechar{𝔧}{\ensuremath{\mathfrak{j}}}
+\newunicodechar{𝔨}{\ensuremath{\mathfrak{k}}}
+\newunicodechar{𝔩}{\ensuremath{\mathfrak{l}}}
+\newunicodechar{𝔪}{\ensuremath{\mathfrak{m}}}
+\newunicodechar{𝔫}{\ensuremath{\mathfrak{n}}}
+\newunicodechar{𝔬}{\ensuremath{\mathfrak{o}}}
+\newunicodechar{𝔭}{\ensuremath{\mathfrak{p}}}
+\newunicodechar{𝔮}{\ensuremath{\mathfrak{q}}}
+\newunicodechar{𝔯}{\ensuremath{\mathfrak{r}}}
+\newunicodechar{𝔰}{\ensuremath{\mathfrak{s}}}
+\newunicodechar{𝔱}{\ensuremath{\mathfrak{t}}}
+\newunicodechar{𝔲}{\ensuremath{\mathfrak{u}}}
+\newunicodechar{𝔳}{\ensuremath{\mathfrak{v}}}
+\newunicodechar{𝔴}{\ensuremath{\mathfrak{w}}}
+\newunicodechar{𝔵}{\ensuremath{\mathfrak{x}}}
+\newunicodechar{𝔶}{\ensuremath{\mathfrak{y}}}
+\newunicodechar{𝔷}{\ensuremath{\mathfrak{z}}}

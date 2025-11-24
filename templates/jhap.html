@@ -238,7 +238,7 @@ main article p {
     margin-top: 1.5rem;
 }
 
-main article p:first-child {
+main article > p:first-child {
     margin-top: 3rem;
 }
 
@@ -249,6 +249,16 @@ main {
 ol.example > li {
     list-style: none;
     position: relative;
+}
+
+article > ol,
+article > ul {
+  padding-left: 2rem;
+}
+
+article ul ul,
+article ol ol {
+  padding-left: 2rem;
 }
 
 .indent {
@@ -386,11 +396,19 @@ blockquote {
 
 main article blockquote p {
     line-height: 1.4rem;
+    margin-top: 0;
 }
 
 main article blockquote p:first-child {
     margin-top: 1.5rem;
 }
+
+main article blockquote blockquote p,
+main article blockquote blockquote p:first-child {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
 
 main article li p:first-child {
     margin-top: 0.5rem;
@@ -463,6 +481,39 @@ dd {
     margin-left: 0.5rem;
 }
 
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 1em 0;
+}
+
+article > table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table thead th {
+  border-top: 2px solid black;
+  border-bottom: 1px solid black;
+}
+
+table tbody tr:last-child td {
+  border-bottom: 2px solid black;
+}
+
+table th, table td {
+  padding-right: 1rem;
+}
+
+table th:last-child, table td:last-child {
+  padding-right: 0;
+}
+
+table caption {
+  caption-side: bottom;
+  margin-top: 0.5em;
+}
+
 $if(highlighting-css)$
 $highlighting-css$
 $endif$
@@ -484,8 +535,13 @@ div.csl-entry {
     text-indent: -1.5em;
 }
 
+.math.em {
+  padding-right: 0.1rem;
+}
+
+.fregeify img,
 .fregeify svg {
-    transform: scale(1);
+    transform: scale(1.4);
 }
 div.fregeify {
     text-align: center;
@@ -493,8 +549,8 @@ div.fregeify {
 span.fregeify {
     display: inline-block;
     vertical-align: middle;
-    margin-right: 1.5px;
-    margin-left: 1.5px;
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
 }
 span.fregeify.top {
     display: inline-block;
@@ -503,6 +559,21 @@ span.fregeify.top {
 span.fregeify.bottom {
     display: inline-block;
     vertical-align: baseline;
+}
+span.fregeify.padded {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+
+li > p:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  display: inline-block;
+}
+
+li > p:last-child {
+  margin-bottom: 0;
 }
 
 @media print {
@@ -531,7 +602,7 @@ $if(math)$
     $math$
 $endif$
 
-<script type="module">
+<script type="module" data-external="1">
     const styletag = document.createElement("style");
     styletag.innerHTML='@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");';
     //styletag.innerHTML='@import url("https://fonts.cdnfonts.com/css/tex-gyre-pagella");@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");';

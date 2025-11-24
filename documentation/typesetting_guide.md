@@ -1,6 +1,6 @@
 ---
 title: JHAP Typesetting Guide
-date: Last edited 21 November 2025
+date: Last edited 23 November 2025
 css: documentation.css
 header-includes: |
   \usepackage{principia}
@@ -12,15 +12,19 @@ header-includes: |
 However, this document is also stored in a code repository on GitHub.
 GitHub provides a preview of markdown documents.
 However, it assumes these documents use **GitHub's version** of markdown, which is less sophisticated than pandoc's.
-If you are viewing this directly on GitHub, it will **not appear correctly** in some places.
-If this is a problem, either download the raw text of this document and process it with pandoc, or contact the repo owner for a PDF.
+If you are viewing this directly on GitHub, it will **not display correctly** in some places.
+
+To view this document as intended, visit:
+
+<https://people.umass.edu/klement/jhap/typesetting_guide.html>
 :::
 
 # Introduction
 
 ## Overview
 
-JHAP uses an instance of the [Open Guide Typesetting Framework](https://github.com/frabjous/open-guide-typesetting-framework) (OGTF), developed by JHAP editor Kevin Klement, to produce the final versions of its articles and review. Users will be given the URL to access it and invited to create an account.
+JHAP uses an instance of the [Open Guide Typesetting Framework](https://github.com/frabjous/open-guide-typesetting-framework) (OGTF), developed by JHAP editor Kevin Klement, to produce the final versions of its articles and reviews.
+Users will be given the URL to access it and invited to create an account.
 
 OGTF has a built-in web-based markdown editor with live previewing capabilities, the [Open Guide Editor](https://github.com/frabjous/open-guide-editor) (OGE).
 
@@ -35,9 +39,9 @@ It is recommended that those using the framework should have read or be familiar
 
 * The [usage documentation for OGE](https://github.com/frabjous/open-guide-editor/blob/main/doc/basic-usage.md).
 
-* The [markdown primer](./markdown-primer.html) accompanying this guide. This may not be necessary for those who already have their feet wet.
+* The [markdown primer](./markdown_primer.html) accompanying this guide. This may not be necessary for those who already have their feet wet.
 
-* The [pandoc user's guide](https://pandoc.org/MANUAL.html), especially the section on on [pandoc's markdown](https://pandoc.org/MANUAL.html#pandocs-markdown).
+* The [pandoc user's guide](https://pandoc.org/MANUAL.html), especially the section on [pandoc's markdown](https://pandoc.org/MANUAL.html#pandocs-markdown).
 
 * The [guidelines for authors](https://jhaponline.org/about/submissions) distributed on jhaponline.org for those submitting to the journal.
 
@@ -60,20 +64,33 @@ The [OGTF usage documentation](https://github.com/frabjous/open-guide-typesettin
 ## Smart punctuation
 
 Pandoc typically does a good job converting non-smart punctuation to smart punctuation.
-For example, it changes `"` and `'` to one of `“`, `”`, `’`, or `’`, depending on context, three peroids `...` to a unicode elipsis `…`, as well as `--` and `---` to en-dashes `–` and em-dases `—`, respectively.
+For example, it changes `"` and `'` to one of `“`, `”`, `’`, or `’`, depending on context, three periods `...` to a unicode ellipsis `…`, as well as `--` and `---` to en-dashes `–` and em-dashes `—`, respectively.
 
-If preferred, or if pandoc doesn't handle something correctly, the "smart" characters can be used in directly the markdown as well.
+If preferred, or if pandoc doesn't handle something correctly, the "smart" characters can be used directly in the markdown as well.
 The relevant characters are available from the unicode character insertion widget (`Alt-u`) in OGE.
 
-Note that citeproc will automatically use en-dashes in citations and bibliography page ranges. It is not necessary, and usually best not, to use en-dashes in bibliographic fields, or in the markdown citations. Hyphens will do.
+Citeproc automatically uses en-dashes in citations and bibliography page ranges. It is not necessary to use en-dashes in bibliographic fields, or in the markdown citations. Hyphens will do.
 
 ## Using the correct unicode characters
 
-In mathematical contexts, authors often incorrectly use  `<` and greater than `>` symbols instead of actual angle brackets `⟨…⟩ ` (or LaTeX's `\langle` and `\rangle`) for ordered tuples. Change the ugly $<a, b>$ to to $⟨a, b⟩$.
+In mathematical contexts, authors often incorrectly use less than `<` and greater than `>` symbols instead of actual angle brackets `⟨…⟩ ` (or LaTeX's `\langle` and `\rangle`) for ordered tuples. Change the ugly $<a, b>$ to to $⟨a, b⟩$.
 
 Similarly, authors sometimes use box drawing symbols such as `┌` (U+250C) and `┐` (U+2510) instead of true corner quotes `⌜` (U+231C) `⌝` (U+231D) for schematic hybrids. These should be replaced.
 
 The correct symbols can be found in the unicode insertion dialog in OGE (`Alt-u`).
+
+## Variables
+
+Always put variables and other small bits of symbolism in math mode, even in the context of an ordinary sentence.
+
+```markdown
+The number of $F$s = the number of $G$s iff the $F$s and the $G$s can be correlated one-to-one.
+
+```
+
+:::{.result}
+The number of $F$s = the number of $G$s iff the $F$s and the $G$s can be correlated one-to-one.
+:::
 
 # CSL Bibliographies
 
@@ -97,7 +114,7 @@ However, CSL fields have support for a small number of HTML tags, for applying e
 +--------------+----------------------------+--------------------------+
 :::
 
-One could use, e.g, `The Method of the <i>Tractatus</i>` to ensure that "Tractatus" in italicized, even in the name of a chapter or article.
+One could use, e.g, `The Method of the <i>Tractatus</i>` to ensure that "Tractatus" is italicized, even in the name of a chapter or article.
 
 Citeproc will handle these correctly in the LaTeX-based outputs as well.
 
@@ -107,13 +124,33 @@ It does not work to enter "forthcoming" in place of the year in the "issued" fie
 
 Instead, add the field "status" and set its value to "forthcoming".
 
+## Letters after dates
+
+Sometimes the bibliography contains multiple works by the same author for the same year. In such cases letters are added (Dummett 1991a; Dummett 1991b).
+
+These letters are automatically inserted by citeproc when it processes the citations and bibliography. Do not put letters in the "issued" field.
+
+These works need different citation ids to use with `@`. The bibliography page auto-changes citation ids to make them different if they are otherwise the same, but you can change them manually as well.
+
+However, there is no necessary connection between any of the following:
+
+(1) letters used by the author in the original document the entries are extracted from,
+(2) letters used in citation ids (@dummett1991a, @dummett1991a) on the bibliography page, and
+(3) letters used by citeproc in the output documents.
+
+This can be confusing.
+The output might link (Dummett 1991a) to the entry with the citation id `@dummett1991b`, and (Dummett 1991b) to `@dummett1991a`.
+This might be the correct result.
+The letters in the original document might match either of these (or neither).
+Be sure to check carefully that the right work is being cited.
+
 ## Preventing auto-capitalization
 
 With the CSL style we are using, citeproc will apply title case to titles and container titles, and capitalize most words. Especially if the title is not in English, or makes use of technical notation, this can be inappropriate.
 
 There are two ways to prevent this.
 
-For non-English titles, add the "language" field, and enter something that does not begin with "en" (a non-English [locale code](https://simplelocalize.io/data/locales/)). In that case, it will not change the capitalization pattern from what is in the bibiography field.
+For non-English titles, add the "language" field, and enter something that does not begin with "en" (a non-English [locale code](https://simplelocalize.io/data/locales/)). In that case, it will not change the capitalization pattern from what is in the bibliography field.
 
 In situations in which only part of the title should not be in title case, CSL supports one additional html tag, which can be applied internally within a title field to prevent citeproc from applying the capitalization rules for the style.
 
@@ -133,16 +170,15 @@ Sometimes it is easiest and perhaps advisable to remove less important informati
 
 ## Using anystyle directly
 
-When free-form bibliographies are found in the main uploaded file, and the "extract from main file" button is used on the bibliography page, the free-form bibliography is parsed with an open source Ruby progam called "anystyle".
+When free-form bibliographies are found in the main uploaded file, and the "extract from main file" button is used on the bibliography page, the free-form bibliography is parsed with an open source Ruby program called "anystyle".
 
-In some circumstances, it may be useful to run anystyle directly to parse additional free-form bibiography items.
+In some circumstances, it may be useful to run anystyle directly to parse additional free-form bibliography items.
 
 Anystyle has a web interface that can be used without local installation. Visit:
 
 <https://anystyle.io>
 
-
-Download/save the parsed items as a CSL JSON file and import it into the bibliography using the file upload option in the upper right of the bibiography page.
+Download/save the parsed items as a CSL JSON file and import it into the bibliography using the file upload option in the upper right of the bibliography page.
 
 Anystyle is not perfect, so its result should be checked afterwards.
 
@@ -152,9 +188,11 @@ Anystyle is not perfect, so its result should be checked afterwards.
 
 Pandoc's citation system is fairly unique to its version of markdown.
 Even those knowledgeable about markdown in general may not know how it works.
-See the section on citations in the accompanying [primer about pandoc's markdown](./pandoc_mrkdown_primer.html#citations), and for more information, the [citations section in the Pandoc user's guide](https://pandoc.org/MANUAL.html#citations) for more information.
+See the section on citations in the accompanying [primer about pandoc's markdown](./markdown_primer.html#citations), and the [citations section in the Pandoc user's guide](https://pandoc.org/MANUAL.html#citations) for more information.
 
-Each bibliographic item is given a hyperlink target id of the for `#ref-[key]` where `key` is the citation id/key from the bibliography list.
+## Linking to bibliography items
+
+Each bibliographic item is given a hyperlink target id of the form `#ref-[id]` where `id` is the citation id/key from the bibliography list.
 You can manually create links to them:
 
 ```markdown
@@ -164,15 +202,14 @@ A different theory was advanced by Susan Stebbing in
 
 :::{.result}
 A different theory was advanced by Susan Stebbing in
-*Logic in Practice* [(LiP)](#ref-stebbing1934).
-
+*Logic in Practice* [(LiP)](#ref-stebbing1934){title="this should link to Stebbing 1934"}.
 :::
 
 ## Numbered examples
 
 It is quite common in analytic philosophy for authors to display certain sentences or formulas and tag them with a number to refer back to them later.
 
-Pandoc has a method for creating these, and referring back to the numbers later, so that the number in the example, and the later references, update together if more are added.
+Pandoc has a method for creating these and references to them, so that the number in the example, and the later references, update together if more are added.
 
 ```markdown
 Here are two examples.
@@ -181,9 +218,7 @@ Here are two examples.
 
 (@bad) Grammatical this sentence only Yoda thinks is.
 
-As you can, see example, sentence (@good) makes more sense
-than sentence (@bad).
-
+As you can see, example sentence (@good) makes more sense than sentence (@bad).
 ```
 
 :::{.result}
@@ -238,66 +273,59 @@ This is a "pipe table", and has a caption:
 | Cell in upper left  | Cell in upper right |
 | Cell in lower left  | Cell in lower right |
 Table: A nice table
-
 :::
 
 The [pandoc documentation](https://pandoc.org/MANUAL.html#tables) goes into more details.
 
 Plain text formats and plain text editors are less than ideal for editing tables.
-Using a plain text table generator with a graphical interface such as the one at this URL can make the process simpler:
+Using a plain text table generator with a graphical interface such as the one at this URL might make the process simpler:
 
 [Online Tables Generator](https://www.tablesgenerator.com/markdown_tables){target=_blank} (<https://www.tablesgenerator.com/markdown_tables>{target=_blank})
 
 Edit or create the table there, and copy and paste the result it shows into the document being edited.
 
-If a table is relatively complex, creating the tables using HTML and LaTeX separately, using "raw html" and "raw latex" tags, as [described below](#raw-html-and-latex), and giving separate HTML and LaTeX code, is an option. The table generator linked above can also export HTML or LaTeX markup for tables.
+If a table is relatively complex, creating the tables using HTML and LaTeX separately, using "raw html" and "raw latex" tags, as [described below](#raw-html-and-latex), is an option. The table generator linked above can also export HTML or LaTeX markup for tables.
 
 There are also some tips for handling tables in [the OGE editor](#the-oge-editor) section below.
 
-## Handling line breaks
+## Handling line-breaks
 
-Non-breaking spaces can be used to prevent line breaks at awkward places in a sentence. The unicode non-breaking space (U+00A0) can be used, and will be indicated as different from a regular space in the editor with a light gray dot. This is the first character in the editor's insert special characters table (`Alt-U`). The HTML entity code `&nbsp;` can also be used. Both should prevent line breaks even in LaTeX-based outputs.
+Non-breaking spaces can be used to prevent line-breaks at awkward places in a sentence. The unicode non-breaking space (U+00A0) can be used, and will be indicated as different from a regular space in the editor with a light gray dot. This is the first character in the editor's insert special characters table (`Alt-U`). The HTML entity code `&nbsp;` can also be used. Both should prevent line-breaks even in LaTeX-based outputs.
 
-There are times it is better to use a thin non-breaking space (U+202F) instead, as in initials. This is the third item in the unicode insertion table (`Alt-u`). (Check the tooltip when hovering over it.) You can also use the HTML entity `&#x202F;`. 
+There are times it is better to use a thin non-breaking space (U+202F) instead, as in initials. This is the third item in the unicode insertion table (`Alt-u`). (Check the tool-tip when hovering over it.) You can also use the HTML entity `&#x202F;`.
 
 ```markdown
-G.&#x202F;E. Moore published *Principa Ethica* in 1903.
+G.&#x202F;E. Moore published *Principia Ethica* in 1903.
 ```
 
 :::{.result}
-G.&#x202F;E. Moore published *Principa Ethica* in 1903.
+G.&#x202F;E. Moore published *Principia Ethica* in 1903.
 :::
 
-A manual line break can be forced by ending a line with a backslash, ensuring that nothing, not even spaces or tabs, appear afterwards.
+A manual line-break can be forced by ending a line with a backslash, ensuring that nothing, not even spaces or tabs, appear afterwards.
 
 This can also be used to insert blank space between paragraphs.
 
 
 ```markdown
 Lorem ipsum\
-dolor sit amet.
-
+dolor sit amet.\
 \
-
 \
-
 Consectetur adipiscing elit.
 ```
 
 :::{.result}
 Lorem ipsum\
-dolor sit amet.
-
+dolor sit amet.\
 \
-
 \
-
 Consectetur adipiscing elit.
 :::
 
 There is almost never a good reason to do either of those things.
 
-More common is the need to typeset verse, mailing addresses, etc., where the linebreak pattern should be observed throughout. This can be accomplished by preceding each line with the pipe symbol `|`.
+More common is the need to typeset verse, mailing addresses, etc., where the line-break pattern should be observed throughout. This can be accomplished by preceding each line with the pipe symbol `|`.
 
 ```markdown
 | And hast thou slain the jabberwock?
@@ -313,9 +341,53 @@ More common is the need to typeset verse, mailing addresses, etc., where the lin
 | He chortled in his joy.
 :::
 
+## Indentation
+
+New paragraphs are indented in the PDFs except at the start of a (sub)section, or after a quotation, displayed math, table, etc.
+The default "assumption" is that the text below a quotation, displayed math, tables, is meant to be a continuation of the same paragraph.
+The LaTeX commands `\noindent` and `\forceindent` can be used to prevent or force indentation.
+
+Paragraphs are never indented in the HTML-based versions, and the LaTeX commands will simply be ignored.
+
+```markdown
+A paragraph, indented.
+
+> Now a quotation.
+
+The same paragraph continued.
+
+\noindent A new paragraph, which is desired not to be indented for some reason.
+
+> Another quotation.
+
+\forceindent A new indented paragraph after a quotation.
+
+```
+
+:::::{.result}
+::::{#indentexample}
+
+:::{.indented}
+A paragraph, indented.
+:::
+
+> Now a quotation.
+
+The same paragraph continued.
+
+A new paragraph, which is desired not to be indented for some reason.
+
+> Another quotation.
+
+:::{.indented}
+A new indented paragraph after a quotation.
+:::
+::::
+:::::
+
 ## Raw HTML and LaTeX*
 
-All JHAP's output file types have either HTML or LaTeX as intermediate file types.
+All JHAP's output file types are based on HTML or LaTeX, either as the final output or an intermediary.
 
 Pandoc allows the insertion of verbatim or "raw" HTML into HTML-based documents, and verbatim or "raw" LaTeX code directly into LaTeX-based documents. These raw insertions are not converted or changed by pandoc, but directly passed to the intermediate formats used to produce the final ones.
 
@@ -351,7 +423,7 @@ This paragraph uses <strong>HTML</strong>.
 
 The LaTeX-based formats will ignore what is put in the `{=html}` spans or divs, and the HTML-based formats will ignore what is in the `{=latex}` spans and divs. Most often you should include both kinds, so all output formats are covered.
 
-**Warning**: Because these raw insertions are not processed by pandoc at all, regular puncutation is not made into smart punctuation, etc. Be sure to change `'` to `’`, and `"…"` to `“…”` when used between HTML tags (not inside them), and something like `"this"` to ` ``this''` in LaTeX, and so on.
+**Warning**: Because these raw insertions are not processed by pandoc at all, regular punctuation is not made into smart punctuation, etc. Be sure to change `'` to `’`, and `"…"` to `“…”` when used between HTML tags (not inside them), and something like `"this"` to ` ``this''` in LaTeX, and so on.
 
 ## YAML blocks and adding LaTeX packages*
 
@@ -376,9 +448,7 @@ YAML blocks can be used for other things as well, such as adding additional meta
 
 If unusual mathematical or logical symbolism is used inside math mode, sometimes pandoc's conversion to non-LaTeX formats either cannot handle the symbolism at all, or produces very bad output.
 
-
-To remedy this, JHAP's pandoc set-up makes use of a [pandoc filter]() called "[The Fregeifier](https://github.com/frabjous/fregeifier)". Math mode material that occurs inside [spans and divs](./markdown-primer.html#spans-and-divs) marked with the `.fregeify` class will be converted (using LaTeX) to scaleable svg images for use in the HTML-based formats, and inserted in the appropriate place.
-
+To remedy this, JHAP's pandoc set-up makes use of a [pandoc filter]() called "[The Fregeifier](https://github.com/frabjous/fregeifier)". Math mode material that occurs inside [spans and divs](./markdown-primer.html#spans-and-divs) marked with the `.fregeify` class will be converted (using LaTeX) to scalable svg images for use in the HTML-based formats, and inserted in the appropriate place.
 
 ```markdown
 :::{.fregeify}
@@ -394,6 +464,7 @@ $$
 $$
 :::
 ```
+
 ::::{.result}
 :::{.fregeify}
 $$
@@ -411,7 +482,7 @@ $$
 
 As the name implies, this is useful for Frege's notation. However, it can be used for anything LaTeX's math mode supports.
 
-Additional LaTeX packages added inside a YAML block ([descrbed above](#yaml-blocks-and-adding-latex-packages)) will also be used by the Fregeifier.
+Additional LaTeX packages added inside a YAML block ([described above](#yaml-blocks-and-adding-latex-packages)) will also be used by the Fregeifier.
 
 ```markdown
 ---
@@ -429,6 +500,7 @@ $$
 \pmiff \pmdot \pmpredd{f}{x}{y} \pmdot
 $$
 ```
+
 :::::{.result}
 The version of the axiom of reducibility for propositional
 functions with two variables may be written as follows.
@@ -440,26 +512,38 @@ $$
 :::
 :::::
 
-The Fregeifier also has a [web interface](https://russellguide.org/fregeifier) for creating images to be used in non-LaTeX created file formats.
+For inline elements, there are additional classes that can be added to help position the image relative to the surrounding text.
+These include `.top` (align to top of text). `.bottom` (align to bottom of text), and `.padded` (adds additional spacing left and right).
+The image is aligned to the middle of the surrounding text by default.
+
+```markdown
+Using *PM* 's notation, the formula [$\pmsome{x}\pmdot\pmpred{\phi}x$]{.fregeify .padded .top} asserts that there exist things satisfying the function.
+```
+
+:::{.result}
+Using *PM* 's notation, the formula [$\pmsome{x}\pmdot\pmpred{\phi}x$]{.fregeify .padded .top} asserts that there exist things satisfying the function.
+:::
+
+The Fregeifier also has a [web interface](https://russellguide.org/fregeifier) for creating images usable in non-LaTeX-created file formats.
 
 # Unicode Characters and LaTeX*
 
 ## The problem
 
-LaTeX was developed before the unicode standard was developed, and before TrueType or OpenType fonts existed.
+LaTeX was created before the unicode standard was developed, and before TrueType or OpenType fonts existed.
 Older LaTeX compilers, including the most widely used, `pdflatex`, do not support unicode fonts.
 Newer LaTeX compilers such as `xelatex` and `lualatex` do support these fonts, but they are *much* slower.
-This is particulary noticeable when working with a live-updating preview over a network.
+This is particularly noticeable when working with a live-updating preview over a network.
 Hence, we have been sticking with pdflatex for now.
 
-This means that whenever a unicode character is used in a source document, pdflatex must be speficially "taught" what to do with it by supplying a LaTeX command that yields the same result.
+This means that whenever a unicode character is used in a source document, pdflatex must be specifically "taught" what to do with it by supplying a LaTeX command that yields the same result.
 
 The JHAP LaTeX template includes commands that do this for common logical, mathematical, and set theoretic symbols, Greek letters, and more. This file can be viewed on GitHub [here](https://github.com/frabjous/jhap-templates/blob/main/templates/unicode.latex). The list covers the characters that appear in OGE's unicode character insertion widget (press `Alt-u`) and a few more. However, the unicode standard currently defines nearly 300,000 characters, and is expected to grow.
 It is not practical to define them all, and difficult to completely predict in advance which ones will be used by our authors.
 
 If a document includes a unicode character not on the list, the LaTeX to PDF compilation will fail, and show an error about the undefined character.
-Sometimes the author is using the wrong symbol, and it should simply be replaced ([see above](#using-the-correct-unicode-sumbols)).
-Other times, the symbol shold be defined, either permanently (in the JHAP template) or locally (in the file being edited).
+Sometimes the author is using the wrong symbol, and it should simply be replaced ([see above](#using-the-correct-unicode-characters)).
+Other times, the symbol should be defined, either permanently (in the JHAP template) or locally (in the file being edited).
 
 If the suggestions below are too technical, Kevin is happy to deal with these things as they come up.
 
@@ -473,7 +557,8 @@ header-includes: |
   \newunicodechar{▷}{\ensuremath{\triangleright}}
 ---
 ```
-The first braces after the `\newunicodechar` command should contain the unicode symbol itself, and the second the LaTeX command to be used in its place. Wrap the command in `\ensuremath{…}` if it is a math mode symbol. Use `\usepackage{XXX}` before the `\newunicode` command if it requires a special LaTeX package.
+
+The first braces after the `\newunicodechar` command should contain the unicode symbol itself, and the second the LaTeX command to be used in its place. Wrap the command in `\ensuremath{…}` if it is a math mode symbol. Use `\usepackage{XXX}` before the `\newunicodechar` command if it requires a special LaTeX package.
 
 To find an appropriate LaTeX command for a symbol, consult the [Comprehensive LaTeX Symbols List](https://tug.ctan.org/info/symbols/comprehensive/symbols-letter.pdf), or draw the symbol with [DeTeXify](https://detexify.kirelabs.org/classify.html).
 
@@ -483,7 +568,8 @@ If there is a good chance the symbol will be used again in the future, it should
 
 One option is to ask Kevin, who is happy to do this. If you have a GitHub account, and are comfortable doing so, you can also make edits to [the file on GitHub](https://github.com/frabjous/jhap-templates/blob/main/templates/unicode.latex) and create a pull request. As things stand, Kevin needs to approve the edits, and deploy the revised template on the server.
 
-The file conists primarily of `\newunicodechar` commands with the same format described above, and more can simply be added at the end.
+The file consists primarily of `\newunicodechar` commands with the same format described above.
+More can be added at the end.
 
 # JHAP-specific Conventions
 
@@ -501,13 +587,11 @@ I would like to thank …
 ## Acknowledgements {.unnumbered .unlisted}
 
 I would like to thank …
-
 :::
-
 
 ## Citations in block quotes
 
-Never supress an author's name in the citation after a block quote.
+Never suppress an author's name in the citation after a block quote.
 
 ```markdown
 Russell once wrote:
@@ -527,7 +611,7 @@ Russell once wrote:
 > [-@russell1919, 71]
 ```
 
-## Ensuring the authors' guidelines are followed
+## Ensuring the author guidelines are followed
 
 Make adjustments if the authors have not followed the [JHAP Author Guidelines]((https://jhaponline.org/about/submissions)) closely.
 
@@ -537,21 +621,21 @@ These guidelines request the following:
 
 2) Ellipses … are used for deletions inside quotations, and [brackets] for insertions. Use of both at the same time […], paradoxically suggesting that a deletion has been inserted, should be avoided.
 
-3) JHAP uses em-dashes without spaces around them—like this—for breaking up text, rather than en-dashes – like this – with spaces. En-dashes are used for number ranges, such as 131–156. Dashes should not be confused with hyphens, which appear in hyphenated words like "space-time", nor with the mathematical minus/subtraction sign −.
+3) JHAP uses em-dashes (U+2014) without spaces around them—like this—for breaking up text, rather than en-dashes – like this – with spaces. En-dashes (U+2013) are used for number ranges, such as 131–156. Dashes should not be confused with regular hyphens (U+002D), which appear in hyphenated words like "space-time", nor with the mathematical minus/subtraction sign − (U+2212).
 
-    Traditional word processors often try to autocorrect typed hyphens to the correct punctuation sign, but often make mistakes, and the results should be checked.
+    Only the hyphen appears on most keyboards. Traditional word processors often try to autocorrect typed hyphens to the correct punctuation sign, but often make mistakes, and the results should be checked.
 
-   In LaTeX and pandoc markdown, a single ASCII `-` can be used to produce a regular hyphen (U+002D), two `--` to produce a unicode en-dash – (U+2013), three `---` to produce an em-dash — (U+2014), and a hyphen in math mode `$-$` to produce the subtraction sign − (U+2212).
+   In LaTeX and pandoc markdown, a single ASCII `-` can be used to produce a regular hyphen, two `--` to produce an en-dash –, three `---` to produce an em-dash —, and a hyphen in math mode `$-$` to produce the subtraction sign −.
 
 5) Dates should be in an international format but with the month spelled out, such as “5 May 1915”, rather than the US format “May 5, 1915”, if possible.
 
 6) Common English names of places are used rather than native names, if different, e.g., “Munich”, not “München”.
 
-7) Authors may use either single quotation marks (as is 'typical' in British English) or double quotes (as is “typical” in American English) primarily, as they prefer, but should be consistent in their choices.
+7) Authors may use either single quotation marks (as is 'typical' in British English) or double quotation marks (as is “typical” in American English) primarily, as they prefer, but should be consistent in their choice.
 
 8) Footnote markers should be placed after end‑of‑sentence punctuation, not before.
 
-9) Unnecessary Latin-isms such as “cf.” and “viz.” should be avoided in favor of ordinary words such as “compare” and “namely”. Simply repeat citations instead of using “ibid.” The Latin abbreviations “i.e.” and “e.g.” may be used sparingly. They should be followed by commas in most cases, e.g., like this.
+9) Unnecessary Latin-isms such as “cf.” and “viz.” should be avoided in favor of ordinary words such as “compare” and “namely”. Repeat citations instead of using “ibid.” The Latin abbreviations “i.e.” and “e.g.” may be used sparingly. They should be followed by commas in most cases, e.g., like this.
 
 ## Preventing running header overflows
 
@@ -563,40 +647,43 @@ The "short title" metadata item should be left blank if the title is not long en
 
 ## Journal editors list and templates
 
-The list of JHAP editors inserted into all articles and review mastheads consists of a [simple YAML file](https://github.com/frabjous/jhap-templates/blob/main/editors.yaml) in the  [GitHub repository](https://github.com/frabjous/jhap-templates) for the journal's templates and settings files.
+The list of JHAP editors inserted into all article and review mastheads consists of a [simple YAML file](https://github.com/frabjous/jhap-templates/blob/main/editors.yaml) in the  [GitHub repository](https://github.com/frabjous/jhap-templates) for the journal's templates and settings files.
 
 If you have a GitHub account and feel comfortable, the file can be edited on GitHub, and a pull request created.
 
-If new *categories* of editors, etc., are created, the pandoc templates themselves must be altered to include them. The pandoc templates can be found in the same git repository in the [templates directory](https://github.com/frabjous/jhap-templates/tree/main/templates).
+If new *categories* of editors, etc., are created, the pandoc templates themselves must be altered to include them. They can be found in the same git repository in the [templates directory](https://github.com/frabjous/jhap-templates/tree/main/templates).
 
 Kevin is happy to handle all of this if asked, and at present is the only one who can approve edits or deploy them on the server.
 
 # ePubs
 
-The ePub format is not, at least not yet, widely used for academic publishing.
-However, this is likely to change as more people take to reading works on phones, tablets, etc., where reflowability is important.
-It is a far more accessible format than PDF, and remains available offline, unlike most website pages.
+The ePub ebook format is not yet widely used for academic publishing.
+This is likely to change as more people take to reading works on phones, tablets, etc., where reflowability is important.
+Like PDFs, ePubs can be read offline, unlike most website pages.
+However, ePubs are more accessible than PDFs, especially to those with vision challenges.
+It is not a problem to enlarge the font sizes, and the document structure is transparent to screen readers.
 
-One difficulty, however, is that most currently existing ePub software caters to informal texts such as novels.
-While it is possible to embed fonts, complex stylesheets, etc., in ePubs, mainstream ebook software often ignores these components.
+One difficulty is that most currently existing ebook software caters to informal texts such as novels.
+While it is possible to embed fonts, complex stylesheets, etc., in ePubs, the software often ignores these components.
 They prefer to let the reader choose fonts, margins, spacing, etc., for themselves.
 There is little consistency, and each ebook application handles things its own way.
 
 I recommend not spending too long trying to ensure that everything in the ePub output looks pristine.
-Even if this were accomplished for one application, you would get different results in a different one.
+Even if this were accomplished for one application, you might get different results in another.
 It is sufficient for present purposes just to check that the ePub file is not corrupted before publishing it.
 In 2025, few readers will download this version, and those that do likely know what to expect.
 
 ePub files contain zipped HTML files and resources.
-The contents of our ePubs are nearly identical to our HTML version, and if standards were followed, they *should* appear almost exactly the same.
-Some of our articles will still be relevant even decades from now (or so we hope), when the format is more popular, and standards are more likely to be followed.
-It will then be a good thing that these files were produced.
+The contents of our ePubs are nearly identical to our HTML versions.
+If standards were followed, they *should* appear almost exactly the same.
+Some of our articles will still be relevant decades from now (or so we hope), when the format might be more popular, and standards are more likely to be followed.
+If so, it will be a good thing that these files were produced.
 
 # The OGE editor
 
 ## Bookmarking
 
-When the editor is launched by the "edit main document", it creates a unique URL that will always point to the document in question.
+When OGE is launched by the "edit main document" link, it creates a unique URL that will always point to the document in question.
 
 That URL can be bookmarked so that you can go directly to the editor for a given assignment without going through OGTF.
 
@@ -606,19 +693,19 @@ Using them to go directly to a certain page requires having chosen "remember me 
 ## Refreshing the citation autocompletion list
 
 When `@` is typed in the editor, an autocomplete pop-up should appear.
-It is populated with citation keys from the bibliography.
-The (possibly long) list can be narrowed down by continuing to type the first characters of the sought-after citation key.
+It is populated with citation ids from the bibliography.
+The (possibly long) list can be narrowed down by continuing to type the first characters of the sought-after citation id.
 Use the arrows and press enter to select one to fill in.
 
-If new entries are added to the bibliography in another window during the editing session, their keys will not appear at first.
+If new entries are added to the bibliography in another window during the editing session, their ids will not appear at first.
 To make them appear, save your work both in the editor and on the bibliography page, and reload the editor page.
 
 ## Section folding
 
-If a downward caret is visible next to a line number on the left in the editor, this indicates a "foldable" section.
+If a downward caret is visible next to a line number on the left, this indicates a "foldable" section.
 
 Clicking the caret will hide its content from view temporarily, except for the top line, which will have a green ellipsis marker next to it.
-Click the caret (now pointing right) again, or the green marker, to reveal the contents again. 
+Click the caret (now pointing right) again, or the green marker, to reveal the contents again.
 Individual folds can also be toggled with keybindings (`Alt-f`).
 
 If you plan on focusing on just a small portion of the document for awhile, it might be good to hide everything hideable with `Ctrl-Alt-[`, and then open just the section that needs work.
@@ -630,16 +717,16 @@ If you plan on focusing on just a small portion of the document for awhile, it m
 
 There are many advantages of using plain text files as our base.
 Thousands of programs exist for editing and working with them.
-Some can read from "stdin" (standard input) and write to "stdout" (standart output).
+Some can read from "stdin" (standard input) and write to "stdout" (standard output).
 OGE allows any part of an edited document to be filtered through any program that works this way on the server.
-The server has all the standard GNU linux/unix commands, e.g., [awk](https://linux.die.net/man/1/awk), [column](https://linux.die.net/man/1/column), [cut](https://linux.die.net/man/1/cut), [grep](https://linux.die.net/man/1/grep), [sed](https://linux.die.net/man/1/rev), [sed](https://linux.die.net/man/1/sed), [shuf](https://linux.die.net/man/1/shuf), [sort](https://linux.die.net/man/1/sort), [tr](https://linux.die.net/man/1/tr), [uniq](https://linux.die.net/man/1/uniq), [wc](https://linux.die.net/man/1/uniq), and many more.
+The server has all the standard GNU linux/unix utilities, e.g., [awk](https://linux.die.net/man/1/awk), [column](https://linux.die.net/man/1/column), [cut](https://linux.die.net/man/1/cut), [grep](https://linux.die.net/man/1/grep), [rev](https://linux.die.net/man/1/rev), [sed](https://linux.die.net/man/1/sed), [shuf](https://linux.die.net/man/1/shuf), [sort](https://linux.die.net/man/1/sort), [tr](https://linux.die.net/man/1/tr), [uniq](https://linux.die.net/man/1/uniq), [wc](https://linux.die.net/man/1/uniq), and many more.
 
-These filters an be chained together with `|` between them, so that the result one of one filter is passed to the next.
+These filters an be chained together with `|` between them, so that the result of one filter is passed to the next.
 
 The possibilities are far too numerous to list, but here are a few examples.
 
 * `sort`: sorts the lines in the selection alphabetically (by default)
-* `tr [:lower:] [:upper:]`: transform all lowercase letters in the selection to uppercase
+* `tr [:lower:] [:upper:]`: transforms all lowercase letters in the selection to uppercase
 * `wc -w`: replaces text with a word count for that text (you can undo afterwards)
 * `grep -vi quine | shuf | rev | cat -n`: removes all selected lines containing the word "Quine" (grep), puts what is left in a random order (shuf), reverses all the characters on each line (rev), and adds line numbers (cat). No, I don't know why you'd want to do that, but hey, you can.
 
@@ -674,7 +761,7 @@ Be sure to undo the changes afterwards, or duplicate the passage first and remov
 
 The unix `column` command is useful for reformatting a markdown table after changes.
 
-Suppose after editing a "pipe table", the column separators are no longed lined up.
+Suppose after editing a "pipe table", the column separators are no longer lined up.
 
 ```markdown
 Heading | Another | Final
@@ -703,7 +790,7 @@ These must be inside (single or double) quotation marks.
 
 If `Alt` is pressed and held while selecting a region of text with the mouse, the selection will take the form of a rectangle, rather than wrapping to the start or end of each line selected.
 
-This could be used, for example, to remove a column from a table as formatted above without disturbing the other columns, or changing the order of the columns by cut and paste.
+This could be used, for example, to remove a column from a table as formatted above without disturbing the other columns.
 
 ## Multiple cursors
 
@@ -725,15 +812,15 @@ It is also possible to create a commit with a specific name by using the button 
 Creating a git commit is like creating and saving a "snapshot" of the assignment at its present state.
 It is a good idea to create one if you are making changes you are unsure about and may want to revert later.
 The framework does not currently provide a direct way of reverting to prior commits.
-However, it is very easy for Kevin to do it on the server if needed.
+However, it is easy for Kevin to do it on the server if needed.
 
 Most files are also backed up when a new proof set or publication version is created.
 
-## Text to speech for proofreading
+## Text-to-speech for proofreading
 
-There is a button near the upper right of toolbar that looks like a loudspeaker.
+There is a button near the upper right of the toolbar that looks like a loudspeaker.
 This button will pass parts of the text of the document being edited to a text-to-speech program.
-The text will be read out loud, starting with the active line in the editor, and scrolling down as it goes.
+The text will be read out loud, starting with the active line in the editor (or the selection if some text has been selected), and scrolling down as it goes.
 After activation, the loudspeaker becomes a pause button.
 
 I find having text read back to me one of the best ways to catch typos and other small problems.
@@ -758,10 +845,10 @@ Below are more general resources for the underlying technologies and (highly tra
     * [Zotero citation style documentation](https://www.zotero.org/support/styles)
 2) HTML and CSS (stylesheets for HTML)
     * [freeCodeCamp HTML beginners course](https://www.freecodecamp.org/news/learn-html-beginners-course/)
-    * [Google web.dev tutorials](https://web.dev/), including a tutoral about HTML accessibility
-    * [W3 Schools tutorials](https://www.w3schools.com/).
+    * [Google web.dev tutorials](https://web.dev/), including a tutorial about HTML accessibility
+    * [W3 Schools tutorials](https://www.w3schools.com/)
     * MDN [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) and [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) documentation
-3) LaTeX and related technologies.
+3) LaTeX and related technologies
     * [The (Not So) Short Introduction to LaTeX](http://tobi.oetiker.ch/lshort/lshort.pdf)
     * [LaTeX](https://en.wikibooks.org/wiki/LaTeX) Wikibook
     * [Learn LaTeX .org](https://www.learnlatex.org/)

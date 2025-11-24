@@ -13,10 +13,9 @@ html {
   display: inline-table;
 }
 
-  width: 20rem;
-}
 #spantable table td:first-child, #spantable table th:first-child {
   white-space: nowrap;
+  width: 75%;
 }
 
 table th {
@@ -103,7 +102,7 @@ body.kck .result h4 {
   margin-bottom: 0;
 }
 
-body.kck .math.display em {
+body.kck .math em {
   margin-right: 0.1rem;
 }
 
@@ -232,4 +231,30 @@ h3 .header-section-number {
 table caption {
   caption-side: bottom;
   margin-top: 0.5em;
+}
+
+div.fregeify {
+    text-align: center;
+}
+span.fregeify {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
+}
+span.fregeify.top {
+    display: inline-block;
+    vertical-align: text-top;
+}
+span.fregeify.bottom {
+    display: inline-block;
+    vertical-align: baseline;
+}
+span.fregeify.padded {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.indented {
+  text-indent: 1.4rem;
 }
