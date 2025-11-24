@@ -91,6 +91,9 @@ $endif$
 \NoIndentAfterEnv{figure}
 \NoIndentAfterCmd{\]}
 
+% Frege packages
+\usepackage{fge, grundgesetze}
+
 % PDF bookmarks; also loads hyperref
 \usepackage{bookmark}
 
