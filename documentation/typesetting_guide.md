@@ -499,6 +499,7 @@ $$
 \pmall{x, y} \pmdott \phi(x, y) \pmdot
 \pmiff \pmdot \pmpredd{f}{x}{y} \pmdot
 $$
+:::
 ```
 
 :::::{.result}
