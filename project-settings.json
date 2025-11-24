@@ -147,6 +147,13 @@
             "pandoc": "subelement"
           }
         },
+        "startpage": {
+          "required": false,
+          "inputtype": "number",
+          "label": "Starting page #",
+          "placeholder": "defaults to 1, should be an odd number",
+          "pandoc": "yaml"
+        },
         "keywords": [
           {
             "required": false,
@@ -360,6 +367,13 @@
             "label": "Email",
             "pandoc": "subelement"
           }
+        },
+        "startpage": {
+          "required": false,
+          "inputtype": "number",
+          "label": "Starting page #",
+          "placeholder": "defaults to 1, should be an odd number",
+          "pandoc": "yaml"
         },
         "keywords": [
           {

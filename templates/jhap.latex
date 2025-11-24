@@ -385,6 +385,15 @@ $abstract$
 $endif$
 
 \bigskip
+$if(startpage)$
+$if(twosided)$
+\setcounter{fakepage}{$startpage$}
+% we de-increment the counter so masthead not counted
+\addtocounter{fakepage}{-1}
+$else$
+\setcounter{page}{$startpage$}
+$endif$
+$endif$
 \noindent $body$
 
 $if(twosided)$
