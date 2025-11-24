@@ -135,7 +135,7 @@ These works need different citation ids to use with `@`. The bibliography page a
 However, there is no necessary connection between any of the following:
 
 (1) letters used by the author in the original document the entries are extracted from,
-(2) letters used in citation ids (@dummett1991a, @dummett1991a) on the bibliography page, and
+(2) letters used in citation ids (@dummett1991a, @dummett1991b) on the bibliography page, and
 (3) letters used by citeproc in the output documents.
 
 This can be confusing.
