@@ -205,6 +205,28 @@ A different theory was advanced by Susan Stebbing in
 *Logic in Practice* [(LiP)](#ref-stebbing1934){title="this should link to Stebbing 1934"}.
 :::
 
+## Commenting things out temporarily
+
+If there's a portion of the document giving you trouble, or preventing LaTeX compilation, but you want to postpone fixing it until after addressing other things, you can "comment it out" temporarily.
+
+Markdown supports HTML comments. These begin with `<!--` and end with `-->`.
+
+```markdown
+<!--
+It is true that $2 + 2 = 4$ but unclear whether $\schmoo + \schmoo = \schmour$. (Invalid LaTeX.)
+-->
+```
+
+The result is nothing:
+
+:::{.result}
+<!--
+It is true that $2 + 2 = 4$ but unclear whether $\schmoo + \schmoo = \schmour$. (Invalid LaTeX.)
+-->
+:::
+
+Be sure to come back to it  later.
+
 ## Numbered examples
 
 It is quite common in analytic philosophy for authors to display certain sentences or formulas and tag them with a number to refer back to them later.
@@ -448,7 +470,7 @@ YAML blocks can be used for other things as well, such as adding additional meta
 
 If unusual mathematical or logical symbolism is used inside math mode, sometimes pandoc's conversion to non-LaTeX formats either cannot handle the symbolism at all, or produces very bad output.
 
-To remedy this, JHAP's pandoc set-up makes use of a [pandoc filter]() called "[The Fregeifier](https://github.com/frabjous/fregeifier)". Math mode material that occurs inside [spans and divs](./markdown-primer.html#spans-and-divs) marked with the `.fregeify` class will be converted (using LaTeX) to scalable svg images for use in the HTML-based formats, and inserted in the appropriate place.
+To remedy this, JHAP's pandoc set-up makes use of a [pandoc filter](https://pandoc.org/filters.html) called "[The Fregeifier](https://github.com/frabjous/fregeifier)". Math mode material that occurs inside [spans and divs](./markdown-primer.html#spans-and-divs) marked with the `.fregeify` class will be converted (using LaTeX) to scalable svg images for use in the HTML-based formats, and inserted in the appropriate place.
 
 ```markdown
 :::{.fregeify}
