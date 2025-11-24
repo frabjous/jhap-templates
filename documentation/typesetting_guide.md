@@ -561,7 +561,7 @@ Hence, we have been sticking with pdflatex for now.
 
 This means that whenever a unicode character is used in a source document, pdflatex must be specifically "taught" what to do with it by supplying a LaTeX command that yields the same result.
 
-The JHAP LaTeX template includes commands that do this for common logical, mathematical, and set theoretic symbols, Greek letters, and more. This file can be viewed on GitHub [here](https://github.com/frabjous/jhap-templates/blob/main/templates/unicode.latex). The list covers the characters that appear in OGE's unicode character insertion widget (press `Alt-u`) and a few more. However, the unicode standard currently defines nearly 300,000 characters, and is expected to grow.
+The JHAP LaTeX template includes commands that do this for common logical, mathematical, and set-theoretic symbols, Greek letters, and more. This file can be viewed on GitHub [here](https://github.com/frabjous/jhap-templates/blob/main/templates/unicode.latex). The list covers the characters that appear in OGE's unicode character insertion widget (press `Alt-u`) and a few more. However, the unicode standard currently defines nearly 300,000 characters, and is expected to grow.
 It is not practical to define them all, and difficult to completely predict in advance which ones will be used by our authors.
 
 If a document includes a unicode character not on the list, the LaTeX to PDF compilation will fail, and show an error about the undefined character.
@@ -814,6 +814,8 @@ These must be inside (single or double) quotation marks.
 If `Alt` is pressed and held while selecting a region of text with the mouse, the selection will take the form of a rectangle, rather than wrapping to the start or end of each line selected.
 
 This could be used, for example, to remove a column from a table as formatted above without disturbing the other columns.
+
+It is probably best to toggle line wrapping (`Alt-w`) off when doing this, or the rectangle may not look like a rectangle.
 
 ## Multiple cursors
 
