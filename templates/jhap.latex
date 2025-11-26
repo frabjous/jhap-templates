@@ -356,10 +356,12 @@ $if(reviewedtitle)$
 }
 $else$
 $if(title)$
-{\bigskip\raggedright\noindent\begin{LARGE}\textsf{\textbf{$title$}}\end{LARGE}}
+{\raggedright
+{\bigskip\noindent\begin{LARGE}\textsf{\textbf{$title$}}\end{LARGE}}}
 $endif$
 $if(subtitle)$
-\par{\raggedright\smallskip\noindent\begin{Large}\textsf{$subtitle$}\end{Large}}
+{\raggedright
+\par{\smallskip\noindent\begin{Large}\textsf{$subtitle$}\end{Large}}}
 $endif$
 $endif$
 
