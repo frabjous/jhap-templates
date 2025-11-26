@@ -626,7 +626,7 @@ LaTeX packages already exist for adding support to pdflatex for certain unicode 
 
 However, they can be loaded when needed using a YAML block, [as described above](#yaml-blocks-and-adding-latex-packages).
 
-A (non-default) options has been aded to the JHAP template for providing support for (simplified or traditional) Chinese characters. Again, at the start of the document:
+A (non-default) option has been added to the JHAP template for providing support for (simplified or traditional) Chinese characters. Again, at the start of the document:
 
 ```markdown
 ---
