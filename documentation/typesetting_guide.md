@@ -382,9 +382,11 @@ The only thing left was a bottle of Chanel no.\ 5.
 :::
 
 
-In HTML outputs, the markdown `\ ` is interpreted as an escaped space, which is the same as a regular space, so this is harmless for those outputs as well.
+In HTML outputs, the markdown `\ ` is interpreted as an escaped space, which is the same as a regular space, so this is harmless for those outputs as well.
 
 Using a non-breaking space has a similar effect, and may sometimes be more appropriate. See [above](#handling-line-breaks).
+
+Use of `\ ` does not work in bibliography fields (the backslash will show). Using the unicode non-breaking  space (U+00A0) is the only way I know to prevent an incorrect inter-sentence space there.
 
 ## Indentation
 
@@ -590,6 +592,7 @@ It is not practical to define them all, and difficult to completely predict in a
 If a document includes a unicode character not on the list, the LaTeX to PDF compilation will fail, and show an error about the undefined character.
 Sometimes the author is using the wrong symbol, and it should simply be replaced ([see above](#using-the-correct-unicode-characters)).
 Other times, the symbol should be defined, either permanently (in the JHAP template) or locally (in the file being edited).
+There are also LaTeX packages that define certain ranges of characters and might be loaded.
 
 If the suggestions below are too technical, Kevin is happy to deal with these things as they come up.
 
@@ -616,6 +619,74 @@ One option is to ask Kevin, who is happy to do this. If you have a GitHub accoun
 
 The file consists primarily of `\newunicodechar` commands with the same format described above.
 More can be added at the end.
+
+## Using specific packages (e.g. for Chinese)*
+
+JHAP does not often publish articles with CJK (Chinese, Japanese, Korean) characters. It would slow the compiler down to always load packages for them.
+
+However, they can be loaded if need be using a YAML block. Here is what I used for a current article with many Chinese characters.
+
+```markdown
+  ---
+  header-includes: |
+    ```{=html}
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+      <style>
+        em em {
+          font-style: normal;
+        }
+        html > body {
+          font-family: 'Noto Serif', 'Noto Serif TC', 'Noto Serif SC', 'Noto Sans Math', 'Roboto Serif', 'Droid Serif', 'DejaVu Serif', 'Georgia', 'Tinos', serif;
+        }
+      </style>
+    ```
+      ⁠
+    ```{=latex}
+      \usepackage{CJKutf8}
+    ```
+  ---
+
+```
+
+(Note in the above that different raw LaTeX and HTML header inclusions are used. Although HTML supports all unicode characters, an appropriate font needs to be available to the browser for them to show up. The HTML inclusion above embeds a Google web font for traditional Chinese (Noto Serif TC) matching our default HTML font (Noto Serif) in style, so that all visitors to the page will be able to see the characters, even if they don't have a compatible font installed locally. The style element sets that font as a fallback. Replace "TC" with "SC" in both the style tag and the link above it for simplified Chinese (Noto Serif SC).)
+
+The LaTeX `CJKutf8` package requires that Chinese characters appear within a `CJK*` environment.
+
+It is possible to place all the contents of the document inside one by putting a raw LaTeX block at the very start of the document (but after the YAML block):
+
+```markdown
+    ```{=latex}
+      % bsmi or bkai = traditional Chinese font options
+      % gbsn or gkai = simplified Chinese font options
+      \begin{CJK*}{UTF8}{bkai}
+    ```
+```
+
+Similarly place the code to end the environment at the very end of the document:
+
+```markdown
+
+    ```{=latex}
+      \end{CJK*}
+    ```
+
+```
+
+Within the environment, English and Chinese can be mixed freely.
+
+Note that if there are also Chinese characters in the bibliography, it will be necessary to specifically place the bibliography within in the `CJK*` environment.
+This can be done with creating an empty div with the id `#refs` before ending the LaTeX environment.
+
+```markdown
+    :::{#refs}
+    :::
+
+    ```{=latex}
+      \end{CJK*}
+    ```
+```
 
 # JHAP-specific Conventions
 
