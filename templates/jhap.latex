@@ -142,6 +142,9 @@ $endif$
 % PDF bookmarks; also loads hyperref
 \usepackage{bookmark}
 
+% Support for Chinese, etc.
+$if(traditionalchinese)$\usepackage{CJKutf8}$else$$if(simplifiedchinese)$\usepackage{CJKutf8}$endif$$endif$
+
 % hyperref options
 \hypersetup{
 $if(title)$
@@ -396,7 +399,9 @@ $else$
 \setcounter{page}{$startpage$}
 $endif$
 $endif$
+$if(traditionalchinese)$\begin{CJK*}{UTF8}{bkai}$else$$if(simplifiedchinese)$\begin{CJK*}{UTF8}{gkai}$endif$$endif$
 \noindent $body$
+$if(traditionalchinese)$\end{CJK*}$else$$if(simplifiedchinese)$\end{CJK*}$endif$$endif$
 
 $if(twosided)$
 $else$

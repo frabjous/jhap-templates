@@ -190,7 +190,7 @@ Pandoc's citation system is fairly unique to its version of markdown.
 Even those knowledgeable about markdown in general may not know how it works.
 See the section on citations in the accompanying [primer about pandoc's markdown](./markdown_primer.html#citations), and the [citations section in the Pandoc user's guide](https://pandoc.org/MANUAL.html#citations) for more information.
 
-## Allowing semi-colon in 
+## Allowing semi-colon in
 
 ## Linking to bibliography items
 
@@ -592,7 +592,7 @@ It is not practical to define them all, and difficult to completely predict in a
 If a document includes a unicode character not on the list, the LaTeX to PDF compilation will fail, and show an error about the undefined character.
 Sometimes the author is using the wrong symbol, and it should simply be replaced ([see above](#using-the-correct-unicode-characters)).
 Other times, the symbol should be defined, either permanently (in the JHAP template) or locally (in the file being edited).
-There are also LaTeX packages that define certain ranges of characters and might be loaded.
+There are also LaTeX packages that define certain ranges of characters and might be loaded, even if they are not loaded by default.
 
 If the suggestions below are too technical, Kevin is happy to deal with these things as they come up.
 
@@ -620,73 +620,31 @@ One option is to ask Kevin, who is happy to do this. If you have a GitHub accoun
 The file consists primarily of `\newunicodechar` commands with the same format described above.
 More can be added at the end.
 
-## Using specific packages (e.g. for Chinese)*
+## Using specific packages or template options
 
-JHAP does not often publish articles with CJK (Chinese, Japanese, Korean) characters. It would slow the compiler down to always load packages for them.
+LaTeX packages already exist for adding support to pdflatex for certain unicode ranges. If JHAP does not often publish articles with these characters often it would slow the compiler down to always load packages for them.
 
-However, they can be loaded if need be using a YAML block. Here is what I used for a current article with many Chinese characters.
+However, they can be loaded when needed using a YAML block, [as described above](#yaml-blocks-and-adding-latex-packages).
 
-```markdown
-  ---
-  header-includes: |
-    ```{=html}
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
-      <style>
-        em em {
-          font-style: normal;
-        }
-        html > body {
-          font-family: 'Noto Serif', 'Noto Serif TC', 'Noto Serif SC', 'Noto Sans Math', 'Roboto Serif', 'Droid Serif', 'DejaVu Serif', 'Georgia', 'Tinos', serif;
-        }
-      </style>
-    ```
-      ⁠
-    ```{=latex}
-      \usepackage{CJKutf8}
-    ```
-  ---
-
-```
-
-(Note in the above that different raw LaTeX and HTML header inclusions are used. Although HTML supports all unicode characters, an appropriate font needs to be available to the browser for them to show up. The HTML inclusion above embeds a Google web font for traditional Chinese (Noto Serif TC) matching our default HTML font (Noto Serif) in style, so that all visitors to the page will be able to see the characters, even if they don't have a compatible font installed locally. The style element sets that font as a fallback. Replace "TC" with "SC" in both the style tag and the link above it for simplified Chinese (Noto Serif SC).)
-
-The LaTeX `CJKutf8` package requires that Chinese characters appear within a `CJK*` environment.
-
-It is possible to place all the contents of the document inside one by putting a raw LaTeX block at the very start of the document (but after the YAML block):
+A (non-default) options has been aded to the JHAP template for providing support for (simplified or traditional) Chinese characters. Again, at the start of the document:
 
 ```markdown
-    ```{=latex}
-      % bsmi or bkai = traditional Chinese font options
-      % gbsn or gkai = simplified Chinese font options
-      \begin{CJK*}{UTF8}{bkai}
-    ```
+---
+traditionalchinese: true
+---
 ```
 
-Similarly place the code to end the environment at the very end of the document:
+Or:
 
 ```markdown
-
-    ```{=latex}
-      \end{CJK*}
-    ```
-
+---
+simplifiedchinese: true
+---
 ```
 
-Within the environment, English and Chinese can be mixed freely.
+This not only provides support for Chinese characters (via the `CJKutf8` package) with pdflatex, but also enables a Google web font for traditional (or simplified) Chinese in the HTML output.
 
-Note that if there are also Chinese characters in the bibliography, it will be necessary to specifically place the bibliography within in the `CJK*` environment.
-This can be done with creating an empty div with the id `#refs` before ending the LaTeX environment.
-
-```markdown
-    :::{#refs}
-    :::
-
-    ```{=latex}
-      \end{CJK*}
-    ```
-```
+More such options could be added in the future. Let Kevin know if you have a suggestion.
 
 # JHAP-specific Conventions
 

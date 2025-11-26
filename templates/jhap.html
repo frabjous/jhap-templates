@@ -25,6 +25,12 @@ $if(title)$
     <meta property="og:title" content="$title$" />
 $endif$
     <title>$if(title)$$title$ | $endif$Journal for the History of Analytical Philosophy$if(volume)$ vol. $volume$$if(number)$, num. $number$$endif$$endif$</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" data-external="1">
+    <link rel="preconnect" href="https://fonts.gstatic.com" data-external="1" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" data-external="1">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" data-external="1">
+    $if(traditionalchinese)$<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet" data-external="1">$endif$
+    $if(simplifiedchinese)$<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200..900&display=swap" rel="stylesheet" data-external="1">$endif$
     <style>
 :root {
     /* colors */
@@ -41,8 +47,8 @@ $endif$
 
     /* fonts */
     --monospacedfont: 'DejaVu Sans Code', 'DejaVu Sans Mono', 'Droid Sans Mono', 'Fira Code', 'Fira Mono', 'JetBrains Mono', Inconsolata, Cousine, 'IBM Plex Mono', 'Red Hat Mono', 'Sarasa Mono K', 'Ubuntu Mono', Consolas, Menlo, Monaco, 'Lucida Console', monospace;
-    --sansfont: 'Noto Sans', 'Helvetica', 'Arimo', 'Arial', sans-serif;
-    --seriffont: 'Noto Serif', 'Noto Sans Math', 'Roboto Serif', 'Droid Serif', 'DejaVu Serif', 'Georgia', 'Tinos', serif;
+    --sansfont: 'Noto Sans',  $if(traditionalchinese)$'Noto Serif TC', $endif$$if(simplifiedchinese)$'Noto Serif SC', $endif$'Helvetica', 'Arimo', 'Arial', sans-serif;
+    --seriffont: 'Noto Serif', $if(traditionalchinese)$'Noto Serif TC', $endif$$if(simplifiedchinese)$'Noto Serif SC', $endif$'Noto Sans Math', 'Roboto Serif', 'Droid Serif', 'DejaVu Serif', 'Georgia', 'Tinos', serif;
 }
 
 html {
@@ -124,6 +130,18 @@ body svg {
 body > div > header > br {
     clear: both;
 }
+
+em em {
+  font-style: normal;
+}
+em em em {
+  font-style: italics;
+}
+em em em {
+  font-style: normal;
+}
+
+
 
 main {
     padding: 3rem 3rem 1rem 3rem;
@@ -409,7 +427,6 @@ main article blockquote blockquote p:first-child {
     margin-bottom: 0rem;
 }
 
-
 main article li p:first-child {
     margin-top: 0.5rem;
 }
@@ -602,24 +619,20 @@ $if(math)$
 $endif$
 
 <script type="module" data-external="1">
-    const styletag = document.createElement("style");
-    styletag.innerHTML='@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");';
-    //styletag.innerHTML='@import url("https://fonts.cdnfonts.com/css/tex-gyre-pagella");@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");';
-    document.head.appendChild(styletag);
-    const refs = document.getElementById("refs");
-    const notes = document.getElementById("footnotes");
-    refs.parentNode.insertBefore(notes, refs);
-    // fix 'ed' to 'eds' when plural
-    const cc = document.getElementsByClassName("edblock");
-    for (const c of cc) {
-        const ll = c.getElementsByClassName("edlist");
-        const oo = c.getElementsByClassName("edoptionals");
-        if (ll && oo && (ll.length > 0) & (oo.length > 0)) {
-            if (ll[0].innerHTML.indexOf(' and ') != -1) {
-                oo[0].innerHTML = 's';
-            }
-        }
+const refs = document.getElementById("refs");
+const notes = document.getElementById("footnotes");
+refs.parentNode.insertBefore(notes, refs);
+// fix 'ed' to 'eds' when plural
+const cc = document.getElementsByClassName("edblock");
+for (const c of cc) {
+  const ll = c.getElementsByClassName("edlist");
+  const oo = c.getElementsByClassName("edoptionals");
+  if (ll && oo && (ll.length > 0) & (oo.length > 0)) {
+    if (ll[0].innerHTML.indexOf(' and ') != -1) {
+      oo[0].innerHTML = 's';
     }
+  }
+}
 </script>
 </head>
 <body>
