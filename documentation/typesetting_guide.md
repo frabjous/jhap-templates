@@ -1,6 +1,6 @@
 ---
 title: JHAP Typesetting Guide
-date: Last edited 23 November 2025
+date: Last edited 25 November 2025
 css: documentation.css
 header-includes: |
   \usepackage{principia}
@@ -69,7 +69,7 @@ For example, it changes `"` and `'` to one of `“`, `”`, `’`, or `’`, dep
 If preferred, or if pandoc doesn't handle something correctly, the "smart" characters can be used directly in the markdown as well.
 The relevant characters are available from the unicode character insertion widget (`Alt-u`) in OGE.
 
-Citeproc automatically uses en-dashes in citations and bibliography page ranges. It is not necessary to use en-dashes in bibliographic fields, or in the markdown citations. Hyphens will do.
+Citeproc automatically uses en-dashes in citations and bibliography page ranges, so hyphens are usually fine in markdown citations and CSL bibliographic records. There are exceptions if the citation has more than just a page range. E.g., `[@someone, 12-13]` is fine, but `[@someone, preface 12-13]` should be changed to `[@someone, preface 12--13]`.
 
 ## Using the correct unicode characters
 
@@ -189,6 +189,8 @@ Anystyle is not perfect, so its result should be checked afterwards.
 Pandoc's citation system is fairly unique to its version of markdown.
 Even those knowledgeable about markdown in general may not know how it works.
 See the section on citations in the accompanying [primer about pandoc's markdown](./markdown_primer.html#citations), and the [citations section in the Pandoc user's guide](https://pandoc.org/MANUAL.html#citations) for more information.
+
+## Allowing semi-colon in 
 
 ## Linking to bibliography items
 
@@ -324,6 +326,8 @@ G.&#x202F;E. Moore published *Principia Ethica* in 1903.
 G.&#x202F;E. Moore published *Principia Ethica* in 1903.
 :::
 
+In math mode, a tilde `$~$` produces an unbreakable space.
+
 A manual line-break can be forced by ending a line with a backslash, ensuring that nothing, not even spaces or tabs, appear afterwards.
 
 This can also be used to insert blank space between paragraphs.
@@ -362,6 +366,25 @@ More common is the need to typeset verse, mailing addresses, etc., where the lin
 | O frabjous day! Calooh! Callay!
 | He chortled in his joy.
 :::
+
+## Preventing LaTeX inter-sentence spacing
+
+LaTeX puts a greater amount of space between sentences than it does between words in the same sentence. (About a space and a half.) Sometimes it misinterprets periods that are not actually used to end a sentence incorrectly and places an inter-sentence space after them.
+
+This can be prevented by putting a backslash before the space, as in LaTeX itself.
+
+```markdown
+The only thing left was a bottle of Chanel no.\ 5.
+```
+
+:::{.result}
+The only thing left was a bottle of Chanel no.\ 5.
+:::
+
+
+In HTML outputs, the markdown `\ ` is interpreted as an escaped space, which is the same as a regular space, so this is harmless for those outputs as well.
+
+Using a non-breaking space has a similar effect, and may sometimes be more appropriate. See [above](#handling-line-breaks).
 
 ## Indentation
 
