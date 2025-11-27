@@ -18,6 +18,11 @@ html {
   width: 75%;
 }
 
+#flowchart {
+  min-width: 40rem;
+  max-width: 100%;
+}
+
 table th {
   text-align: left;
 }

@@ -52,9 +52,9 @@ There is additional documentation for both OGTF and OGE in their GitHub reposito
 ## Understanding the JHAP production workflow
 
 The process of producing an accepted JHAP article or review can be visualized according to the following flowchart.
-This seems complicated, but if all goes well, the only parts that require much human effort are the two places indicated by the gold stars.
+This seems complicated, but if all goes well, the only parts that require much human effort are the two places indicated by yellow boxes.
 
-![JHAP production flowchart](./images/jhapworkflow.svg)\
+![JHAP production flowchart](./images/jhapworkflow.svg){#flowchart}\
 
 The process of distributing and correcting page proofs has been left off the chart above for simplicity.
 The [OGTF usage documentation](https://github.com/frabjous/open-guide-typesetting-framework/blob/main/doc/usage.md) goes into more detail about the workflow, including proofs.

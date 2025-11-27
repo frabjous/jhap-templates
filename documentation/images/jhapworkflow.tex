@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage[papersize={6in,10.9in},margin=0.5cm]{geometry}
+\usepackage[none]{hyphenat}
+\usepackage{tgheros}
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\begin{document}
+\thispagestyle{empty}
+\tikzstyle{wfnode} = [rectangle, rounded corners, minimum width = 3cm, minimum height = 1.8cm, , text centered, text width = 2.8cm, text centered, draw=black, fill=blue!20]
+\tikzstyle{wfproc} = [rectangle, rounded corners,  text centered,  text centered, fill=green!40, draw=black]
+\tikzstyle{wfaction} = [rectangle, rounded corners,  text centered,  text centered, fill=yellow!70, draw=black]
+\tikzstyle{wfcenter} = [diamond, text centered, text centered, fill=purple!40, draw=black]
+\tikzstyle{arrow} = [thick, -> , >=stealth]
+\begin{tikzpicture}[node distance=1.8cm]
+\node (start) [wfnode] {author-provided main file (often .docx)};
+\node (import) [wfproc, below of=start, text width=3cm] {``upload main file'' = pandoc import};
+\draw [arrow] (start.south) -- (import.north);
+\node (imported) [wfnode, below of=import, xshift=-1.8cm] {messy imported markdown document};
+\node (extractedbib) [wfnode, below of=import, xshift=1.8cm] {extracted free-form bibliography};
+\draw [arrow] (import.west) -| (imported.north);
+\draw [arrow] (import.east) -| (extractedbib.north);
+\node (metadata) [wfnode, left of=start, xshift=-2.5cm, yshift=-1cm] {metadata};
+\node (fillvar) [wfproc, below of=metadata, yshift=-5cm, text width = 1.5cm] {fills variables in template};
+\draw [arrow] (metadata.south) -- (fillvar.north);
+\node (sepbib) [wfnode, right of=start, xshift=2.5cm, yshift=-1cm] {separate bibliography file (if provided)};
+\node (bibup) [wfproc, text width = 1.3cm, below of=sepbib, yshift=-1.6cm] {import/ upload};
+\node (anystyle) [wfproc, below of=extractedbib, text width = 3.2cm, yshift=-0.3cm] {``extract from main file'' / anystyle parser};
+\node (messybib) [wfnode, below of=anystyle, yshift=-0.3cm] {messy bibliography};
+\draw [arrow] (extractedbib.south) -- (anystyle.north);
+\draw [arrow] (anystyle.south) -- (messybib.north);
+\draw [arrow] (sepbib.south) -- (bibup.north);
+\draw [arrow] (bibup.south) |- (messybib.east);
+\node (bibpage) [wfaction, below of=messybib, text width=4cm, minimum height=1cm] {\textbf{bibliography page}};
+\draw [arrow] (messybib.south) -- (bibpage.north);
+\node (cleanbib) [wfnode, below of=bibpage] {clean bibliography};
+\draw [arrow] (bibpage.south) -- (cleanbib.north);
+\node (applybib) [wfproc, left of=cleanbib, text width = 1.7cm, xshift = -1.8cm] {``apply to document''};
+\draw [arrow] (cleanbib.west) -- (applybib.east);
+\draw [arrow] (imported.south) -- (applybib.north);
+\node (messymd) [wfnode, below of= applybib] {Messy markdown document with auto-detected citations};
+\draw [arrow] (applybib.south) -- (messymd.north);
+\node (editpage) [wfaction, below of=messymd, text width=4cm, minimum height=1cm] {\textbf{``edit main document''}};
+\draw [arrow] (messymd.south) -- (editpage.north);
+\node (cleanmd) [wfnode, below of= editpage] {Clean/corrected markdown document};
+\draw [arrow] (editpage.south) -- (cleanmd.north);
+\node (pandoc) [wfcenter, below of=start ,yshift=-17.5cm, xshift=0.2cm] {\large\textbf{pandoc}};
+\node (citeproc) [wfproc, below of=cleanbib, text width = 3cm, yshift=-0.4cm] {Citeproc formats references using CSL};
+\draw [arrow] (cleanbib.south) -- (citeproc.north);
+\draw [arrow] (cleanmd.east) -| (pandoc.north);
+\draw [arrow] (fillvar.south) |- (pandoc.west);
+\draw [arrow] (citeproc.south) |- (pandoc.east);
+\node (prochtml) [wfnode, below of= pandoc, xshift=-1.8cm, yshift=-0.5cm] {processed html};
+\node (latex) [wfnode, below of= pandoc, xshift=1.8cm, yshift=-0.5cm] {intermediate LaTeX};
+\draw [arrow] (pandoc) -- (prochtml.north);
+\draw [arrow] (pandoc) -- (latex.north);
+\node (pdflatex) [wfproc, below of=latex, yshift=0.2cm] {pdflatex};
+\node (onecol) [wfnode, below of=pdflatex, yshift=0.2cm] {one column pdf};
+\node (twocol) [wfnode, below of=pdflatex, xshift = 3.3cm, yshift=0.2cm] {two column pdf};
+\draw [arrow] (latex.south) -- (pdflatex.north);
+\draw [arrow] (pdflatex.south) -- (onecol.north);
+\draw [arrow] (pdflatex.east) -| (twocol.north);
+\node (zip) [wfproc, below of=prochtml, yshift=0.2cm] {zip};
+\draw [arrow] (prochtml.south) -- (zip.north);
+\node (epub) [wfnode, below of=zip, yshift=0.2cm] {ePub version};
+\draw [arrow] (zip.south) -- (epub.north);
+\node (htmlver) [wfnode, left of=epub,xshift=-1.5cm] {HTML version};
+\draw [arrow] (prochtml.west) -| (htmlver.north);
+
+\end{tikzpicture}
+\end{document}
