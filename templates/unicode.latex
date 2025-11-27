@@ -140,6 +140,7 @@
 \newunicodechar{ἀ}{\ensuremath{\overset{,}{\alpha}}}
 \newunicodechar{ἐ}{\ensuremath{\overset{,}{\varepsilon}}}
 
+% general punctuation
 \newunicodechar{†}{\dag}
 \newunicodechar{‡}{\ddag}
 \newunicodechar{•}{\text{\textbullet}}
@@ -148,6 +149,7 @@
 \newunicodechar{″}{\ensuremath{^{\prime\prime}}}
 \newunicodechar{ʺ}{\ensuremath{^{\prime\prime}}}
 \newunicodechar{‴}{\ensuremath{^{\prime\prime\prime}}}
+\newunicodechar{}{\text{—}}
 \newunicodechar{‼}{!!}
 \newunicodechar{⁇}{\ensuremath{??}}
 \makeatletter
@@ -392,3 +394,6 @@
 \newunicodechar{𝔵}{\ensuremath{\mathfrak{x}}}
 \newunicodechar{𝔶}{\ensuremath{\mathfrak{y}}}
 \newunicodechar{𝔷}{\ensuremath{\mathfrak{z}}}
+
+% latin alphabet extras
+\newunicodechar{Ṣ}{\text{\d{S}}}

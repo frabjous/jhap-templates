@@ -4,6 +4,7 @@
   "contactemail": "klement@umass.edu",
   "importreplacements": {
     " -- ": "---",
+    "": "---",
     "\\. \\. \\.": "…",
     "\\[\\.\\.\\.\\]": "…",
     "\\[…\\]": "…",

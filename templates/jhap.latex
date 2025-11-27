@@ -360,7 +360,11 @@ $if(reviewedtitle)$
 $else$
 $if(title)$
 {\raggedright
-{\bigskip\noindent\begin{LARGE}\textsf{\textbf{$title$}}\end{LARGE}}}
+{\bigskip\noindent\begin{LARGE}\hyphenpenalty=10000
+
+\textsf{\textbf{$title$}}
+
+\end{LARGE}}}
 $endif$
 $if(subtitle)$
 {\raggedright
