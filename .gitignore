@@ -4,5 +4,9 @@ reviews/
 emaillogs/
 documentation/*.html
 documentation/*.pdf
+documentation/images/*.pdf
 documentation/oge-settings.json
 fregeifier_temporary*
+*.aux
+*.log
+*.synctex.gz
