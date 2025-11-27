@@ -266,7 +266,10 @@ main {
 
 ol.example > li {
     list-style: none;
-    position: relative;
+}
+
+ol.example > li p:first-child {
+  display: inline;
 }
 
 article > ol,
@@ -277,6 +280,33 @@ article > ul {
 article ul ul,
 article ol ol {
   padding-left: 2rem;
+}
+
+img.fregeified-math.inline {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+.acounter ol[type="a"] {
+  list-style-position: outside;
+  counter-reset: aexample;
+}
+.acounter ol[type="a"] li {
+  counter-increment: aexample;
+  margin-top: 1rem;
+}
+
+.acounter ol[type="a"] li:first-child {
+  margin-top: 0;
+}
+
+.acounter ol[type="a"] li::marker {
+  content: '(' counter(aexample, lower-alpha) ')  ';
+}
+
+main article .acounter ol[type="a"] li p:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  display: inline;
 }
 
 .indent {
@@ -293,12 +323,30 @@ article ol ol {
     margin-right: 1rem;
 }
 
-ol.example > li:before {
+ol.example {
+  list-style-position: outside;
+}
+
+ol.example > li {
+  counter-increment: examplenumber;
+}
+
+ol.example > li::marker {
+    content: '(' counter(examplenumber, arabic) ')  ';
+}
+
+ol.example > li:not(:first-child) {
+  margin-top: 1rem;
+}
+
+/*
+ol.example > li::before {
     counter-increment: examplenumber;
     content: '(' counter(examplenumber, arabic) ') ';
     position: relative;
-    left: -1.4em;
-}
+    right: 0.5rem;
+    display: inline-block;
+}*/
 
 div.volinfo {
     padding: 0.8rem 2rem 0.6rem 2rem;
