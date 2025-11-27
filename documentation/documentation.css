@@ -239,22 +239,26 @@ table caption {
 }
 
 div.fregeify {
-    text-align: center;
+  text-align: center;
 }
+
 span.fregeify {
-    display: inline-block;
-    vertical-align: middle;
-    padding-right: 0.2rem;
-    padding-left: 0.2rem;
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 0.2rem;
+  padding-left: 0.2rem;
 }
+
 span.fregeify.top {
-    display: inline-block;
-    vertical-align: text-top;
+  display: inline-block;
+  vertical-align: text-top;
 }
+
 span.fregeify.bottom {
-    display: inline-block;
-    vertical-align: baseline;
+  display: inline-block;
+  vertical-align: baseline;
 }
+
 span.fregeify.padded {
   margin-left: 0.5rem;
   margin-right: 0.5rem;

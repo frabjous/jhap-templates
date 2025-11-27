@@ -47,7 +47,7 @@ It is recommended that those using the framework should have read or be familiar
 
 * This guide.
 
-There is additional documentation for both OGTF and OGE in their GitHub repositories, but it is probably not relevant for most JHAP editors, except those who want to really get their hands dirty.
+There is additional documentation for both OGTF and OGE in their GitHub repositories, but it is probably not relevant for most JHAP editors, except those who want really to get their hands dirty.
 
 ## Understanding the JHAP production workflow
 
