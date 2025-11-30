@@ -3479,7 +3479,9 @@
           <text macro="legal-title"/>
           <names variable="author">
             <!-- Treaty parties should be included at least for bilateral treaties (Bluebook 21.4.2) -->
-            <name delimiter="-" et-al-min="100" et-al-use-first="99" form="short"/>
+            <!-- JHAP CHANGES -->
+            <name delimiter="-" et-al-min="999" et-al-use-first="99" form="short"/>
+            <!-- JHAP /CHANGES -->
           </names>
           <text macro="legal-date"/>
           <!-- treaty source/report in addition to URL (Bluebook 21.4.5) -->
@@ -3809,7 +3811,9 @@
       </choose>
     </group>
   </macro>
-  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="3" et-al-use-first="1">
+  <!-- JHAP CHANGE -->
+  <citation after-collapse-delimiter="; " collapse="year" disambiguate-add-givenname="true" disambiguate-add-names="true" disambiguate-add-year-suffix="true" et-al-min="999" et-al-use-first="1">
+  <!-- JHAP CHANGE -->
     <layout delimiter="; " prefix="(" suffix=")">
       <choose>
         <if type="classic">
