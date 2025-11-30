@@ -56,6 +56,9 @@
       <term form="short" name="sub-verbo">under</term>
       <term name="timestamp">at</term>
       <term form="verb-short" name="translator">trans.</term>
+      <!-- JHAP CHANGES -->
+      <term name="doisign">DOI</term>
+      <!-- JHAP /CHANGES -->
     </terms>
     <!-- JHAP CHANGES -->
     <date form="text">
@@ -2767,7 +2770,9 @@
         <text macro="label-locator"/>
       </else-if>
       <!-- remove `container-title` condition in styles that print chapter page numbers (CMOS17/classic) -->
-      <else-if variable="container-title"/>
+      <!-- JHAP CHANGES -->
+      <!-- else-if variable="container-title"/ -->
+      <!-- JHAP /CHANGES -->
       <else-if is-numeric="volume" variable="page">
         <!-- collapse the volume and page number if adjacent -->
         <group delimiter=":">
@@ -3423,7 +3428,7 @@
       <choose>
         <if variable="DOI"/>
         <else-if match="any" variable="available-date event-date issued status"/>
-         <!-- JHAP /CHANGE --><!-- moved below --><!-- JHAP /CHANGE -->
+         <!-- JHAP CHANGE --><!-- moved below --><!-- JHAP /CHANGE -->
       </choose>
       <text macro="source-DOI-URL"/>
     </group>
@@ -3441,7 +3446,13 @@
   <macro name="source-DOI-URL">
     <choose>
       <if variable="DOI">
-        <text prefix="https://doi.org/" variable="DOI"/>
+        <!-- JHAP CHANGES -->
+        <group delimiter=": ">
+          <text term="doisign" />
+          <text prefix="" variable="DOI"/>
+        </group>
+        <!--text prefix="https://doi.org/" variable="DOI"/-->
+        <!-- JHAP /CHANGES -->
       </if>
       <else-if variable="URL">
         <text variable="URL"/>
@@ -3863,8 +3874,8 @@
           <text macro="date"/>
           <text macro="title-and-source-bib"/>
           <!-- JHAP CHANGES -->
-          <text variable="note" prefix=". "/>
-          <text variable="abstract" prefix= ". "/>
+          <text variable="note" prefix=". " text-case="capitalize-first" />
+          <text variable="abstract" prefix= ". " text-case="capitalize-first" />
           <!-- JHAP /CHANGES -->
           <text variable="references"/>
         </else>
