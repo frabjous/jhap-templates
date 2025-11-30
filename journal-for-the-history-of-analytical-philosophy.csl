@@ -3883,7 +3883,7 @@
     </group>
   </macro>
 <!-- JHAP CHANGES -->
-  <bibliography hanging-indent="true">
+  <bibliography hanging-indent="true" subsequent-author-substitute="———" ubsequent-author-substitute-rule="complete-all">
 <!-- JHAP /CHANGES -->
     <sort>
       <key macro="author-sort"/>
