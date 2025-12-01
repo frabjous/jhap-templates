@@ -351,7 +351,7 @@ $endfor$
 $if(twosided)$\vspace*{-7ex}\jhappage$endif$
 \vspace*{-7ex}\thispagestyle{plain}
 \noindent\leavevmode%
-\parbox[t]{3in}{%
+\parbox[t]{3.5in}{%
 \small%
 $if(twosided)$\phantom{$endif$\textbf{\textsf{Journal for the History of Analytical Philosophy}}$if(twosided)$}$endif$$if(volume)$
 
