@@ -62,7 +62,7 @@
         }
       },
       "splitsentences": true,
-      "convert": "pandoc %upload% -t markdown --quiet --reference-location=block --wrap=none",
+      "convert": "pandoc %upload% -t markdown-smart --quiet --reference-location=block --wrap=none",
       "metadata": {
         "title": {
           "required": true,
@@ -177,7 +177,7 @@
       "display": "[VOLUME.NUMBER] “<em>TITLE</em>”<br>by AUTHOR"
     },
     "review": {
-      "convert": "pandoc %upload% -t markdown --quiet --reference-location=block --wrap=none",
+      "convert": "pandoc %upload% -t markdown-smart --quiet --reference-location=block --wrap=none",
       "createEdition": [
         {
           "command": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifierPandocFilter.mjs --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap --split-level=1 -t epub -o %documentid%-%version%.epub main.md",
