@@ -8,11 +8,7 @@
 
 % set page dimensions
 \usepackage{geometry}
-$if(twosided)$
-\geometry{twoside,twocolumn,includehead,includefoot,landscape,papersize={8.5in,11in}, left=0.8in, right=0.8in, top=0.5in, bottom=0.5in,columnsep=0.8in}
-$else$
-\geometry{twoside,includehead,includefoot,papersize={5.5in,8.5in},left=0.6in, right=0.6in, top=0.5in, bottom=0.5in}
-$endif$
+\geometry{twoside,includehead,includefoot,papersize={5.5in,8.5in}, $if(twosided)$inner=0.4in, outer=0.8in$else$left=0.6in, right=0.6in$endif$, top=0.5in, bottom=0.5in}
 
 % AMS math commands, symbols, font
 \usepackage{amsmath,amssymb}
@@ -259,28 +255,16 @@ $endif$
 % header/footer
 
 \fancyhf{}
-$if(twosided)$
-\newcounter{fakepage}
-\setcounter{fakepage}{0}
-\fancyfoot[R]{\small{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}
-\fancyhead[L]{\parbox{4.3in}{\small\refstepcounter{fakepage}\textsf{\arabic{fakepage}}\hfill\textsf{$for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}}}
-\fancyhead[R]{\parbox{4.3in}{\small\textsf{$if(shorttitle)$$shorttitle$$else$$if(reviewedtitle)$Review of \textit{$reviewedtitle$}$else$$if(title)$$title$$endif$$endif$$endif$\hfill\refstepcounter{fakepage}\arabic{fakepage}}}}
-$else$
-\fancyfoot[R]{\small{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}
-\fancyhead[LE]{\small\textsf{$for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}}
+\fancyfoot[R$if(twosided)$O$endif$]{\small{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}
+\fancyhead[$if(twosided)$RE$else$LE$endif$]{\small\textsf{$for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}}
 \fancyhead[LO]{\small\textsf{$if(shorttitle)$$shorttitle$$else$$if(reviewedtitle)$Review of \textit{$reviewedtitle$}$else$$if(title)$$title$$endif$$endif$$endif$}}
-\fancyhead[R]{\small\textsf{\thepage}}
-$endif$
+\fancyhead[$if(twosided)$LE,RO$else$R$endif$]{\small\textsf{\thepage}}
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
 
 \fancypagestyle{plain}{%
     \fancyhf{}
-$if(twosided)$
-    \fancyfoot[R]{\parbox{4.3in}{\centering\small\refstepcounter{fakepage}\textsf{\arabic{fakepage}}}}
-$else$
     \fancyfoot[C]{\small\textsf{\thepage}}
-$endif$
     \renewcommand{\headrulewidth}{0pt}
     \renewcommand{\footrulewidth}{0pt}
 }
@@ -308,12 +292,16 @@ of Analytical Philosophy}
 
 \bigskip\textsf{$if(volume)$VOLUME $volume$$if(number)$, NUMBER $number$$endif$$endif$$if(year)$ ($year$)$endif$}
 
-%\begin{small}
+\begin{small}
 \vfill$if(jhapeditorinchief)$\bigskip\textsf{\textbf{Editor in Chief}}\\
 $jhapeditorinchief$$endif$
 
-$if(jhapassistant)$\bigskip\textsf{\textbf{Editorial Assistant}}\\
-$jhapassistant$$endif$
+$if(jhapproductionassistant)$\bigskip\textsf{\textbf{Production Assistant}}\\
+$jhapproductionassistant$$endif$
+
+$if(jhapeditorialassistants)$\bigskip\textsf{\textbf{Editorial Assistants}}\\
+$for(jhapeditorialassistants)$$jhapeditorialassistants$$sep$\\
+$endfor$$endif$
 
 $if(jhapboard)$\bigskip\textsf{\textbf{Editorial Board}}\\
 $for(jhapboard)$$jhapboard$$sep$\\
@@ -327,10 +315,7 @@ $if(jhapreviewseditors)$\bigskip\textsf{\textbf{Review Editors}}\\
 $for(jhapreviewseditors)$$jhapreviewseditors$$sep$\\
 $endfor$$endif$
 
-$if(jhapdesign)$\bigskip\textsf{\textbf{Design and Layout}}\\
-$for(jhapdesign)$$jhapdesign$$sep$\\
-$endfor$$endif$
-%\end{small}
+\end{small}
 
 \vfill \medskip\textsf{ISSN 2159-0303}
 
@@ -410,15 +395,11 @@ $abstract$
 }\hfill{\phantom{.}
 $endif$
 
-\bigskip
+\bigskip\thispagestyle{plain}
 $if(startpage)$
-$if(twosided)$
-\setcounter{fakepage}{$startpage$}
-% we de-increment the counter so masthead not counted
-\addtocounter{fakepage}{-1}
-$else$
 \setcounter{page}{$startpage$}
-$endif$
+$else$
+\setcounter{page}{1}
 $endif$
 $if(traditionalchinese)$\begin{CJK*}{UTF8}{bkai}$else$$if(simplifiedchinese)$\begin{CJK*}{UTF8}{gkai}$endif$$endif$
 \noindent $body$

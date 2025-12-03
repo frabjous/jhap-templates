@@ -1,7 +1,11 @@
 jhapeditorinchief: 'Annalisa Coliva, UC Irvine'
-jhapassistant: 'Louis Doulas, McGill University'
+jhapproductionassistant: 'Louis Doulas, McGill University'
+jhapeditorialassistants:
+- 'Vito Alberto Lippolis, University of Bologna'
+- 'Edward L. Mark, Loyola Marymount University'
+- 'Joost Ziff, UC Irvine'
 jhapboard:
-- 'Vera Flocke, Indiana University, Bloomington'
+- 'Sébastien Gandon, Université Clermont Auvergne'
 - 'Henry Jackman, York University'
 - 'Kevin C. Klement, University of Massachusetts'
 - 'Consuelo Preti, The College of New Jersey'
@@ -11,12 +15,11 @@ jhapboard:
 - 'Mark Textor, King’s College London'
 - 'Audrey Yap, University of Victoria'
 jhapspecialissueseditors:
-- 'Frederique Janssen-Lauret, University of Manchester'
 - 'James Pearson, Bridgewater State University'
 - 'Ellie Robson, King’s College London'
 jhapreviewseditors:
 - 'Rachel Boddy, IUSS - Pavia'
+- 'Andrew Smith, UC Riverside'
 - 'Sean Morris, Metropolitan State University of Denver'
-jhapdesign:
-- 'Daniel Harris, Hunter College'
-- 'Kevin C. Klement, University of Massachusetts'
+jhapunclear:
+- 'Frederique Janssen-Lauret, University of Manchester'
