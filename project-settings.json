@@ -22,7 +22,7 @@
           "outputfile": "%documentid%-%version%.epub"
         },
         {
-          "command": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifierPandocFilter.mjs --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t html -o %documentid%-%version%.html main.md",
+          "command": "toc='' ; [[ -e dotoc ]] && toc='--toc' ; FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifierPandocFilter.mjs --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml $toc --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t html -o %documentid%-%version%.html main.md",
           "outputfile": "%documentid%-%version%.html"
         },
         {
@@ -55,7 +55,7 @@
           "editorcommand": "pandoc --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t pdf -o %outputfile% %rootdocument%"
         },
         "html": {
-          "editorcommand": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifierPandocFilter.mjs --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t html -o %outputfile% %rootdocument%"
+          "editorcommand": "toc='' ; [[ -e dotoc ]] && toc='--toc' ; FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifierPandocFilter.mjs --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml $toc --wrap preserve --embed-resources --standalone --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap -t html -o %outputfile% %rootdocument%"
         },
         "epub": {
           "editorcommand": "FREGEIFIER_TEMPLATE=%projectdir%/fregeifier-template.tex pandoc --filter ../../../../../http/fregeifier/fregeifierPandocFilter.mjs --metadata-file %projectdir%/editors.yaml --metadata-file metadata.yaml --wrap preserve --number-sections --citeproc --bibliography bibliography.json --resource-path .:%projectdir% --data-dir %projectdir% --template jhap --split-level=1 -t epub -o %outputfile% %rootdocument%"

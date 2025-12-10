@@ -179,6 +179,16 @@ main > header > div.reviewedby + div.authorblock {
   margin-top: 1rem;
 }
 
+main > header > p.authoriseditor {
+  margin-bottom: 0;
+  font-family: var(--sansfont);
+  font-style: italic;
+}
+
+main > header > p.authoriseditor + div.authorblock {
+  margin-top: 0.5rem;
+}
+
 main > header > div.authorblock span {
   display: block;
 }
@@ -287,8 +297,17 @@ img.fregeified-math.inline {
   margin-bottom: 0.3rem;
 }
 
+.nobreak {
+  white-space: no-wrap;
+  display: inline-block;
+}
+
 .center, blockquote .center {
   text-align: center;
+}
+
+.alignright, .flushright, .rightalign {
+  text-align: right;
 }
 
 blockquote span.fregeify.center {
@@ -412,6 +431,47 @@ article h1 {
   font-size: 1.4rem;
 }
 
+
+#TOC {
+  font-family: var(--sansfont);
+}
+
+#TOC ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#TOC ul ul {
+  padding-left: 1.5rem;
+}
+
+#TOC ul span.toc-section-number::after {
+  content: '.';
+  margin-right: 0.5rem;
+}
+
+#TOC ul ul li span.toc-section-number::after {
+  content: '';
+}
+
+#TOC > ul > li {
+  margin-bottom: 0.5rem;
+}
+
+#TOC > ul > li:last-child {
+  margin-bottom: 0rem;
+}
+
+
+#TOC h2 {
+  border-bottom: 1px solid var(--orange);
+  font-size: 1.2rem;
+  color: var(--darkgray);
+  font-weight: bold;
+  padding-bottom: 0.7rem;
+  margin-top: 2rem;
+}
+
 article h2 {
   border-bottom: 1px solid var(--orange);
   font-size: 1.2rem;
@@ -440,6 +500,24 @@ article h2 {
 
 #footnotes, #refs {
   font-size: 0.9rem;
+}
+
+#footnotes p:has(.math.display) {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#footnotes p + p {
+  margin-top: 0.5rem;
+}
+
+#footnotes p:has(.math.display) + p {
+  margin-top: 0;
+}
+
+main article #footnotes blockquote + p,
+main article #footnotes p + blockquote {
+  margin-top: 0;
 }
 
 a, a:link, a:visited {
@@ -474,6 +552,10 @@ blockquote {
   font-size: 90%;
   padding-left: 1rem;
   border-left: 3px solid var(--lightblue);
+}
+
+#footnotes blockquote {
+  font-size: inherit;
 }
 
 main article blockquote p {
@@ -683,11 +765,26 @@ $if(math)$
 $endif$
 
 <script type="module" data-external="1">
+// move notes before references
 const refs = document.getElementById("refs");
 const notes = document.getElementById("footnotes");
 refs.parentNode.insertBefore(notes, refs);
+// move back references inside blockquotes
+const aa = document.querySelectorAll("blockquote + a.footnote-back");
+for (const a of [...aa]) {
+  const q = a.previousElementSibling;
+  if (!q?.tagName) continue;
+  if (q.tagName.toLowerCase() != 'blockquote') continue;
+  const pp = q.getElementsByTagName("p");
+  const p = pp?.[pp.length - 1];
+  const t = p ?? q;
+  a.style.fontSize = '1rem';
+  t.appendChild(a);
+}
+console.log(aa);
+
 // fix 'ed' to 'eds' when plural
-const cc = document.getElementsByClassName("edblock");
+/*const cc = document.getElementsByClassName("edblock");
 for (const c of cc) {
   const ll = c.getElementsByClassName("edlist");
   const oo = c.getElementsByClassName("edoptionals");
@@ -696,7 +793,7 @@ for (const c of cc) {
       oo[0].innerHTML = 's';
     }
   }
-}
+}*/
 </script>
 </head>
 <body>
@@ -743,17 +840,28 @@ $else$
   $if(subtitle)$<h2 class="documentsubtitle">$subtitle$</h2>$endif$
 $endif$
 
+  $if(authoriseditor)$<p class="authoriseditor">Edited by</p>$endif$
   $for(author)$<div class="authorblock"><span class="authorname">$it.name$</span>
     <span class="authoremail"><a href="mailto:$it.email$">$it.email$</a></span>
     <span class="authoraffiliation">$it.affiliation$</span></div>$endfor$
+    $if(toc)$
+    <nav id="$idprefix$TOC" role="doc-toc">
+      $if(toc-title)$
+      <h2 id="$idprefix$toc-title">$toc-title$</h2>
+      $else$
+      <h2 id="$idprefix$toc-title">Contents</h2>
+      $endif$
+      $table-of-contents$
+    </nav>
+    $endif$
   $if(abstract)$<div class="abstractblock"><div class="abstracttitle">Abstract</div>$abstract$</div>$endif$
 </header>
 <article>
 $body$
-</article>
+</article>$if(authoriseditor)$$else$
 <footer>
     Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$
-</footer>
+</footer>$endif$
 </main>
 <footer>
 <p><a href="http://creativecommons.org/licenses/by-nc/3.0/" rel="license" target="_blank"><img style="border-width: 0;" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" alt="Creative Commons License" align="middle"></a>  <a href="http://creativecommons.org/licenses/by-nc/3.0/" rel="license" target="_blank">Creative Commons Attribution-NonCommercial 3.0 Unported License</a></p>

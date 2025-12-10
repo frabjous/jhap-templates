@@ -11,7 +11,8 @@
 \geometry{twoside,includehead,includefoot,papersize={5.5in,8.5in}, $if(twosided)$inner=0.4in, outer=0.8in$else$left=0.6in, right=0.6in$endif$, top=0.5in, bottom=0.5in}
 
 % AMS math commands, symbols, font
-\usepackage{amsmath,amssymb}
+\usepackage[leqno]{amsmath}
+\usepackage{amssymb}
 
 % T1 output font encoding
 \usepackage[T1]{fontenc}
@@ -256,7 +257,7 @@ $endif$
 
 \fancyhf{}
 \fancyfoot[R$if(twosided)$O$endif$]{\small{\textit{\textsf{\fontseries{l}\selectfont Journal for the History of Analytical Philosophy $if(volume)$vol.\ $volume$$if(number)$\ no.\ $number$$endif$$endif$}}}}
-\fancyhead[$if(twosided)$RE$else$LE$endif$]{\small\textsf{$for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}}
+\fancyhead[$if(twosided)$RE$else$LE$endif$]{\small\textsf{$if(headerauthors)$$headerauthors$$else$$for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$$endif$}}
 \fancyhead[LO]{\small\textsf{$if(shorttitle)$$shorttitle$$else$$if(reviewedtitle)$Review of \textit{$reviewedtitle$}$else$$if(title)$$title$$endif$$endif$$endif$}}
 \fancyhead[$if(twosided)$LE,RO$else$R$endif$]{\small\textsf{\thepage}}
 \pagestyle{fancy}
@@ -322,8 +323,8 @@ $endfor$$endif$
 \bigskip\begin{large}\href{https://jhaponline.org}{\textsf{\textit{jhaponline.org}}}\end{large}
 $if(twosided)$
 
-\bigskip\textsf{Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}%
-$endif$
+$if(authoriseditor)$$else$\bigskip\textsf{Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}%
+$endif$$endif$
 \end{$if(twosided)$flushright$else$center$endif$}%
 }
 
@@ -332,9 +333,11 @@ $header-includes$
 $endfor$
 
 \begin{document}%
+% no extra space after colons
+\nonfrenchspacing\sfcode`:=\sfcode`;%
 
-$if(twosided)$\vspace*{-7ex}\jhappage$endif$
-\vspace*{-7ex}\thispagestyle{plain}
+$if(twosided)$\vspace*{-7ex}\thispagestyle{empty}\jhappage\thispagestyle{empty}$endif$
+\vspace*{-7ex}
 \noindent\leavevmode%
 \parbox[t]{3.5in}{%
 \small%
@@ -346,8 +349,11 @@ $if(twosided)$\phantom{$endif$\textbf{\textsf{Journal for the History of Analyti
 
 \textsf{\textit{$specialvoltitle$}}$if(specialvoleditor)${\raggedright
 
-\par\raggedright\smallskip\textsf{Edited by $for(specialvoleditor/allbutlast)$$it.name$, $it.affiliation$$sep$, $endfor$$if(specialvoleditor/allbutlast)$ and $endif$$for(specialvoleditor/last)$$it.name$, $it.affiliation$$endfor$}}
+\par\raggedright\smallskip\textsf{Edited by $for(specialvoleditor/allbutlast)$$it.name$, $it.affiliation$$sep$, $endfor$$if(specialvoleditor/allbutlast)$ and $endif$$for(specialvoleditor/last)$$it.name$, $it.affiliation$$endfor$}
+
+}
 $endif$$endif$
+
 }%
 %\hfill{\raisebox{1ex}{\fbox{\parbox[t]{0.52in}{{\Huge\color{jhappurple}\noindent \hspace*{0.1em}JH\\\noindent\hspace*{4.5pt}\,AP}}}}}
 \hfill{\raisebox{1ex}{\fbox{\parbox[t]{0.52in}{{\Huge\color{jhappurple}\noindent JH\\\noindent\hspace*{4.5pt}AP}}}}}
@@ -370,10 +376,17 @@ $if(title)$
 $endif$
 $if(subtitle)$
 {\raggedright
-\par{\smallskip\noindent\begin{Large}\textsf{$subtitle$}\end{Large}}}
-$endif$
-$endif$
+\par{\smallskip\noindent\begin{Large}\hyphenpenalty=10000
 
+\textsf{$subtitle$}
+
+\end{Large}}}
+$endif$
+$endif$
+$if(authoriseditor)$
+
+\bigskip\noindent\textsf{\textit{Edited by}}\\[-0.5\baselineskip]
+$endif$
 \noindent$for(author)$
 \parbox{0.45\linewidth}{%
 \raggedright%
@@ -382,6 +395,15 @@ $if(reviewedtitle)$\medskip$else$\bigskip$endif$\textsf{\textbf{$it.name$}}\\
 \textsf{\textit{$it.affiliation$}}
 }\hfill$endfor$
 
+$if(toc)$
+$if(toc-title)$
+\renewcommand*\contentsname{$toc-title$}
+$endif$
+{
+\setcounter{tocdepth}{$toc-depth$}
+\tableofcontents
+}
+$endif$
 $if(abstract)$
 \par\bigskip\par\bigskip\noindent\phantom{.}\hfill\parbox{3.8in}{
 
@@ -395,19 +417,18 @@ $abstract$
 }\hfill{\phantom{.}
 $endif$
 
-\bigskip\thispagestyle{plain}
 $if(startpage)$
 \setcounter{page}{$startpage$}
 $else$
 \setcounter{page}{1}
 $endif$
 $if(traditionalchinese)$\begin{CJK*}{UTF8}{bkai}$else$$if(simplifiedchinese)$\begin{CJK*}{UTF8}{gkai}$endif$$endif$
-\noindent $body$
+\noindent\thispagestyle{plain} $body$
 $if(traditionalchinese)$\end{CJK*}$else$$if(simplifiedchinese)$\end{CJK*}$endif$$endif$
 
 $if(twosided)$
 $else$
-\vfill\begin{center}\textsf{Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}\end{center}
+$if(authoriseditor)$$else$\vfill\begin{center}\textsf{Copyright © $if(year)$$year$$endif$ $for(author/allbutlast)$$it.name$$sep$, $endfor$$if(author/allbutlast)$ and $endif$$for(author/last)$$it.name$$endfor$}\end{center}$endif$
 \clearpage\jhappage
 $endif$
 
