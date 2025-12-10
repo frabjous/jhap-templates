@@ -393,7 +393,7 @@ $endif$
 $if(reviewedtitle)$\medskip$else$\bigskip$endif$\textsf{\textbf{$it.name$}}\\
 \href{mailto:$it.email$}{\textsf{$it.email$}}\\
 \textsf{\textit{$it.affiliation$}}
-}\hfill$endfor$
+}$if(breakbetweenauthors)$\newline$else$\hfill$endif$$endfor$
 
 $if(toc)$
 $if(toc-title)$
