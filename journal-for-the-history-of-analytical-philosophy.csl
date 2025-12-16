@@ -232,7 +232,9 @@
     </group>
   </macro>
   <macro name="label-locator">
-    <group delimiter=" ">
+    <!-- JHAP change: nbsp -->
+    <group delimiter=" ">
+    <!-- JHAP /change -->
       <choose>
         <if locator="page"/>
         <else-if match="any" type="bill hearing legal_case legislation regulation treaty">
