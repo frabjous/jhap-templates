@@ -1236,6 +1236,11 @@
         <!-- Quotes, title case -->
         <text quotes="true" text-case="title" variable="title"/>
       </else-if>
+      <!-- JHAP change -->
+      <else-if type="generic" variable="title">
+        <text text-case="title" variable="title"/>
+      </else-if>
+      <!-- JHAP /change -->
       <else>
         <!-- Italicized, title case (default) -->
         <text font-style="italic" text-case="title" variable="title"/>
