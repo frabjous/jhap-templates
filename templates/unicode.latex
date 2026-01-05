@@ -395,5 +395,10 @@
 \newunicodechar{𝔶}{\ensuremath{\mathfrak{y}}}
 \newunicodechar{𝔷}{\ensuremath{\mathfrak{z}}}
 
+%handle some accents better
+\newunicodechar{ŷ}{\ensuremath{\hat{y}}}
+\newunicodechar{ẑ}{\ensuremath{\hat{z}}}
+
+
 % latin alphabet extras
 \newunicodechar{Ṣ}{\text{\d{S}}}
