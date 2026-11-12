@@ -53,7 +53,11 @@ $endif$
 }
 
 math, math mi {
-  font-family: 'Noto Sans Math';
+  font-family: 'Noto Serif', 'Noto Sans Math';
+}
+
+math mi.var {
+  font-style: italic;
 }
 
 html {
@@ -788,17 +792,19 @@ for (const a of [...aa]) {
   t.appendChild(a);
 }
 for (const elem of [
+  ...document.getElementsByTagName("math"),
   ...document.getElementsByTagName("mi")
 ]) {
-  if (/^[∀∃¬]$$/.test(elem.innerHTML)) {
+  /*if (/^[∀∃¬]$$/.test(elem.innerHTML)) {
     const newelem = document.createElement("mo");
     newelem.innerHTML = elem.innerHTML;
     elem.parentNode.insertBefore(newelem, elem);
     elem.parentNode.removeChild(elem);
     continue;
-  }
+  }*/
+  elem.setAttribute("mathvariant", "normal");
   if (/^[a-z]+$$/i.test(elem.innerHTML)) {
-    elem.style.fontFamily = '"var(--seriffont)"';
+    elem.classList.add("var");
   }
 }
 
